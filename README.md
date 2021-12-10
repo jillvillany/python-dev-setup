@@ -4,15 +4,15 @@
 
 1. [Set Up Components](#Set-Up-Components)
 2. [Mac Base System Set Up](#Mac-Base-System-Set-Up)
-3. [Git Install](#Git-Install)
-    A. [Mac](#Mac-Git-Install)
-    B. [Windows](#Windows-Git-Install)
-    C. [Useful Commands](#Useful-Git-Commands)
+3. [Git Install](#Git-Install) <br>
+    A. [Mac](#Mac-Git-Install) <br>
+    B. [Windows](#Windows-Git-Install) <br>
+    C. [Useful Commands](#Useful-Git-Commands) <br>
 4. [Vscode Install](#Vscode-Install)
-5. [Pyenv Install](#Pyenv-Install)
-    A. [Mac](#Mac-Pyenv-Install)
-    B. [Windows](#Windows-Pyenv-Install)
-    C. [Useful Commands](#Useful-Pyenv-Commands)
+5. [Pyenv Install](#Pyenv-Install) <br>
+    A. [Mac](#Mac-Pyenv-Install) <br>
+    B. [Windows](#Windows-Pyenv-Install) <br>
+    C. [Useful Commands](#Useful-Pyenv-Commands) <br>
 6. [Poetry Install](#Poetry-Install)
 7. [Format Your Terminal](#Format-Your-Terminal)
 
@@ -160,8 +160,8 @@ source ~/.aliases
     - Open git bash
     - Enter the following command: ```git clone https://github.com/pyenv-win/pyenv-win.git $HOME/.pyenv```
     - Edit your system path variable (i.e. after opening the system path variable edit should look similar to the below)
-        - <img src="img/edit_win_path1.png" width=300>
-        - <img src="img/edit_win_path2.png" width=300>
+        - <img src="img/edit_win_path1.png" width=500>
+        - <img src="img/edit_win_path2.png" width=500>
 
     - Relaunch git bash and type ```pyenv``` you should see a list of commands retrun
 
