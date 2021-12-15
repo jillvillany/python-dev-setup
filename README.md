@@ -218,7 +218,7 @@ Install `poetry` with the following command:
 ```curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -```
 
 
-### Format Your Terminal
+## Format Your Terminal
 
 When working with git repos it is easiest if you terminal shows you what branch you are currently in so you don't loose track/ actually make changes to the master version.
 
