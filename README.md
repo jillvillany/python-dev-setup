@@ -7,7 +7,8 @@
 3. [Git Install](#Git-Install) <br>
     A. [Mac](#Mac-Git-Install) <br>
     B. [Windows](#Windows-Git-Install) <br>
-    C. [Useful Commands](#Useful-Git-Commands) <br>
+    C. [SSH Auth](#SSH-Auth) <br>
+    D. [Useful Commands](#Useful-Git-Commands) <br>
 4. [Vscode Install](#Vscode-Install)
 5. [Pyenv Install](#Pyenv-Install) <br>
     A. [Mac](#Mac-Pyenv-Install) <br>
@@ -59,6 +60,35 @@ With these components in place, new users/ team members can easily get code runn
         - ```notepad``` instead of ```open`` for opening a file
         - shift + ins to copy/ paste into/ from the terminal
         - ```python -i``` instead of just ```python``` to use an interactive python shell in the terminal
+
+### SSH Auth
+
+To easily authenticate with github (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication
+
+1. Create an ssh key pair
+    - ```ssh-keygen```
+    - Press enter to get through the prompts/ accept defaults
+    - <img src="img/ssh-keygen.png" width=500>
+2. Navigate to where the ssh key pair was created (NOTE: you may need to make hidden folders visible if on a Mac)
+3. Open the `id_rsa.pub` file with a text editor and copy the contents
+4. In Github, navigate to Settings > SSH and GPG keys
+     - <img src="img/git-settings.png" width=500>
+5. Click New SSH key and add the contents of your `id_rsa.pub` file in the key field
+
+#### Confirm SSH connection
+
+- On a new repo:
+    - select SSH when you clone the code and copy the URL
+        - <img src="img/ssh-clone.png" width=500>
+    - In terminal ```git clone {SSH URL}```
+        - <img src="img/ssh-clone-success.png" width=500>
+
+- On an existing git repo (i.e. if had cloned this repo using username and password auth)
+    - Set the remote URL to the URL used with ssh
+    - ```git remote set-url origin {SSH URL}```
+    - Now try ```git push```
+    - Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password
+        - <img src="img/ssh-success.png" width=500>
 
 ### Useful Git Commands
 
