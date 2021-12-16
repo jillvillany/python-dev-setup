@@ -205,12 +205,17 @@ source ~/.aliases
     ```
     CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch 3.9.6 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
     ```
-- pyenv versions
+- `pyenv versions`
     - See Python versions and virtual environments aviable to be set as your Python version
-- pyenv local
+- `pyenv local`
     - Set Python version in cwd
-- pyenv global
+- `pyenv global`
     - Set Python version to use system-wide (overwritten by local pyenv is specified)
+- Create a virtual env with pyenv (doesn't work on Windows)
+    - `pyenv virtualenv {python version} {venv name}`
+    - Set venv as the local python for the project
+        - `pyenv local {venv name}`
+    - Now when you cd into the project's directory, the venv set as the local python version will automatically be activated
 
 ## Poetry Install
 Install `poetry` with the following command:
