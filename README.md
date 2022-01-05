@@ -13,7 +13,8 @@
 5. [Pyenv Install](#Pyenv-Install) <br>
     A. [Mac](#Mac-Pyenv-Install) <br>
     B. [Windows](#Windows-Pyenv-Install) <br>
-    C. [Useful Commands](#Useful-Pyenv-Commands) <br>
+    C. [Linux](#Linux-Pyenv-Install) <br>
+    D. [Useful Commands](#Useful-Pyenv-Commands) <br>
 6. [Poetry Install](#Poetry-Install)
 7. [Format Your Terminal](#Format-Your-Terminal)
 
@@ -144,6 +145,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
     - Python
     - Jupyter
     - Prettify JSON
+    - pdf-view
 
 
 ## Pyenv Install
@@ -194,6 +196,39 @@ source ~/.aliases
         - <img src="img/edit_win_path2.png" width=500>
 
     - Relaunch git bash and type ```pyenv``` you should see a list of commands retrun
+
+### Linux Pyenv Install
+- Install pyenv prereqs from root
+    ```
+    cd ~
+    Sudo su – 
+    ```
+- Install prerequisites based on your Linux distribution
+    A.	On Debian/Ubuntu/Linux Mint 
+    ```sudo apt install curl git-core gcc make zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev```
+    B.	On CentOS/RHEL 
+    ```
+    yum -y install epel-release
+    yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
+    ```
+	C. On Fedora 22+ 
+    ```yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel```
+- Install pyenv from git
+```git clone https://github.com/pyenv/pyenv.git ~/.pyenv```
+- Install pyenv virtualenv plugin
+```git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv```
+- Add the following to ~/.bash_profile
+    ```
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init --path)"
+        eval "$(pyenv virtualenv-init -)"
+    fi
+    ```
+- Restart terminal
+- Check see command options returned when enter `pyenv` command
+
 
 ### Useful Pyenv Commands
 - pyenv install 
