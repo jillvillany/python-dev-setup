@@ -204,19 +204,19 @@ source ~/.aliases
     Sudo su – 
     ```
 - Install prerequisites based on your Linux distribution
-    A.	On Debian/Ubuntu/Linux Mint 
+    - On Debian/Ubuntu/Linux Mint 
     ```sudo apt install curl git-core gcc make zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev```
-    B.	On CentOS/RHEL 
-    ```
-    yum -y install epel-release
-    yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
-    ```
-	C. On Fedora 22+ 
+    - On CentOS/RHEL 
+        ```
+        yum -y install epel-release
+        yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
+        ```
+	- On Fedora 22+ 
     ```yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel```
 - Install pyenv from git
-```git clone https://github.com/pyenv/pyenv.git ~/.pyenv```
+    ```git clone https://github.com/pyenv/pyenv.git ~/.pyenv```
 - Install pyenv virtualenv plugin
-```git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv```
+    ```git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv```
 - Add the following to ~/.bash_profile
     ```
     export PYENV_ROOT="$HOME/.pyenv"
