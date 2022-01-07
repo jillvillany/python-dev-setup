@@ -7,7 +7,7 @@
 3. [Git Install](#Git-Install) <br>
     A. [Mac](#Mac-Git-Install) <br>
     B. [Windows](#Windows-Git-Install) <br>
-    C. [SSH Auth](#SSH-Auth) <br>
+    C. [Clone Repo with SSH Auth](#Clone-Repo-with-SSH-Auth) <br>
     D. [Useful Commands](#Useful-Git-Commands) <br>
 4. [Vscode Install](#Vscode-Install)
 5. [Pyenv Install](#Pyenv-Install) <br>
@@ -56,15 +56,7 @@ With these components in place, new users/ team members can easily get code runn
 1. Install git using homebrew <br>
     ```brew install git```
 
-### Windows Git Install
-1. Install git https://git-scm.com/download/win
-2. Use git bash as your terminal interface (allows similar commands as mac terminal)
-    - Key differences include:
-        - ```notepad``` instead of ```open`` for opening a file
-        - shift + ins to copy/ paste into/ from the terminal
-        - ```python -i``` instead of just ```python``` to use an interactive python shell in the terminal
-
-### SSH Auth
+#### Set Up SSH Auth
 
 To easily authenticate with github (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication
 
@@ -76,12 +68,11 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
 2. Navigate to where the ssh key pair was created 
     - Mac: use shortcut `shift + cmd + .` to view hidden directories/files
     - Linux WinSCP: Options > Preferences > Panels > Show hidden files
-3. Create the config file (in file explorer or in terminal using below commands)
+3. Create the config file (in finder or in terminal using below commands)
     ```
     cd ~/.ssh
     touch config
-    open config #mac
-    notepad config #windows
+    open config
     ```
     - If using Github, add the below to your config file:
         ```
@@ -110,11 +101,6 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
         - <img src="img/bitbucket-settings.png" width=300>
         - Select SSH Key > Add Key add the contents of your `id_rsa_{git username}.pub` file in the key field
 6. Add SSH key to agent:
-    - Start up SSH agent (Windows only)
-        ```
-        eval $(ssh-agent -s)
-        ```
-    - Add the identity
         ```
         ssh-add ~/.ssh/id_rsa_{git username}
         ```
@@ -124,7 +110,48 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
     ssh -T git@github-{git username}
     ```
 
-#### Clone Repo with SSH Auth
+
+### Windows Git Install
+1. Install git https://git-scm.com/download/win
+2. Use git bash as your terminal interface (allows similar commands as mac terminal)
+    - Key differences include:
+        - ```notepad``` instead of ```open`` for opening a file
+        - shift + ins to copy/ paste into/ from the terminal
+        - ```python -i``` instead of just ```python``` to use an interactive python shell in the terminal
+
+#### Set Up SSH Auth
+
+To easily authenticate with github (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication
+
+1. Create an ssh key pair
+    - ```ssh-keygen -t ed25519 -C "your_email@example.com```
+2. Navigate to where the ssh key pair was created 
+4. Open the `id_ed25519` PUB file with a text editor and copy the contents
+5. Add SSH key in Github or Bitbucket  
+    - In Github:
+        - Navigate to Settings > SSH and GPG keys
+        - <img src="img/git-settings.png" width=500>
+        - Click New SSH key and add the contents of your `id_ed25519.pub` file in the key field
+    - In Bitbucket:
+        - Navigate to personal settings
+        - <img src="img/bitbucket-settings.png" width=300>
+        - Select SSH Key > Add Key add the contents of your `id_ed25519.pub` file in the key field
+6. Add SSH key to agent:
+    - Start up SSH agent in background
+        ```
+        eval $(ssh-agent -s)
+        ```
+    - Add the identity
+        ```
+        ssh-add ~/.ssh/id_ed25519
+        ```
+7. Test your SSH connection to github
+    ```
+    ssh -T git@github.com
+    ```
+
+
+### Clone Repo with SSH Auth
 
 - On a new repo:
     - select SSH when you clone the code and copy the URL
@@ -137,7 +164,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
     git config user.email "{your email}"
     ```
 
-#### Update Repo Auth to SSH
+#### Update Existing Repo to SSH
 
 - On an existing git repo (i.e. if had cloned this repo using username and password auth)
     - Set the remote URL to the URL used with ssh
