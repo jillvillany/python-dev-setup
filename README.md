@@ -216,7 +216,7 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
     ```
 - Open .bash_profile (create it if needed) 
     ```
-    touch ~/.bash_profile # create and open
+    touch ~/.bash_profile # create if needed
     open ~/.bash_profile
     ```
 - Add pyenv and pyenv virtualenv path to bash profile
@@ -248,12 +248,40 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
 - You can follow the first half of the instructions in this article: http://evaholmes.com/how-to-set-up-pyenv-and-poetry-on-windows-10-for-python-project-management/
 - Basic steps include:
     - Open git bash
+    - cd to home `cd ~`
     - Enter the following command: ```git clone https://github.com/pyenv-win/pyenv-win.git $HOME/.pyenv```
-    - Edit your system path variable (i.e. after opening the system path variable edit should look similar to the below)
-        - <img src="img/edit_win_path1.png" width=500>
-        - <img src="img/edit_win_path2.png" width=500>
+    - Edit your system path variables
+        - Search "edit the system environment variables" in windows home menu
+            - <img src="img/edit-env-vars.png" width=500>
+        - Select environment variables
+            - <img src="img/env-var-select.png" width=500>
+        - Select Path under System Variables and click Edit
+            - <img src="img/path-edit.png" width=500>
+        - Click New and add the following two paths:
+            - c:\users\{your username}\.pyenv\pyenv-win\bin
+                - For example: c:\users\jillv\.pyenv\pyenv-win\bin
+            - c:\users\{your username}\.pyenv\pyenv-win\shims
+                - For example: c:\users\jillv\.pyenv\pyenv-win\shims
+        - The environment variables should now look like below:
+            - <img src="img/edit_win_path2.png" width=500>
+        - Click OK to close the windows
 
     - Relaunch git bash and type ```pyenv``` you should see a list of commands retrun
+    - Test can install a python version with pyenv
+        `pyenv install 3.8.3`
+    - Check it's in your Python versions
+        `pyenv versions`
+    - Use pyenv to set your local python version
+        `pyenv local 3.8.3`
+    - Check that your python version is now set to 3.8.3
+        `python -V`
+
+- NOTE: You cannot use the pyenv virtualenv plugin with the windows version of pyenv. To make a virtual environment off of a pyenv python version
+    ```
+    pyenv install 3.8.3   #or any other version
+    pyenv local 3.8.3
+    python -m venv venv
+    ```
 
 ### Linux Pyenv Install
 - Install pyenv prereqs from root
@@ -273,8 +301,6 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
     ```yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel```
 - Install pyenv from git
     ```git clone https://github.com/pyenv/pyenv.git ~/.pyenv```
-- Install pyenv virtualenv plugin
-    ```git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv```
 - Add the following to ~/.bash_profile
     ```
     export PYENV_ROOT="$HOME/.pyenv"
@@ -284,6 +310,8 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
         eval "$(pyenv virtualenv-init -)"
     fi
     ```
+- Install pyenv virtualenv plugin
+    ```git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv```
 - Restart terminal
 - Check see command options returned when enter `pyenv` command
 
@@ -304,7 +332,7 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
     - Set Python version in cwd
 - `pyenv global`
     - Set Python version to use system-wide (overwritten by local pyenv is specified)
-- Create a virtual env with pyenv (doesn't work on Windows)
+- Create a virtual env with pyenv (NOT AVAILABLE ON WINDOWS)
     - `pyenv virtualenv {python version} {venv name}`
     - Set venv as the local python for the project
         - `pyenv local {venv name}`
