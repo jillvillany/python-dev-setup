@@ -95,14 +95,20 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
         ```
     - NOTE: If you have other users to add, create similar entries below in the file
 4. Open the `id_rsa_{git username}.pub` file with a text editor and copy the contents
-5. In Github, navigate to Settings > SSH and GPG keys
-     - <img src="img/git-settings.png" width=500>
-6. Click New SSH key and add the contents of your `id_rsa_{git username}.pub` file in the key field
-7. (MAC ONLY) Add SSH key to agent:
+5. Add SSH key in Github or Bitbucket  
+    - In Github:
+        - Navigate to Settings > SSH and GPG keys
+        - <img src="img/git-settings.png" width=500>
+        - Click New SSH key and add the contents of your `id_rsa_{git username}.pub` file in the key field
+    - In Bitbucket:
+        - Navigate to personal settings
+        - <img src="img/bitbucket-settings.png" width=300>
+        - Select SSH Key > Add Key add the contents of your `id_rsa_{git username}.pub` file in the key field
+6. (MAC ONLY) Add SSH key to agent:
     ```
     ssh-add ~/.ssh/id_rsa_{git username}
     ```
-8. Test your SSH connection to github
+7. Test your SSH connection to github
     ```
     ssh -T git@github.com
     ssh -T git@github-superman
