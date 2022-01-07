@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Set Up Components](#Set-Up-Components)
-2. [Mac Base System Set Up](#Mac-Base-System-Set-Up)
+2. [Apple Xcode and Homebrew Install (MAC ONLY)](#Apple-Xcode-and-Homebrew-Install-(MAC-ONLY))
 3. [Git Install](#Git-Install) <br>
     A. [Mac](#Mac-Git-Install) <br>
     B. [Windows](#Windows-Git-Install) <br>
@@ -24,13 +24,14 @@ Optimal setup for Python developers includes the following components:
 
 
 1. Version Control - Git
-    - Includes Git Bash on Windows
+    - Includes Git Bash terminal on Windows
 2. Code editor
     - Recommend: Vscode
     - Rationale: Debugging capabilities of Pycharm with better code function lookup across imported files/ packages as well as functionality to run Jupyter notebooks
+    - Exception: When working with files on remote Linux server, recommend using Atom with the ftp-remote-edit package
 3. Python version manager
     - Recommend: pyenv
-    - Rationale: More lightweight than anaconda
+    - Rationale: More lightweight than anaconda and open source
 4. Python package dependency manager
     - Recommend: poetry
     - Rationale: Account for dependencies of package dependencies (not handled by creating a venv with hard-coded package versions)
@@ -41,7 +42,7 @@ Optimal setup for Python developers includes the following components:
 With these components in place, new users/ team members can easily get code running by ensuring all depdencies (Python version/ Python package versions) are the same.
 <br>
 
-## Mac base system setup
+## Apple Xcode and Homebrew Install (MAC ONLY)
 
 1. 	Install Apple Xcode developer tools
     ``` code-select --install```
@@ -54,6 +55,7 @@ With these components in place, new users/ team members can easily get code runn
 ### Mac Git Install
 1. Install git using homebrew <br>
     ```brew install git```
+
 ### Windows Git Install
 1. Install git https://git-scm.com/download/win
 2. Use git bash as your terminal interface (allows similar commands as mac terminal)
@@ -68,21 +70,58 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
 
 1. Create an ssh key pair
     - ```ssh-keygen```
-    - Press enter to get through the prompts/ accept defaults
+    - NOTE: In order to make the setup flexible to multiple different user accounts on the same machine (helpful when working on a project team's remote desktop) add your git profile to the end of the id_rsa file name
+        - For example: `Users/jillvillany/.ssh/id_rsa_jillvillany`
     - <img src="img/ssh-keygen.png" width=500>
-2. Navigate to where the ssh key pair was created (NOTE: you may need to make hidden folders visible if on a Mac)
-3. Open the `id_rsa.pub` file with a text editor and copy the contents
-4. In Github, navigate to Settings > SSH and GPG keys
+2. Navigate to where the ssh key pair was created 
+    - Mac: use shortcut `shift + cmd + .` to view hidden directories/files
+    - Linux WinSCP: Options > Preferences > Panels > Show hidden files
+3. Create the config file 
+    `touch config`
+    - If using Github, add the below to your config file:
+        ```
+        Host github-{git username}
+         HostName github.com
+         IdentityFile ~/.ssh/id_rsa_{git username}
+         IdentitiesOnly yes
+        ```
+    - If Bitbucket:
+        ```
+        Host bitbucket.org-{git username}
+         HostName bitbucket.org
+         User git
+         IdentityFile ~/.ssh/id_rsa_{git username}
+         IdentitiesOnly yes
+        ```
+    - NOTE: If you have other users to add, create similar entries below in the file
+4. Open the `id_rsa_{git username}.pub` file with a text editor and copy the contents
+5. In Github, navigate to Settings > SSH and GPG keys
      - <img src="img/git-settings.png" width=500>
-5. Click New SSH key and add the contents of your `id_rsa.pub` file in the key field
+6. Click New SSH key and add the contents of your `id_rsa_{git username}.pub` file in the key field
+7. (MAC ONLY) Add SSH key to agent:
+    ```
+    ssh-add ~/.ssh/id_rsa_{git username}
+    ```
+8. Test your SSH connection to github
+    ```
+    ssh -T git@github.com
+    ssh -T git@github-superman
+    ```
 
-#### Confirm SSH connection
+#### Clone Repo with SSH Auth
 
 - On a new repo:
     - select SSH when you clone the code and copy the URL
         - <img src="img/ssh-clone.png" width=500>
     - In terminal ```git clone {SSH URL}```
+        - For example: `git clone git@github.com:jillvillany/python-dev-setup.git`
         - <img src="img/ssh-clone-success.png" width=500>
+- IMPORTANT: If multiple users are working in the directory, be sure to set the git config user.email before pushing so that commits belong to the user that made the change
+    ```
+    git config user.email "{your email}"
+    ```
+
+#### Update Repo Auth to SSH
 
 - On an existing git repo (i.e. if had cloned this repo using username and password auth)
     - Set the remote URL to the URL used with ssh
@@ -152,39 +191,42 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
 
 ### Mac Pyenv Install
 
-- See this article for reference: https://chamikakasun.medium.com/how-to-manage-multiple-python-versions-in-macos-2021-guide-f86ef81095a6
-- After following these instructions, my .bash_profile looked like below (NOTE: I had to modify the pyenv init command they recommend to include “path” to get things working)
+See this article for reference: https://chamikakasun.medium.com/how-to-manage-multiple-python-versions-in-macos-2021-guide-f86ef81095a6
 
-``` 
-export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
-export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
+- Run the following commands in terminal:
+    ```
+    brew install openssl readline sqlite3 xz zlib
+    curl https://pyenv.run | bash
+    ```
+- Open .bash_profile (create it if needed) 
+    ```
+    touch ~/.bash_profile # create and open
+    open ~/.bash_profile
+    ```
+- Add pyenv and pyenv virtualenv path to bash profile
+    ```
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init --path)"
+        eval "$(pyenv virtualenv-init -)"
+    fi
+    ```
+- Restart terminal
+- Type `pyenv` and you should see a list of commands returned
+- Test can install a python version with pyenv
+    `pyenv install 3.8.3`
+    - NOTE: If you get an error, try running this patch command (make sure the version after patch matches the version you are installing)
+    ```
+    CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch 3.8.3 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
+    ```
+- Check it's in your Python versions
+    `pyenv versions`
+- Use pyenv to set your local python version
+    `pyenv local 3.8.3`
+- Check that your python version is now set to 3.8.3
+    `python -V`
 
-####### adding paths needed for working with different python versions using pyenv #########
-#pyenv
-export PATH="/Users/jillvillany/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
-#openssl
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-
-#readline
-export LDFLAGS="-L/usr/local/opt/readline/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-
-#sqlite
-export LDFLAGS="-L/usr/local/opt/sqlite/lib"
-export CPPFLAGS="-I/usr/local/opt/sqlite/include"
-
-#zlib
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-
-
-source ~/.bash_prompt
-source ~/.aliases 
-```
 
 ### Windows Pyenv Install
 - You can follow the first half of the instructions in this article: http://evaholmes.com/how-to-set-up-pyenv-and-poetry-on-windows-10-for-python-project-management/
@@ -253,10 +295,11 @@ source ~/.aliases
     - Now when you cd into the project's directory, the venv set as the local python version will automatically be activated
 
 ## Poetry Install
-Install `poetry` with the following command:
 
-```curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -```
-
+- Install `poetry` with the following command:
+    ```curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -```
+- Restart your terminal
+- Enter `poetry` and you should see a list of commands returned
 
 ## Format Your Terminal
 
@@ -299,5 +342,5 @@ export PS1;
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 ```
-9. Relaunch you terminal and navigate to the ml-pipelines repo. You will now see your terminal prompt formatted with your username, current folder and repo branch 
+9. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
 ![](img/terminal_formatting.png)
