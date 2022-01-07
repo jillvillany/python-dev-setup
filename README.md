@@ -76,8 +76,13 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
 2. Navigate to where the ssh key pair was created 
     - Mac: use shortcut `shift + cmd + .` to view hidden directories/files
     - Linux WinSCP: Options > Preferences > Panels > Show hidden files
-3. Create the config file 
-    `touch config`
+3. Create the config file (in file explorer or in terminal using below commands)
+    ```
+    cd ~/.ssh
+    touch config
+    open config #mac
+    notepad config #windows
+    ```
     - If using Github, add the below to your config file:
         ```
         Host github-{git username}
@@ -104,14 +109,19 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
         - Navigate to personal settings
         - <img src="img/bitbucket-settings.png" width=300>
         - Select SSH Key > Add Key add the contents of your `id_rsa_{git username}.pub` file in the key field
-6. (MAC ONLY) Add SSH key to agent:
-    ```
-    ssh-add ~/.ssh/id_rsa_{git username}
-    ```
+6. Add SSH key to agent:
+    - Start up SSH agent (Windows only)
+        ```
+        eval $(ssh-agent -s)
+        ```
+    - Add the identity
+        ```
+        ssh-add ~/.ssh/id_rsa_{git username}
+        ```
 7. Test your SSH connection to github
     ```
     ssh -T git@github.com
-    ssh -T git@github-superman
+    ssh -T git@github-{git username}
     ```
 
 #### Clone Repo with SSH Auth
