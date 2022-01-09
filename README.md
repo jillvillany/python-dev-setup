@@ -279,18 +279,18 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
     - Enter the following command: ```git clone https://github.com/pyenv-win/pyenv-win.git $HOME/.pyenv```
     - Edit your system path variables
         - Search "edit the system environment variables" in windows home menu
-            - <img src="img/edit-env-vars.PNG" width=500>
+            - <img src="img/edit-env-vars.PNG" width=300>
         - Select environment variables
-            - <img src="img/env-var-select.PNG" width=500>
+            - <img src="img/env-var-select.PNG" width=300>
         - Select Path under System Variables and click Edit
-            - <img src="img/path-edit.PNG" width=500>
+            - <img src="img/path-edit.PNG" width=300>
         - Click New and add the following two paths:
             - c:\users\{your username}\.pyenv\pyenv-win\bin
                 - For example: c:\users\jillv\.pyenv\pyenv-win\bin
             - c:\users\{your username}\.pyenv\pyenv-win\shims
                 - For example: c:\users\jillv\.pyenv\pyenv-win\shims
         - The environment variables should now look like below:
-            - <img src="img/path-added.PNG" width=500>
+            - <img src="img/path-added.png" width=500>
         - Click OK to close the windows
 
     - Relaunch git bash and type ```pyenv``` you should see a list of commands retrun
