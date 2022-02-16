@@ -259,10 +259,49 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
 - Type `pyenv` and you should see a list of commands returned
 - Test can install a python version with pyenv
     `pyenv install 3.8.3`
-    - NOTE: If you get an error, try running this patch command (make sure the version after patch matches the version you are installing)
+    - NOTE1: If you get an error, try running this patch command (make sure the version after patch matches the version you are installing)
     ```
     CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch 3.8.3 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
     ```
+    - NOTE2: If your error looks like the error below, try this fix instead:
+        - Error:
+            ```
+            /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/mach-o/dyld.h:98:54: note: passing argument to parameter 'bufsize' here
+            extern int _NSGetExecutablePath(char* buf, uint32_t* bufsize)                 __OSX_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+                                                                ^
+            ./Modules/posixmodule.c:9221:15: error: implicit declaration of function 'sendfile' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                    ret = sendfile(in, out, offset, &sbytes, &sf, flags);
+            ```
+        - Fix:
+            - Add explicit dev tools path to ~/.bash_profile
+            ```
+            ####### adding paths needed for working with different python versions using pyenv #########
+            #pyenv
+            export PATH="/Users/jillvillany/.pyenv/bin:$PATH"
+            eval "$(pyenv init --path)"
+            eval "$(pyenv virtualenv-init -)"
+
+            #openssl
+            export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+            export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+            #readline
+            export LDFLAGS="-L/usr/local/opt/readline/lib"
+            export CPPFLAGS="-I/usr/local/opt/readline/include"
+
+            #sqlite
+            export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+            export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
+            #zlib
+            export LDFLAGS="-L/usr/local/opt/zlib/lib"
+            export CPPFLAGS="-I/usr/local/opt/zlib/include"
+            ```
+            -  https://github.com/pyenv/pyenv/issues/1643#issuecomment-655710632
+            ```
+            CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" \
+            pyenv install --patch 3.8.3 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
+            ```
 - Check it's in your Python versions
     `pyenv versions`
 - Use pyenv to set your local python version
