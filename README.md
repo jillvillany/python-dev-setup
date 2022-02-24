@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Set Up Components](#Set-Up-Components)
-2. [MAC ONLY: Apple Xcode and Homebrew Install](#MAC-ONLY:-Apple-Xcode-and-Homebrew-Install)
+2. [MAC ONLY Apple Xcode and Homebrew Install](#MAC-ONLY-Apple-Xcode-and-Homebrew-Install)
 3. [Git Install](#Git-Install) <br>
     A. [Mac](#Mac-Git-Install) <br>
     B. [Windows](#Windows-Git-Install) <br>
@@ -43,7 +43,7 @@ Optimal setup for Python developers includes the following components:
 With these components in place, new users/ team members can easily get code running by ensuring all depdencies (Python version/ Python package versions) are the same.
 <br>
 
-## MAC ONLY: Apple Xcode and Homebrew Install
+## MAC ONLY Apple Xcode and Homebrew Install
 [Back to Table of Contents](#Table-of-Contents)
 
 1. 	Install Apple Xcode developer tools
