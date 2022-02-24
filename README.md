@@ -209,6 +209,10 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
     ```
     git tag -d
     ```
+- Restore an archived branch
+    ```
+    git checkout -b {branch name} archive/{archived branch name}
+    ```
 -  Maintain a Forked Repo
     - Sync your forked version of the repo with the most updated version of the main repo
         - ```git checkout master```
