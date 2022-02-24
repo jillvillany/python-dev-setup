@@ -19,6 +19,7 @@
 7. [Format Your Terminal](#Format-Your-Terminal)
 
 ## Set Up Components
+[Back to Table of Contents](#Table-of-Contents)
 
 Optimal setup for Python developers includes the following components:
 
@@ -43,6 +44,7 @@ With these components in place, new users/ team members can easily get code runn
 <br>
 
 ## Apple Xcode and Homebrew Install (MAC ONLY)
+[Back to Table of Contents](#Table-of-Contents)
 
 1. 	Install Apple Xcode developer tools
     ``` code-select --install```
@@ -53,10 +55,13 @@ With these components in place, new users/ team members can easily get code runn
 ## Git Install
 
 ### Mac Git Install
+[Back to Table of Contents](#Table-of-Contents)
+
 1. Install git using homebrew <br>
     ```brew install git```
 
 #### Set Up SSH Auth
+[Back to Table of Contents](#Table-of-Contents)
 
 To easily authenticate with github (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication
 
@@ -112,6 +117,8 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
 
 
 ### Windows Git Install
+[Back to Table of Contents](#Table-of-Contents)
+
 1. Install git https://git-scm.com/download/win
 2. Use git bash as your terminal interface (allows similar commands as mac terminal)
     - Key differences include:
@@ -120,6 +127,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
         - ```python -i``` instead of just ```python``` to use an interactive python shell in the terminal
 
 #### Set Up SSH Auth
+[Back to Table of Contents](#Table-of-Contents)
 
 To easily authenticate with github (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication
 
@@ -152,6 +160,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
 
 
 ### Clone Repo with SSH Auth
+[Back to Table of Contents](#Table-of-Contents)
 
 - On a new repo:
     - select SSH when you clone the code and copy the URL
@@ -165,6 +174,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
     ```
 
 #### Update Existing Repo to SSH
+[Back to Table of Contents](#Table-of-Contents)
 
 - On an existing git repo (i.e. if had cloned this repo using username and password auth)
     - Set the remote URL to the URL used with ssh
@@ -174,6 +184,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
         - <img src="img/ssh-success.png" width=500>
 
 ### Useful Git Commands
+[Back to Table of Contents](#Table-of-Contents)
 
 - Add, Commit and Push changes
     ```
@@ -225,6 +236,7 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
 
 
 ## Vscode Install
+[Back to Table of Contents](#Table-of-Contents)
 
 1. Download Vscode: https://code.visualstudio.com/download
 2. Install the extensions below:
@@ -238,6 +250,7 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
 ## Pyenv Install
 
 ### Mac Pyenv Install
+[Back to Table of Contents](#Table-of-Contents)
 
 See this article for reference: https://chamikakasun.medium.com/how-to-manage-multiple-python-versions-in-macos-2021-guide-f86ef81095a6
 
@@ -316,6 +329,8 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
 
 
 ### Windows Pyenv Install
+[Back to Table of Contents](#Table-of-Contents)
+
 - You can follow the first half of the instructions in this article: http://evaholmes.com/how-to-set-up-pyenv-and-poetry-on-windows-10-for-python-project-management/
 - Basic steps include:
     - Open git bash
@@ -355,6 +370,8 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
     ```
 
 ### Linux Pyenv Install
+[Back to Table of Contents](#Table-of-Contents)
+
 - Install pyenv prereqs from root
     ```
     cd ~
@@ -388,6 +405,8 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
 
 
 ### Useful Pyenv Commands
+[Back to Table of Contents](#Table-of-Contents)
+
 - pyenv install 
     - Install the version of Python needed. For example:
     ```
@@ -410,6 +429,7 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
     - Now when you cd into the project's directory, the venv set as the local python version will automatically be activated
 
 ## Poetry Install
+[Back to Table of Contents](#Table-of-Contents)
 
 - Install `poetry` with the following command:
     ```curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -```
@@ -417,6 +437,7 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
 - Enter `poetry` and you should see a list of commands returned
 
 ## Format Your Terminal
+[Back to Table of Contents](#Table-of-Contents)
 
 When working with git repos it is easiest if you terminal shows you what branch you are currently in so you don't loose track/ actually make changes to the master version.
 
