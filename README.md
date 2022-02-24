@@ -217,6 +217,7 @@ To easily authenticate with github (i.e. not need to enter your username/ passwo
         - ```git rebase upstream/master```
         - ```git push -u origin```
 
+For other useful commands delivered in an entertaining way see: https://ohshitgit.com/
 
 
 ## Vscode Install
