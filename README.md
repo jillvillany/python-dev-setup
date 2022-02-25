@@ -15,9 +15,9 @@
     B. [Windows](#Windows-Pyenv-Install) <br>
     C. [Linux](#Linux-Pyenv-Install) <br>
     D. [Useful Commands](#Useful-Pyenv-Commands) <br>
-6. [Poetry Install](#Poetry-Install)
-    A. [Use Poetry to Create a Venv](#Use-Poetry-to-Create-a-Venv)
-    B. [Useful Poetry Commands](#Useful-Poetry-Commands)
+6. [Poetry Install](#Poetry-Install) <br>
+    A. [Use Poetry to Create a Venv](#Use-Poetry-to-Create-a-Venv) <br>
+    B. [Useful Poetry Commands](#Useful-Poetry-Commands) <br>
 7. [Format Your Terminal](#Format-Your-Terminal)
 
 ## Set Up Components
@@ -503,10 +503,12 @@ in-project = true
 8. You will see the package(s) added to the `pyproject.toml` file and the `poetry.lock` file updated
 
     - ![](img/poetry_add_file_updates.png)
-    
+
 9. Push the `poetry.lock` file to you git repo so other team members can install matching requirements using `poetry install`
 
 ### Useful Poetry Commands
+[Back to Table of Contents](#Table-of-Contents)
+
 - Add a package to the pyproject.toml file and update lock file
     ```
     poetry add {package name}
