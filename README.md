@@ -16,6 +16,8 @@
     C. [Linux](#Linux-Pyenv-Install) <br>
     D. [Useful Commands](#Useful-Pyenv-Commands) <br>
 6. [Poetry Install](#Poetry-Install)
+    A. [Use Poetry to Create a Venv](#Use-Poetry-to-Create-a-Venv)
+    B. [Useful Poetry Commands](#Useful-Poetry-Commands)
 7. [Format Your Terminal](#Format-Your-Terminal)
 
 ## Set Up Components
@@ -436,56 +438,60 @@ See this article for reference: https://chamikakasun.medium.com/how-to-manage-mu
 - Restart your terminal
 - Enter `poetry` and you should see a list of commands returned
 
-### How to Use Poetry To Create a Venv
+### Use Poetry To Create a Venv
 [Back to Table of Contents](#Table-of-Contents)
 
-**NOTE:** For demo purposes, let's pretend this project is dependent on Python version 3.9.6 and pandas version 1.3.0
+**NOTE:** For demo purposes, let's pretend this project is dependent on Python version 3.9.6 and pandas
 
 1. Create a `poetry.toml` file with the following contents so that the venv is created within your project
 ```
 [virtualenvs]
 in-project = true
 ```
-2. Create a `pyproject.toml` file using the following template (NOTE: in this simple project example the python version used is 3.9.6 and the one package dependency is pandas version 1.3.0):
-```
-[tool.poetry]
-name = "{repo/project name}"
-version = "1.0.0"
-description = "{free text description}"
-readme = "README.md"
-repository = "{git repo link}"
-documentation = "{site url if applicable}"
-authors = [
-    "{full name} <{email}>"
-]
+2. Create a `pyproject.toml` file using the following template:
+        ```
+        [tool.poetry]
+        name = "{repo/project name}"
+        version = "1.0.0"
+        description = "{free text description}"
+        readme = "README.md"
+        repository = "{git repo link}"
+        documentation = "{site url if applicable}"
+        authors = [
+            "{full name} <{email}>"
+        ]
 
-[tool.poetry.dependencies]
-python = "==3.9.6"
+        [tool.poetry.dependencies]
+        python = "=={Python version}"
 
-[tool.poetry.dev-dependencies]
+        [tool.poetry.dev-dependencies]
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-```
+        [build-system]
+        requires = ["poetry-core>=1.0.0"]
+        build-backend = "poetry.core.masonry.api"
+        ```
 3. Set your local Python version to one compatible with the Python version specified
     ```
-    pyenv local 3.9.6
+    pyenv local {Python version}
     ```
 4. Add `.venv` and `.python-version` to your `.gitignore`
 5. Run command `poetry install`
-    ![](img/poetry_install_output.png)
+
+    - ![](img/poetry_install_output.png)
+
 6. You will see the following created in your repo:
+
     -  `.venv` folder 
     - `poetry.lock` file
-    ![](img/post_poetry_install.png)
+    - ![](img/post_poetry_install.png)
+
 7. Add the needed packages (i.e. for this example pandas)
 
     A. Using `poetry add` (the easiest way)
         ```
         poetry install pandas
         ```
-        ![](img/poetry_add.png)
+        - ![](img/poetry_add.png)
         - **NOTE1:** This will install the latest package version. The `pyproject.toml` will show a version greater than or equal to the version is required and the `poetry.lock` file will update to specify the specific version installed.
         - **NOTE2:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
     B. Directly updating the `pyproject.toml` file
@@ -495,10 +501,12 @@ build-backend = "poetry.core.masonry.api"
         ```
 
 8. You will see the package(s) added to the `pyproject.toml` file and the `poetry.lock` file updated
-    ![](img/poetry_add_file_updates.png)
+
+    - ![](img/poetry_add_file_updates.png)
+    
 9. Push the `poetry.lock` file to you git repo so other team members can install matching requirements using `poetry install`
 
-### Useful poetry commands
+### Useful Poetry Commands
 - Add a package to the pyproject.toml file and update lock file
     ```
     poetry add {package name}
