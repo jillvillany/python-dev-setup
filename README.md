@@ -582,7 +582,7 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
     ```
     pyenv local {Python version}
     ```
-4. Add `.venv` and `.python-version` to your `.gitignore`
+4. Add `.venv` and `.python-version` to your `.gitignore` (See this repo's [.gitignore](https://github.com/jillvillany/python-dev-setup/blob/main/.gitignore) for reference)
 5. Run command `poetry install`
 
     - ![](img/poetry_install_output.png)
