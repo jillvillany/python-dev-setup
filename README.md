@@ -3,42 +3,26 @@
 ## Table of Contents
 
 1. Version Control Your Code - Git
-
     - Install Git
-
         - [Mac](#Mac-Git-Install) 
         - [Red Hat Linux](#Red-Hat-Linux-Git-Install)
         - [Windows](#Windows-Git-Install)
-
     - [Configure SSH Auth](#Configure-SSH-Auth)
-
         - [Mac/Linux](#Mac/Linux-Configure-SSH-Auth)
         - [Windows](#Windows-Configure-SSH-Auth)
-
     - [Useful Git Commands](#Useful-Git-Commands) 
-
 2. Run Scripts from Command Line - Mac Terminal/ Git Bash
     - [Git Bash Differences](#Git-Bash-Differences)
     - [Format Your Terminal](#Format-Your-Terminal)
-
 3. Edit and Debug Your Code - VS Code
-
     - [Install VS Code and Key Extensions](#Install-VS-Code-and-Key-Extensions)
-
-
 4. Manage Your Python Version - Pyenv
-
     - Install Pyenv
-
         - [Mac](#Mac-Pyenv-Install)
         - [Linux](#Linux-Pyenv-Install)
         - [Windows](#Windows-Pyenv-Install)
-
     - [Useful Pyenv Commands](#Useful-Pyenv-Commands)
-
-
 5. Manage Your Python Package Versions - Poetry
-
     - [Install Poetry](#Install-Poetry)
     - [Use Poetry to Create a Venv](#Use-Poetry-to-Create-a-Venv)
     - [Useful Poetry Commands](#Useful-Poetry-Commands)
