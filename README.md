@@ -472,10 +472,14 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
         yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
         ```
 - Install pyenv from git
-    ```git clone https://github.com/pyenv/pyenv.git ~/.pyenv```
+    ```
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    ```
 - Install pyenv virtualenv plugin
-    ```git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv```
-- Add pyenc and pyenv-virtuaslenv to the .bash_profile
+    ```
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+    ```
+- Add pyenv and pyenv-virtuaslenv to the .bash_profile
     ```
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
