@@ -253,16 +253,16 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 
 1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users Git Bash)
 2. Cd to your home directory
-    ```cd ~```
+    - ```cd ~```
 3. Create .bash_profile file if it doesn't already exist (this was part of the Mac set up but not Windows)
-    ```touch .bash_profile```
+    - ```touch .bash_profile```
 4. Open .bash_profile
     - Mac: ```open .bash_profile```
     - Windows: ```notepad .bash_profile```
 5. Add this line to the bottom of the file
-    ```source ~/.bash_prompt```
+    - ```source ~/.bash_prompt```
 6. Create .bash_prompt file
-    ```touch .bash_prompt```
+    - ```touch .bash_prompt```
 7. Open .bash_prompt file
     - Mac: ```open .bash_prompt``` 
     - Windows: ```notepad .bash_prompt``` 
