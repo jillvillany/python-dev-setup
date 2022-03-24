@@ -8,7 +8,7 @@
         - [Red Hat Linux](#Red-Hat-Linux-Git-Install)
         - [Windows](#Windows-Git-Install)
     - [Configure SSH Auth](#Configure-SSH-Auth)
-        - [Mac/Linux](#Mac/Linux-Configure-SSH-Auth)
+        - [Mac/Linux](#maclinux-configure-ssh-auth)
         - [Windows](#Windows-Configure-SSH-Auth)
     - [Useful Git Commands](#Useful-Git-Commands) 
 2. [Run Scripts from Command Line - Mac Terminal/ Git Bash](#2-run-scripts-from-command-line---mac-terminal-git-bash)
