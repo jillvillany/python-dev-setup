@@ -515,9 +515,9 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
 - `pyenv versions`
     - See Python versions and virtual environments aviable to be set as your Python version
 - `pyenv local`
-    - Set Python version in cwd
+    - Set Python version in current working directory (cwd)
 - `pyenv global`
-    - Set Python version to use system-wide (overwritten by local pyenv is specified)
+    - Set Python version to use system-wide (overwritten by local pyenv if specified)
 - Create a virtual env with pyenv (Mac & Linux only)
     - `pyenv virtualenv {python version} {venv name}`
     - Set venv as the local python for the project
@@ -549,12 +549,12 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
 
 **NOTE:** For demo purposes, let's pretend this project is dependent on Python version 3.9.6 and pandas
 
-1. Create a `poetry.toml` file with the following contents so that the venv is created within your project
+1. Create a `poetry.toml` file with the following contents so that the venv is created within your project. ( See this repo's [poetry.toml](https://github.com/jillvillany/python-dev-setup/blob/main/poetry.toml))
     ```
     [virtualenvs]
     in-project = true
     ```
-2. Create a `pyproject.toml` file using the following template:
+2. Create a `pyproject.toml` file using the following template (See this repo's [pyproject.toml](https://github.com/jillvillany/python-dev-setup/blob/main/pyproject.toml)):
         ```
         [tool.poetry]
         name = "{repo/project name}"
