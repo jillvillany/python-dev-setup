@@ -232,7 +232,7 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
 
 Mac's Terminal app is ideal for running scripts from command line because it is Linux based and most apps are deployed to Linux machines in Production due to their cost effectiveness.
 
-On a Windows, you can get very close to Mac terminal functionality by using the Git Bash terminal that comes with [Git for Windows](#https://gitforwindows.org/).
+On a Windows, you can get very close to Mac terminal functionality by using the Git Bash terminal that comes with [Git for Windows](https://gitforwindows.org/).
 
 
 ### Git Bash Differences
@@ -249,7 +249,7 @@ Although the Git Bash terminal is similar to the Mac Terminal, some key differen
 
 No matter the command line interface (CLI) used, it helps to format your CLI to work well with Git so that you know what branch you are working on and don't accidentally commit code to the wrong branch.
 
-**NOTE:** Code below found in [this Medium article](#https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e)
+**NOTE:** Code below found in [this Medium article](https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e)
 
 1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users Git Bash)
 2. Cd to your home directory
@@ -328,7 +328,7 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 ### Mac Pyenv Install
 [Back to Table of Contents](#Table-of-Contents)
 
-See [this article](#https://chamikakasun.medium.com/how-to-manage-multiple-python-versions-in-macos-2021-guide-f86ef81095a6) for reference.
+See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python-versions-in-macos-2021-guide-f86ef81095a6) for reference.
 
 - Install pyenv:
     ```
@@ -401,7 +401,7 @@ See [this article](#https://chamikakasun.medium.com/how-to-manage-multiple-pytho
             export LDFLAGS="-L/usr/local/opt/zlib/lib"
             export CPPFLAGS="-I/usr/local/opt/zlib/include"
             ```
-            - Run the following command - See [this article](#https://github.com/pyenv/pyenv/issues/1643#issuecomment-655710632) for reference
+            - Run the following command - See [this article](https://github.com/pyenv/pyenv/issues/1643#issuecomment-655710632) for reference
             ```
             CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" \
             pyenv install --patch 3.8.3 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
@@ -417,7 +417,7 @@ See [this article](#https://chamikakasun.medium.com/how-to-manage-multiple-pytho
 ### Windows Pyenv Install
 [Back to Table of Contents](#Table-of-Contents)
 
-- You can follow the first half of the instructions in [this article](#http://evaholmes.com/how-to-set-up-pyenv-and-poetry-on-windows-10-for-python-project-management/)
+- You can follow the first half of the instructions in [this article](http://evaholmes.com/how-to-set-up-pyenv-and-poetry-on-windows-10-for-python-project-management/)
 - Basic steps include:
     - Open Git Bash
     - cd to home `cd ~`
