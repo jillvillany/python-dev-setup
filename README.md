@@ -124,7 +124,7 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
 1. Create an SSH key pair
     - ```ssh-keygen -t ed25519 -C "your_email@example.com```
     - **NOTE:** If you will need to connect to different accounts (i.e. Github for personal use and Bitbucket for work), you can add a differentiator at the end of the id_ed25519 file. For example, below I added "_ibm" for the key I use with my IBM Bitbucket account.
-    - <img src="img/ibm key.png" width=300>
+    - <img src="img/ibm key.png" width=700>
 2. Navigate to where the ssh key pair was created 
 4. Open the `id_ed25519` PUB file with a text editor and copy the contents
 5. Add SSH key to Github or Bitbucket  
@@ -146,8 +146,8 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
         ssh-add ~/.ssh/id_ed25519
         ```
 7. Test your SSH connection to github
-    - Github:ssh -T git@github.com
-    - Bitbucket:ssh -T git@bitbucket.org
+    - Github: `ssh -T git@github.com`
+    - Bitbucket: `ssh -T git@bitbucket.org`
 
 
 ### Useful Git Commands
@@ -155,7 +155,7 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
 
 - Clone repo with SSH auth
     - On a new repo:
-        - select SSH when you clone the code and copy the URL
+        - Select SSH when you clone the code and copy the URL
             - <img src="img/ssh-clone.png" width=500>
         - Enter the command ```git clone {SSH URL}```
             - For example: `git clone git@github.com:jillvillany/python-dev-setup.git`
@@ -199,7 +199,7 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
     ```
     git revert {commit hash}
     ```
-    - **NOTE:** see [this stack overflow post](#https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit) for more details
+    - **NOTE:** See [this stack overflow post](https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit) for more details
 - Archive & Delete a Branch
     ```
     git tag archive/{branchname} {branchname}
