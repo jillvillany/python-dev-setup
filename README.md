@@ -239,6 +239,7 @@ On a Windows, you can get very close to Mac terminal functionality by using the 
 [Back to Table of Contents](#Table-of-Contents)
 
 Although the Git Bash terminal is similar to the Mac Terminal, some key differences include:
+    
     - `notepad` instead of `open` for opening a file
     - `shift + ins` to copy/ paste into/ from the terminal
     - `python -i` instead of just `python` to use an interactive python shell in the terminal
