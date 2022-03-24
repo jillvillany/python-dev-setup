@@ -204,9 +204,6 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
     ```
     git tag archive/{branchname} {branchname}
     git push origin --tags
-    ```
-    - Git tag (use down arrow to scroll down and check you see the tag)
-    ```
     git branch -d {branchname}
     git push -d origin {branch_name}
     ```
@@ -214,7 +211,7 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
     ```
     git tag -d
     ```
-    - **NOTE:** The process of archiving numerous branches can get tedious. See the `archive_branch.sh` script in this repo for an automated way to archive branches.
+    - **NOTE:** The process of archiving numerous branches can get tedious. See the [archive_branch.sh](https://github.com/jillvillany/python-dev-setup/blob/main/archive_branch.sh) script in this repo for an automated way to archive branches.
 - Restore an archived branch
     ```
     git checkout -b {branch name} archive/{archived branch name}
