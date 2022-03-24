@@ -555,6 +555,7 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
     in-project = true
     ```
 2. Create a `pyproject.toml` file using the following template (See this repo's [pyproject.toml](https://github.com/jillvillany/python-dev-setup/blob/main/pyproject.toml)):
+
         ```
         [tool.poetry]
         name = "{repo/project name}"
@@ -576,6 +577,7 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
         requires = ["poetry-core>=1.0.0"]
         build-backend = "poetry.core.masonry.api"
         ```
+        
 3. Set your local Python version to one compatible with the Python version specified
     ```
     pyenv local {Python version}
