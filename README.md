@@ -350,10 +350,7 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
     export PATH="$PYENV_ROOT/bin:$PATH"
     ```
 - Add pyenv virtualenv-init to the .bash_profile file so that the local Python version of a directory will activate automatically when you cd to that directory
-- Add pyenv and pyenv virtualenv path to bash profile
     ```
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
     if command -v pyenv 1>/dev/null 2>&1; then
         eval "$(pyenv init --path)"
         eval "$(pyenv virtualenv-init -)"
