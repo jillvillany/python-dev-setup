@@ -596,7 +596,7 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
 7. Add the needed packages (i.e. for this example pandas)
 
     A. Using `poetry add` (the easiest way)
-        - `poetry add pandas`
+        - ```poetry add pandas```
         - ![](img/poetry_add.png)
         - **NOTE1:** This will install the latest package version. The pyproject.toml will show a version greater than or equal to the version is required and the poetry.lock file will update to specify the specific version installed.
         - **NOTE2:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
