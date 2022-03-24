@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-1. Version Control Your Code - Git
+1. [Version Control Your Code - Git](#1-version-control-your-code---git)
     - Install Git
         - [Mac](#Mac-Git-Install) 
         - [Red Hat Linux](#Red-Hat-Linux-Git-Install)
@@ -11,24 +11,25 @@
         - [Mac/Linux](#Mac/Linux-Configure-SSH-Auth)
         - [Windows](#Windows-Configure-SSH-Auth)
     - [Useful Git Commands](#Useful-Git-Commands) 
-2. Run Scripts from Command Line - Mac Terminal/ Git Bash
+2. [Run Scripts from Command Line - Mac Terminal/ Git Bash](#2-run-scripts-from-command-line---mac-terminal-git-bash)
     - [Git Bash Differences](#Git-Bash-Differences)
     - [Format Your Terminal](#Format-Your-Terminal)
-3. Edit and Debug Your Code - VS Code
+3. [Edit and Debug Your Code - VS Code](#3-edit-and-debug-your-code---vscode)
     - [Install VS Code and Key Extensions](#Install-VS-Code-and-Key-Extensions)
-4. Manage Your Python Version - Pyenv
+4. [Manage Your Python Version - Pyenv](#4-manage-your-python-version---pyenv)
     - Install Pyenv
         - [Mac](#Mac-Pyenv-Install)
         - [Linux](#Linux-Pyenv-Install)
         - [Windows](#Windows-Pyenv-Install)
     - [Useful Pyenv Commands](#Useful-Pyenv-Commands)
-5. Manage Your Python Package Versions - Poetry
+5. [Manage Your Python Package Versions - Poetry](#5-manage-your-python-package-versions---poetry)
     - [Install Poetry](#Install-Poetry)
     - [Use Poetry to Create a Venv](#Use-Poetry-to-Create-a-Venv)
     - [Useful Poetry Commands](#Useful-Poetry-Commands)
 
+<hr>
 
-## Version Control Your Code - Git
+## 1. Version Control Your Code - Git
 
 ### Mac Git Install
 [Back to Table of Contents](#Table-of-Contents)
@@ -229,7 +230,7 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
 For other useful commands delivered in an entertaining way see: https://ohshitgit.com/
 
 
-## Run Scripts from Command Line - Mac Terminal/ Git Bash
+## 2. Run Scripts from Command Line - Mac Terminal/ Git Bash
 [Back to Table of Contents](#Table-of-Contents)
 
 Mac's Terminal app is ideal for running scripts from command line because it is Linux based and most apps are deployed to Linux machines in Production due to their cost effectiveness.
@@ -293,7 +294,7 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 ![](img/terminal_formatting.png)
 
 
-## Edit and Debug Your Code - Vscode
+## 3. Edit and Debug Your Code - Vscode
 [Back to Table of Contents](#Table-of-Contents)
 
 ### Install VS Code and Key Extensions
@@ -324,7 +325,7 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
         - <img src="img/pdf extension.png">
 
 
-## Manage Your Python Version - Pyenv
+## 4. Manage Your Python Version - Pyenv
 
 ### Mac Pyenv Install
 [Back to Table of Contents](#Table-of-Contents)
@@ -534,7 +535,7 @@ See [this article](#https://chamikakasun.medium.com/how-to-manage-multiple-pytho
     - To activate the venv 
         - ```source venv/Scripts/activate```
 
-## Manage Your Python Package Versions - Poetry
+## 5. Manage Your Python Package Versions - Poetry
 [Back to Table of Contents](#Table-of-Contents)
 
 ### Install Poetry
