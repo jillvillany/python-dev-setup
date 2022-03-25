@@ -35,7 +35,7 @@
 [Back to Table of Contents](#Table-of-Contents)
 
 1. 	Install Apple Xcode developer tools
-    - ``` code-select --install```
+    - ```xcode-select --install```
 2. Download Homebrew: https://brew.sh/
     - Homebrew helps you easily manage installs on a Mac from command-line
 3. Install git using homebrew <br>
