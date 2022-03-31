@@ -16,6 +16,8 @@
     - [Format Your Terminal](#Format-Your-Terminal)
 3. [Edit and Debug Your Code - VS Code](#3-edit-and-debug-your-code---vscode)
     - [Install VS Code and Key Extensions](#Install-VS-Code-and-Key-Extensions)
+    - [Configure Git Settings](#configure-git-setting)
+    - [Configure Remote-SSH Editing](#configure-remote-ssh-editing)
 4. [Manage Your Python Version - Pyenv](#4-manage-your-python-version---pyenv)
     - Install Pyenv
         - [Mac](#Mac-Pyenv-Install)
@@ -321,6 +323,60 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
     - vscode-pdf
         - Extension ID: tomoki1207.pdf
         - <img src="img/pdf extension.png">
+    - Remote-SSH
+        - Extension ID: ms-vscode-remote.remote-ssh
+        - <img src="img/remote-ssh-pkg.png">
+
+### Configure Git Setting
+[Back to Table of Contents](#Table-of-Contents)
+
+To keep your source control tab less cluttered, you can hide untracked files.
+
+1. Click Manage > Settings
+     - <img src="img/manage vs code settings.png" height=300>
+2. Search for Untracked and Select hidden
+    - <img src="img/hide untracked.png">
+
+
+### Configure Remote-SSH Editing
+[Back to Table of Contents](#Table-of-Contents)
+
+When project files are hosted on a Linux Machine, you can easily edit/ debug them as you would local files by taking advantage of VS Code's Remote-SSH extension.
+
+To use SSH to connect to a remote Linux machine:
+
+1. Open the Command Palette 
+    - Mac: `shift + cmd + P`
+    - Windows: `shift + ctrl + P`
+2. Search for/ Select Remote-SSH: Add New SSH Host...
+    - <img src="img/add ssh host.png">
+3. Enter the ssh connection command 
+    - `ssh {username}@{ip}`
+    - <img src="img/ssh connect command.png">
+4. Select the ssh file to update 
+    - <img src="img/update ssh file.png">
+5. You will see a pop-up in the bottom right corner that the host has been added
+    - <img src="img/host added.png">
+6. In the Remote Explorer tab, you will now see your new SSH Target. Click the plus folder icon to "Connect to Host in New Window"
+    - <img src="img/remote edit tab.png">
+7. A new window will open and you will be prompted to enter your password
+    - <img src="img/enter ssh pw.png">
+8. Choose the folder in the remote machine you want to open and select "OK"    
+    - <img src="img/open ssh folder.png">
+9. You will be prompted for your password one more time
+    - <img src="img/enter ssh pw 2.png">
+10. Upon successful connection, you will see the remote machine's ip as well as the git branch you are currently on (if opened to a git repo) in the bottom left corner
+    - <img src="img/ssh connected.png">
+
+You can now easily edit and debug your code as you would locally. However, there is one exception. If you are connecting to the remote machine with a normal user (i.e. non-root user) you will get access errors when trying to run a ipynb file.
+
+- <img src="img/notebook access error.png">
+
+This happens because, in a Unix/Linux system, you can’t bind to external facing ports without super user/root access. 
+
+If you do not have an environment controlled with Puppet, you can try editing the user's permissions to not need password authentication when entering root user mode. However, it is easiest to just test small code snippets in a noteboook file locally.
+
+For more information, see [https://code.visualstudio.com/docs/remote/ssh](https://code.visualstudio.com/docs/remote/ssh)
 
 
 ## 4. Manage Your Python Version - Pyenv
