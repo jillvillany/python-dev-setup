@@ -85,12 +85,20 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
     touch config
     open config
     ```
+    - **NOTE:** Git username vairable is case sensitive
     - If using Github, add the below to your config file:
         ```
         Host github-{git username}
          HostName github.com
          IdentityFile ~/.ssh/id_rsa_{git username}
          IdentitiesOnly yes
+        ```
+    - If using Github Enterprise (i.e. IBM), add the below to yuur config file:
+        ```
+        Host github-{git username}
+            HostName github.ibm.com
+            IdentityFile ~/.ssh/id_rsa_{git username}
+            IdentitiesOnly yes
         ```
     - If Bitbucket:
         ```
@@ -117,6 +125,7 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
     ```
 7. Test your SSH connection
     - Github: ```ssh -T git@github-{your username}```
+    - Github Enterprise (i.e. IBM): ```ssh -T git@github.ibm-{your username}```
     - Bitbucket: ```ssh -T git@bitbucket.org-{your username}```
 
 
