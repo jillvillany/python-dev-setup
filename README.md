@@ -165,6 +165,8 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
 [Back to Table of Contents](#Table-of-Contents)
 
 - Clone repo with SSH auth
+    - **IMP NOTE**: If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides
+        - For example, in `git@github.com:jillvillany/python-dev-setup.git` replace ".com" with "-{username}" -> `git@github-jillvillany:jillvillany/python-dev-setup.git`
     - On a new repo:
         - Select SSH when you clone the code and copy the URL
             - <img src="img/ssh-clone.png" width=500>
