@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Run Scripts from Command Line - Mac Terminal/ Windows WSL](#2-run-scripts-from-command-line---mac-terminal-git-bash)
-    - [Git Bash Differences](#Git-Bash-Differences)
+    - [Set Up a WSL Environment](#set-up-a-wsl-environment)
     - [Format Your Terminal](#Format-Your-Terminal)
 2. [Version Control Your Code - Git](#1-version-control-your-code---git)
     - Install Git
@@ -40,7 +40,8 @@ Mac's Terminal app is ideal for this because Mac has a Linux based OS and most a
 Since Window's is not a Linux based OS, you can set up a Linux virtual environment with WSL.
 
 ### Set Up a WSL Environment
-[Reference](https://docs.microsoft.com/en-us/windows/wsl/install)
+[Back to Table of Contents](#Table-of-Contents)
+[WSL Article Reference](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below
 
