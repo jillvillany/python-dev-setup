@@ -110,8 +110,8 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
     - Mac:
         - ![img](img/terminal_formatting.png)
     - WSL: 
-        - ![img](img/wsl-terminal.png)
-        - ![img](img/wsl-terminal2.png)
+        - <img src="img/wsl_terminal.png" alt="img" width=500>
+        - <img src="img/wsl_terminal2.png" alt="img" width=500>
 
 
 ## 2. Version Control Your Code - Git
@@ -130,14 +130,14 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 [Back to Table of Contents](#Table-of-Contents)
 
 1. From PowerShell, open your Ubuntu Linux distribution with `wsl` and run the command ` apt install git`
-    - ![img](img/wsl-install-git.png)
+    - <img src="img/wsl_install_git.png" alt="img" width=500>
     - NOTE: If you forgot your password (or were not prompted to set one upon initial WSL install), you can reset your password using the following steps:
         - Exit the Linux distribution you are in with the command `exit`
         - Re-enter the Linux distribution as the root user `wsl -u root`
         - Enter the command `passwd {your username}` and type in the new password
-            - ![img](img/reset-wsl-pw.png)
+            - <img src="img/reset_wsl_pw.png" alt="img" width=500>
             - NOTE: your username is what you saw in the command prompt when you weren't at the root
-                - ![img](img/wsl-username.png)
+                - <img src="img/wsl_username.png" alt="img" width=500>
         - Exit the Linux Distribution with `exit`
 
 ### Red Hat Linux Git Install
@@ -169,7 +169,7 @@ Setting up git authentication on a personal machine (i.e. one that only you will
 #### Personal Machine SSH Auth
 
 1. Create an SSH key pair with the command `ssh-keygen` and press enter to accept all the default
-    - ![img](img/wsl-keygen.png)
+    - <img src="img/wsl_keygen.png" alt="img" width=500>
 2. Copy the content of the id_rsa.pub file using the `cat {path to your file}` command
     - For example, `cat ~/.ssh/id_rsa.pub`
 3. See the [Machine Type Agnostic Steps](#machine-type-agnostic-steps) section for remaining steps
@@ -179,7 +179,7 @@ Setting up git authentication on a personal machine (i.e. one that only you will
 1. Create an SSH key pair with the command `ssh-keygen`, adding your git profile to the end of the id_rsa file name instead of accepting all default
     - For example: 
         `Users/jillvillany/.ssh/id_rsa_jillvillany`
-        - ![img](img/ssh-keygen.png" width=500>
+        - <img src="img/ssh_keygen.png" alt="img" width=500>
 2. Navigate to where the ssh key pair was created using the `cd {path to ssh folder}` command
     - For example: `cd Users/jillvillany/.ssh`
 3. Create the config file
@@ -218,22 +218,22 @@ Setting up git authentication on a personal machine (i.e. one that only you will
 5. Add SSH key in Github or Bitbucket  
     - In Github:
         - Navigate to Settings > SSH and GPG keys
-        - ![img](img/git-settings.png" width=500>
+        - <img src="img/git_settings.png" alt="img" width=500>
         - Click New SSH key and add the contents of your `id_rsa_{git username}.pub` file in the key field
     - In Bitbucket:
         - Navigate to personal settings
-        - ![img](img/bitbucket-settings.png" width=300>
+        - <img src="img/bitbucket_settings.png" alt="img" width=300>
         - Select SSH Key > Add Key add the contents of your `id_rsa_{git username}.pub` file in the key field
 6. Add the SSH key to the SSH agent
     ```
     ssh-add ~/.ssh/id_rsa_{git username}
     ```
     - NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with "eval \`ssh-agent\`"
-    - ![img](img/start-ssh-agent-wsl.PNG" width=300>
+    - <img src="img/start_ssh_agent_wsl.png" alt="img" width=500>
 7. Test your SSH connection
     - If on a personal machine:
         - Github: ```ssh -T git@github.com```
-            - ![img](img/github-connected-wsl.PNG)
+            - <img src="img/github_connected_wsl.png" alt="img" width=500>
         - Github Enterprise (i.e. IBM): ```ssh -T git@github.ibm.com```
         - Bitbucket: ```ssh -T git@bitbucket.org```
     - If on a shared machine:
@@ -250,16 +250,17 @@ Setting up git authentication on a personal machine (i.e. one that only you will
         - For example, in `git@github.com:jillvillany/python-dev-setup.git` replace ".com" with "-{username}" -> `git@github-jillvillany:jillvillany/python-dev-setup.git`
     - On a new repo:
         - Select SSH when you clone the code and copy the URL
-            - ![img](img/ssh-clone.png" width=500>
+            - <img src="img/ssh_clone.png" alt="img" width=500>
         - Enter the command ```git clone {SSH URL}```
             - For example: `git clone git@github.com:jillvillany/python-dev-setup.git`
-            - ![img](img/ssh-clone-success.png" width=500>
+            - <img src="img/ssh-clone-success.png" alt="img" width=500>
     - On an existing git repo (i.e. if had cloned this repo using username and password auth)
         - Set the remote URL to the URL used with ssh
         - ```git remote set-url origin {SSH URL}```
         - Now try ```git push```
         - Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password
-            - ![img](img/ssh-success.png" width=500>
+            - <img src="img/ssh-success.png" alt="img" width=500>
+
 
 - Add new/ modified files, commit and push changes
     ```
@@ -355,7 +356,7 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
         - ![img](img/remote-ssh-pkg.png)
     - Remote-WSL (only if using Windows WSL)
         - Extension ID: ms-vscode-remote.remote-wsl
-        - ![img](img/remote-wsl.png)
+        - ![img](img/remote_wsl.png)
 
 
 ### Use VSCode with WSL
@@ -363,9 +364,10 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
 
 
 1. Once you install tyhe Remote-WSL, navigate to the Remote Explorer tab and connect to your WSL distribution
-    - ![img](img/wsl-targets.png)
+    - <img src="img/wsl_targets.png" alt="img" width=300>
 2. Navigate to open a folder as you normally would
-    - ![img](img/open-wsl-folder.png)
+    - <img src="img/open_wsl_folder.png" alt="img" width=300>
+
 
 ### Configure Remote-SSH Editing
 [Back to Table of Contents](#Table-of-Contents)
@@ -499,11 +501,12 @@ For more information, see [https://code.visualstudio.com/docs/remote/ssh](https:
 2. Create a conda environment that uses the Python version specified in the `pyproject.toml` file and active the environment
 
     - `conda create -n python-dev-setup python=3.9.6`
-    - ![img](img/conda-env-created.png)
+    - <img src="img/conda_env_created.png" alt="img" width=500>
+
 
 3. Run command `poetry install`
 
-    - ![img](img/conda-deps-installed.png)
+    - <img src="img/conda_deps_installed.png" alt="img" width=500>
     - NOTE: You will see a `poetry.lock` file created. This is important to be committed to your repo so that other team members can install the dependencies from the lock file by running `poetry install`
 
 
