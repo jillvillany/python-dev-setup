@@ -137,7 +137,7 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
         - Enter the command `passwd {your username}` and type in the new password
             - <img src="img/reset_wsl_pw.png" alt="img" width=500>
             - NOTE: your username is what you saw in the command prompt when you weren't at the root
-                - <img src="img/wsl_username.png" alt="img" width=500>
+                - <img src="img/wsl_username.png" alt="img" width=200>
         - Exit the Linux Distribution with `exit`
 
 ### Red Hat Linux Git Install
