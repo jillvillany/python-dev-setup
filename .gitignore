@@ -1,6 +1,1 @@
-# python version file created by pyenv
-.python-version
-
-# venv created by poetry
-.venv
 .DS_Store

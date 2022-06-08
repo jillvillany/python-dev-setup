@@ -20,15 +20,14 @@
     - [Install VS Code and Key Extensions](#Install-VS-Code-and-Key-Extensions)
     - [Use VSCode with WSL](#use-vscode-with-wsl)
     - [Configure Remote-SSH Editing](#configure-remote-ssh-editing)
-4. [Manage Your Python Version - Pyenv](#4-manage-your-python-version---pyenv)
-    - Install Pyenv
-        - [Mac](#Mac-Pyenv-Install)
-        - [Linux](#Linux-Pyenv-Install)
-        - [Windows](#Windows-Pyenv-Install)
-    - [Useful Pyenv Commands](#Useful-Pyenv-Commands)
+4. [Manage Your Python Version - Mambaforge](#4-manage-your-python-version---mambaforge)
+    - Install Mambaforge
+        - [Mac](#mac-mambaforge-install)
+        - [Windows WSL/ Linux](#windows-wsl-linux-mambaforge-install)
+    - [Useful Mambaforge Commands](#useful-mambaforge-commands)
 5. [Manage Your Python Package Versions - Poetry](#5-manage-your-python-package-versions---poetry)
     - [Install Poetry](#Install-Poetry)
-    - [Use Poetry to Create a Venv](#Use-Poetry-to-Create-a-Venv)
+    - [Use Poetry To Install Project Dependencies](#use-poetry-to-install-project-dependencies)
     - [Useful Poetry Commands](#Useful-Poetry-Commands)
 
 <hr>
@@ -408,216 +407,53 @@ If you do not have an environment controlled with Puppet, you can try editing th
 For more information, see [https://code.visualstudio.com/docs/remote/ssh](https://code.visualstudio.com/docs/remote/ssh)
 
 
-## 4. Manage Your Python Version - Pyenv
-
-### Mac Pyenv Install
+## 4. Manage Your Python Version - Mambaforge
 [Back to Table of Contents](#Table-of-Contents)
 
-See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python-versions-in-macos-2021-guide-f86ef81095a6) for reference.
 
-- Install pyenv:
-    ```
-    brew install openssl readline sqlite3 xz zlib
-    curl https://pyenv.run | bash
-    ```
-- Install pyenv-virtualenv plugin
-    ```
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-    ```
-- Open .bash_profile (create it if needed) 
-    ```
-    touch ~/.bash_profile # create if needed
-    open ~/.bash_profile
-    ```
-- Add pyenv to bash profile
-    ```
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    ```
-- Add pyenv virtualenv-init to the .bash_profile file so that the local Python version of a directory will activate automatically when you cd to that directory
-    ```
-    if command -v pyenv 1>/dev/null 2>&1; then
-        eval "$(pyenv init --path)"
-        eval "$(pyenv virtualenv-init -)"
-    fi
-    ```
-- Restart terminal
-- Type `pyenv` and you should see a list of commands returned
-- Test can install a python version with pyenv
-    `pyenv install 3.8.3`
-    - **NOTE1:** If you get an error, try running this patch command (make sure the version after patch matches the version you are installing)
-    ```
-    CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch 3.8.3 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
-    ```
-    - **NOTE2:** If your error looks like the error below, try this fix instead:
-        - Error:
-            ```
-            /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/mach-o/dyld.h:98:54: note: passing argument to parameter 'bufsize' here
-            extern int _NSGetExecutablePath(char* buf, uint32_t* bufsize)                 __OSX_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
-                                                                ^
-            ./Modules/posixmodule.c:9221:15: error: implicit declaration of function 'sendfile' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
-                    ret = sendfile(in, out, offset, &sbytes, &sf, flags);
-            ```
-        - Fix:
-            - Add explicit dev tools path to ~/.bash_profile
-            ```
-            ####### adding paths needed for working with different python versions using pyenv #########
-            #pyenv
-            export PATH="/Users/jillvillany/.pyenv/bin:$PATH"
-            eval "$(pyenv init --path)"
-            eval "$(pyenv virtualenv-init -)"
-
-            #openssl
-            export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-            export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-
-            #readline
-            export LDFLAGS="-L/usr/local/opt/readline/lib"
-            export CPPFLAGS="-I/usr/local/opt/readline/include"
-
-            #sqlite
-            export LDFLAGS="-L/usr/local/opt/sqlite/lib"
-            export CPPFLAGS="-I/usr/local/opt/sqlite/include"
-
-            #zlib
-            export LDFLAGS="-L/usr/local/opt/zlib/lib"
-            export CPPFLAGS="-I/usr/local/opt/zlib/include"
-            ```
-            - Run the following command - See [this article](https://github.com/pyenv/pyenv/issues/1643#issuecomment-655710632) for reference
-            ```
-            CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" \
-            pyenv install --patch 3.8.3 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
-            ```
-- Check it's in your Python versions
-    `pyenv versions`
-- Use pyenv to set your local python version
-    `pyenv local 3.8.3`
-- Check that your python version is now set to 3.8.3
-    `python -V`
-
-
-### Windows Pyenv Install
+### Mac Mambaforge Install
 [Back to Table of Contents](#Table-of-Contents)
 
-- You can follow the first half of the instructions in [this article](http://evaholmes.com/how-to-set-up-pyenv-and-poetry-on-windows-10-for-python-project-management/)
-- Basic steps include:
-    - Open Git Bash
-    - cd to home `cd ~`
-    - Enter the following command
-        - ```git clone https://github.com/pyenv-win/pyenv-win.git $HOME/.pyenv```
-    - Edit your system path variables
-        - Search "edit the system environment variables" in windows home menu
-            - <img src="img/edit-env-vars.PNG" width=300>
-        - Select environment variables
-            - <img src="img/env-var-select.PNG" width=300>
-        - Select Path under System Variables and click Edit
-            - <img src="img/path-edit.PNG" width=300>
-        - Click New and add the following two paths:
-            - c:\users\{your username}\.pyenv\pyenv-win\bin
-                - For example: c:\users\jillv\.pyenv\pyenv-win\bin
-            - c:\users\{your username}\.pyenv\pyenv-win\shims
-                - For example: c:\users\jillv\.pyenv\pyenv-win\shims
-        - The environment variables should now look like below:
-            - <img src="img/path-added.png" width=500>
-        - Click OK to close the windows
+1. Install `wget`
+    ```bash
+    brew install wget
+    ```
+2. Install Mambaforge (Type "yes" wherever asked)
+    ```bash
+    wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+    bash Mambaforge-$(uname)-$(uname -m).sh
+    ```
 
-    - Relaunch git bash and type ```pyenv``` you should see a list of commands retrun
-    - Test can install a python version with pyenv
-        `pyenv install 3.8.3`
-    - Check it's in your Python versions
-        `pyenv versions`
-    - Use pyenv to set your local python version
-        `pyenv local 3.8.3`
-    - Check that your python version is now set to 3.8.3
-        `python -V`
-
-- **NOTE:** You cannot use the pyenv virtualenv plugin with the windows version of pyenv. To make a virtual environment off of a pyenv python version see [Useful Pyenv Commands](#Useful-Pyenv-Commands)
-
-
-### Linux Pyenv Install
+### Windows WSL/ Linux Mambaforge Install
 [Back to Table of Contents](#Table-of-Contents)
 
-- Install pyenv prereqs from root
+1. Install `wget` 
+    ```bash
+    sudo apt install wget
     ```
-    cd ~
-    Sudo su – 
-    ```
-- Install prerequisites based on your Linux distribution
-    - On Debian/Ubuntu/Linux Mint 
-        ```
-        sudo apt install curl git-core gcc make zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev
-        ```
-    - On CentOS/RHEL 
-        ```
-        yum -y install epel-release
-        yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
-        ```
-	- On Fedora 22+ 
-        ```
-        yum install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
-        ```
-- Install pyenv from git
-    ```
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-    ```
-- Install pyenv virtualenv plugin
-    ```
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-    ```
-- Add pyenv and pyenv-virtuaslenv to the .bash_profile
-    ```
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    if command -v pyenv 1>/dev/null 2>&1; then
-        eval "$(pyenv init --path)"
-        eval "$(pyenv virtualenv-init -)"
-    fi
-    ```
-- Repeat the .bash_profile steps with .bashrc
-- Restart terminal
-- Test that you can install a python version with pyenv 
-    - ```pyenv install 3.8.3 ```
-- Check the installed Python version is in your pyenv versions 
-    - ```pyenv versions```
-- Use pyenv to set your local Python version 
-    - ```pyenv local 3.8.3```
-- Check that your Python version is now set to 3.8.3 
-    - ```python -V```
+3. Install Mambaforge (Type "yes" wherever asked)
+    ```bash
+    wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+    bash Mambaforge-$(uname)-$(uname -m).sh
+    source ~/.bashrc
 
-
-### Useful Pyenv Commands
+### Useful Mambaforge Commands
 [Back to Table of Contents](#Table-of-Contents)
 
-- pyenv install 
-    - Install the version of Python needed. For example:
-    ```
-    pyenv install 3.9.6
-    ```
-    - NOTE: One Mac, if you get an error, try running this patch command (make sure the version after patch matches the version you are installing)
-    ```
-    CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch 3.9.6 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
-    ```
-- `pyenv versions`
-    - See Python versions and virtual environments aviable to be set as your Python version
-- `pyenv local`
-    - Set Python version in current working directory (cwd)
-- `pyenv global`
-    - Set Python version to use system-wide (overwritten by local pyenv if specified)
-- Create a virtual env with pyenv (Mac & Linux only)
-    - `pyenv virtualenv {python version} {venv name}`
-    - Set venv as the local python for the project
-        - `pyenv local {venv name}`
-    - Now when you cd into the project's directory, the venv set as the local python version will automatically be activated
-- Create a virtual env with pyenv (Windows)
-    - You cannot use the pyenv-virtualenv plugin with the windows version of pyenv. To make a virtual environment from a pyenv Python version:
+- Create new conda python virtual environment
+    * Note: If it asks you to select y/n, enter "y"
+        ```bash
+        conda create -n {name} python={version}
         ```
-        pyenv local {Python version to use with the venv}
-        python -m venv venv
-        pip install --upgrade pip
-        pip install -r requirements.txt
-        ```
-    - To activate the venv 
-        - ```source venv/Scripts/activate```
+- Activate conda environment
+    ```bash
+    conda activate {name}
+    ```
+- Deactivate conda environment
+    ``bash
+    conda deactivate
+    ```
+
 
 ## 5. Manage Your Python Package Versions - Poetry
 [Back to Table of Contents](#Table-of-Contents)
@@ -629,17 +465,13 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
 - Restart your terminal
 - Enter `poetry` and you should see a list of commands returned
 
-### Use Poetry To Create a Venv
+### Use Poetry To Install Project Dependencies
 [Back to Table of Contents](#Table-of-Contents)
 
 **NOTE:** For demo purposes, let's pretend this project is dependent on Python version 3.9.6 and pandas
 
-1. Create a `poetry.toml` file with the following contents so that the venv is created within your project. ( See this repo's [poetry.toml](https://github.com/jillvillany/python-dev-setup/blob/main/poetry.toml))
-    ```
-    [virtualenvs]
-    in-project = true
-    ```
-2. Create a `pyproject.toml` file using the following template (See this repo's [pyproject.toml](https://github.com/jillvillany/python-dev-setup/blob/main/pyproject.toml)):
+1. Create a `pyproject.toml` file using the following template (See this repo's [pyproject.toml](https://github.com/jillvillany/python-dev-setup/blob/main/pyproject.toml)):
+    - NOTE: We are assuming this repo represents a project dependent on Python version 3.9.6 and a pandas version greater than or equal to 1.4.1
 
         ```
         [tool.poetry]
@@ -663,39 +495,16 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
         build-backend = "poetry.core.masonry.api"
         ```
         
-3. Set your local Python version to one compatible with the Python version specified
-    ```
-    pyenv local {Python version}
-    ```
-4. Add `.venv` and `.python-version` to your `.gitignore` (See this repo's [.gitignore](https://github.com/jillvillany/python-dev-setup/blob/main/.gitignore) for reference)
-5. Run command `poetry install`
+2. Create a conda environment that uses the Python version specified in the `pyproject.toml` file and active the environment
 
-    - ![](img/poetry_install_output.png)
+    - `conda create -n python-dev-setup python=3.9.6`
+    - <img src="img/conda env created.png">
 
-6. You will see the following created in your repo:
+3. Run command `poetry install`
 
-    -  .venv folder 
-    - poetry.lock file
-    - ![](img/post_poetry_install.png)
+    - <img src="img/conda deps installed.png">
+    - NOTE: You will see a `poetry.lock` file created. This is important to be committed to your repo so that other team members can install the dependencies from the lock file by running `poetry install`
 
-7. Add the needed packages (i.e. for this example pandas)
-
-    - Using `poetry add` (the easiest way)
-        - ```poetry add pandas```
-        - ![](img/poetry_add.png)
-        - **NOTE1:** This will install the latest package version. The pyproject.toml will show a version greater than or equal to the version is required and the poetry.lock file will update to specify the specific version installed.
-        - **NOTE2:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
-    - Directly updating the pyproject.toml file
-        - Explicitly specify package version
-            - `{package name}= "{version}"`
-        - Any version greater than that version also compatible with the other dependencies
-            -  `{package name}= "^{version}" `
-
-8. You will see the package(s) added to the `pyproject.toml` file and the `poetry.lock` file updated
-
-    - ![](img/poetry_add_file_updates.png)
-
-9. Push the poetry.loc file to you git repo so other team members can install matching requirements using `poetry install`
 
 ### Useful Poetry Commands
 [Back to Table of Contents](#Table-of-Contents)
@@ -708,6 +517,8 @@ See [this article](https://chamikakasun.medium.com/how-to-manage-multiple-python
     ```
     poetry add {package name}
     ```
+    - **NOTE1:** This will install the latest package version. The pyproject.toml will show a version greater than or equal to the version is required and the poetry.lock file will update to specify the specific version installed.
+     - **NOTE2:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
 - Remove a package from the pyproject.toml file and update lock file
     ```
     poetry remove {package name}
