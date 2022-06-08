@@ -8,15 +8,17 @@
 2. [Version Control Your Code - Git](#1-version-control-your-code---git)
     - Install Git
         - [Mac](#Mac-Git-Install) 
+        - [Windows WSL](#Windows-WSL-Git-Install)
         - [Red Hat Linux](#Red-Hat-Linux-Git-Install)
-        - [Windows](#Windows-Git-Install)
+    - [Set Git Username and Email](#set-git-username-and-email)
     - [Configure SSH Auth](#Configure-SSH-Auth)
-        - [Mac/Linux](#maclinux-configure-ssh-auth)
-        - [Windows](#Windows-Configure-SSH-Auth)
+        - [Personal Machine](#personal-machine-ssh-auth)
+        - [Shared Machine](#shared-machine-ssh-auth)
+        - [Machine Type Agnostic Steps](#machine-type-agnostic-steps)
     - [Useful Git Commands](#Useful-Git-Commands) 
 3. [Edit and Debug Your Code - VS Code](#3-edit-and-debug-your-code---vscode)
     - [Install VS Code and Key Extensions](#Install-VS-Code-and-Key-Extensions)
-    - [Configure Git Settings](#configure-git-setting)
+    - [Use VSCode with WSL](#use-vscode-with-wsl)
     - [Configure Remote-SSH Editing](#configure-remote-ssh-editing)
 4. [Manage Your Python Version - Pyenv](#4-manage-your-python-version---pyenv)
     - Install Pyenv
@@ -39,7 +41,24 @@ Mac's Terminal app is ideal for this because Mac has a Linux based OS and most a
 Since Window's is not a Linux based OS, you can set up a Linux virtual environment with WSL.
 
 ### Set Up a WSL Environment
-https://docs.microsoft.com/en-us/windows/wsl/install
+[Reference](https://docs.microsoft.com/en-us/windows/wsl/install)
+
+NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below
+
+1. Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device
+    <img src="img/wsl1.png">
+2. Run the command `wsl --install`
+    - This will take a few minutes, but on successful complete, you should see the below output
+    <img src="img/wsl-2.png">
+3. Restart your computer
+4. When you log back in, you will now see an Ubunutu terminal loaded
+    <img src="img/wsl3.png">
+5. Close out of the Ubuntu window, and open PowerShell
+6. Run the command `wsl -l -v` to list your installed Linux DIstributions and you should see something like the following
+    - NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL
+    <img src="img/wsl4.png">
+7. To launch your default Linux distribution from PowerShell, simply run the command `wsl`
+    <img src="img/wsl5.png">
 
 
 ### Format Your Terminal
@@ -49,16 +68,17 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 
 **NOTE:** Code below found in [this Medium article](https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e)
 
-1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users Git Bash)
+1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users WSL)
 2. Cd to your home directory
     - ```cd ~```
-3. Create .bash_profile file if it doesn't already exist (this was part of the Mac set up but not Windows)
+3. Create .bash_profile file if it doesn't already exist
     - ```touch .bash_profile```
 4. Open .bash_profile
     - Mac: ```open .bash_profile```
-    - Windows: ```notepad .bash_profile```
+    - WSL: ```vim .bash_profile```
 5. Add this line to the bottom of the file
     - ```source ~/.bash_prompt```
+    - NOTE: In vim, type `i` to enter INSERT mode and then right click to paster the copied text. Press `esc` to exit INSERT mode. Type `:wq` and press enter to save and close the file.
 6. Create .bash_prompt file
     - ```touch .bash_prompt```
 7. Open .bash_prompt file
@@ -87,7 +107,11 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
     export LSCOLORS=ExFxBxDxCxegedabagacad
     ```
 9. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
-![](img/terminal_formatting.png)
+    - Mac:
+        - ![](img/terminal_formatting.png)
+    - WSL: 
+        - <img src="img/wsl-terminal.png">
+        - <img src="img/wsl-terminal2.png">
 
 
 ## 2. Version Control Your Code - Git
@@ -102,6 +126,20 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 3. Install git using homebrew <br>
     - ```brew install git```
 
+### Windows WSL Git Install
+[Back to Table of Contents](#Table-of-Contents)
+
+1. From PowerShell, open your Ubuntu Linux distribution with `wsl` and run the command ` apt install git`
+    - <img src="img/wsl install git.png">
+    - NOTE: If you forgot your password (or were not prompted to set one upon initial WSL install), you can reset your password using the following steps:
+        - Exit the Linux distribution you are in with the command `exit`
+        - Re-enter the Linux distribution as the root user `wsl -u root`
+        - Enter the command `passwd {your username}` and type in the new password
+            - <img src="img/reset wsl pw.png">
+            - NOTE: your username is what you saw in the command prompt when you weren't at the root
+                - <img src="img/wsl username.png">
+        - Exit the Linux Distribution with `exit`
+
 ### Red Hat Linux Git Install
 [Back to Table of Contents](#Table-of-Contents)
 
@@ -113,36 +151,41 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
 4. Switch back to a normal user
     - ```exit```
 
-### Windows Git Install
-[Back to Table of Contents](#Table-of-Contents)
+### Set Git Username and Email
 
-1. Install git https://git-scm.com/download/win
-    - This includes Git Bash which provides a terminal similar to the native Mac terminal app
-    - See [Git Bash Differences](#Git-Bash-Differences) for details for more information
-    
+In order to commit/ push code to Git you must configure your username and email.
+
+1. `git config --global user.name {your username}`
+2. `git config --global user.email {your email}`
 
 ### Configure SSH Auth
 [Back to Table of Contents](#Table-of-Contents)
 
-To easily authenticate with Github/ Bitbucket (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication
+To easily authenticate with Github/ Bitbucket (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication.
+
+Setting up git authentication on a personal machine (i.e. one that only you will be using) is very simple. However, if multiple user may be using the machine (i.e. a Linux Machine shared by a development team) you will want to follow a few additional step so that commits can be distinguished by user.
 
 
-#### Mac/Linux Configure SSH Auth
-[Back to Table of Contents](#Table-of-Contents)
+#### Personal Machine SSH Auth
 
-1. Create an SSH key pair
-    - ```ssh-keygen```
-    - **NOTE:** In order to make the setup flexible to multiple different user accounts on the same machine (helpful when working on a team's Linux server in a shared account) add your git profile to the end of the id_rsa file name
-        - For example: `Users/jillvillany/.ssh/id_rsa_jillvillany`
-    - <img src="img/ssh-keygen.png" width=500>
-2. Navigate to where the ssh key pair was created 
-    - Mac: use shortcut `shift + cmd + .` to view hidden directories/files
-    - Linux WinSCP: Options > Preferences > Panels > Show hidden files
-3. Create the config file (in finder or in terminal using below commands)
+1. Create an SSH key pair with the command `ssh-keygen` and press enter to accept all the default
+    - <img src="img/wsl keygen.png" width=500>
+2. Copy the content of the id_rsa.pub file using the `cat {path to your file}` command
+    - For example, `cat ~/.ssh/id_rsa.pub`
+3. See the [Machine Type Agnostic Steps](#machine-type-agnostic-steps) section for remaining steps
+
+#### Shared Machine SSH Auth
+
+1. Create an SSH key pair with the command `ssh-keygen`, adding your git profile to the end of the id_rsa file name instead of accepting all default
+    - For example: 
+        `Users/jillvillany/.ssh/id_rsa_jillvillany`
+        - <img src="img/ssh-keygen.png" width=500>
+2. Navigate to where the ssh key pair was created using the `cd {path to ssh folder}` command
+    - For example: `cd Users/jillvillany/.ssh`
+3. Create the config file
     ```
-    cd ~/.ssh
     touch config
-    open config
+    vim config
     ```
     - **NOTE:** Git username vairable is case sensitive
     - If using Github, add the below to your config file:
@@ -168,7 +211,10 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
          IdentitiesOnly yes
         ```
     - **NOTE:** If you have other users to add, create similar entries below in the file
-4. Open the `id_rsa_{git username}.pub` file with a text editor and copy the contents
+4. Copy the contents of the `id_rsa_{git username}.pub` file using the `cat id_rsa_{git username}.pub` command
+
+#### Machine Type Agnostic Steps
+
 5. Add SSH key in Github or Bitbucket  
     - In Github:
         - Navigate to Settings > SSH and GPG keys
@@ -182,42 +228,18 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
     ```
     ssh-add ~/.ssh/id_rsa_{git username}
     ```
+    - NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with "eval \`ssh-agent\`"
+    - <img src="img/start ssh agent wsl.PNG" width=300>
 7. Test your SSH connection
-    - Github: ```ssh -T git@github-{your username}```
-    - Github Enterprise (i.e. IBM): ```ssh -T git@github.ibm-{your username}```
-    - Bitbucket: ```ssh -T git@bitbucket.org-{your username}```
-
-
-#### Windows Configure SSH Auth
-[Back to Table of Contents](#Table-of-Contents)
-
-1. Create an SSH key pair
-    - ```ssh-keygen -t ed25519 -C "your_email@example.com```
-    - **NOTE:** If you will need to connect to different accounts (i.e. Github for personal use and Bitbucket for work), you can add a differentiator at the end of the id_ed25519 file. For example, below I added "_ibm" for the key I use with my IBM Bitbucket account.
-    - <img src="img/ibm key.png" width=700>
-2. Navigate to where the ssh key pair was created 
-4. Open the `id_ed25519` PUB file with a text editor and copy the contents
-5. Add SSH key to Github or Bitbucket  
-    - In Github:
-        - Navigate to Settings > SSH and GPG keys
-        - <img src="img/git-settings.png" width=500>
-        - Click New SSH key and add the contents of your `id_ed25519.pub` file in the key field
-    - In Bitbucket:
-        - Navigate to personal settings
-        - <img src="img/bitbucket-settings.png" width=300>
-        - Select SSH Key > Add Key add the contents of your `id_ed25519.pub` file in the key field
-6. Add the SSH key to the SSH agent:
-    - Start up the SSH agent in the background
-        ```
-        eval $(ssh-agent -s)
-        ```
-    - Add the identity
-        ```
-        ssh-add ~/.ssh/id_ed25519
-        ```
-7. Test your SSH connection to github
-    - Github: `ssh -T git@github.com`
-    - Bitbucket: `ssh -T git@bitbucket.org`
+    - If on a personal machine:
+        - Github: ```ssh -T git@github.com```
+            - <img src="img/github connected wsl.PNG" width=300>
+        - Github Enterprise (i.e. IBM): ```ssh -T git@github.ibm.com```
+        - Bitbucket: ```ssh -T git@bitbucket.org```
+    - If on a shared machine:
+        - Github: ```ssh -T git@github-{your username}```
+        - Github Enterprise (i.e. IBM): ```ssh -T git@github.ibm-{your username}```
+        - Bitbucket: ```ssh -T git@bitbucket.org-{your username}```
 
 
 ### Useful Git Commands
@@ -331,17 +353,19 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
     - Remote-SSH
         - Extension ID: ms-vscode-remote.remote-ssh
         - <img src="img/remote-ssh-pkg.png">
+    - Remote-WSL (only if using Windows WSL)
+        - Extension ID: ms-vscode-remote.remote-wsl
+        - <img src="img/remote wsl.png">
 
-### Configure Git Setting
+
+### Use VSCode with WSL
 [Back to Table of Contents](#Table-of-Contents)
 
-To keep your source control tab less cluttered, you can hide untracked files.
 
-1. Click Manage > Settings
-     - <img src="img/manage vs code settings.png" height=300>
-2. Search for Untracked and Select hidden
-    - <img src="img/hide untracked.png">
-
+1. Once you install tyhe Remote-WSL, navigate to the Remote Explorer tab and connect to your WSL distribution
+    - <img src="img/wsl targets.PNG">
+2. Navigate to open a folder as you normally would
+    - <img src="img/open wsl folder.PNG">
 
 ### Configure Remote-SSH Editing
 [Back to Table of Contents](#Table-of-Contents)
