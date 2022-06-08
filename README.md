@@ -46,7 +46,7 @@ Since Window's is not a Linux based OS, you can set up a Linux virtual environme
 NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below
 
 1. Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device
-    - <img src="img/wsl-1.png" alt="img" width=200>
+    - <img src="img/wsl-1.png" alt="img" width=300>
 2. Run the command `wsl --install`
     - This will take a few minutes, but on successful complete, you should see the below output
     - <img src="img/wsl_2.png" alt="img" width=500>
@@ -332,31 +332,31 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
 
     - Python
         - Extension ID: ms-python.python
-        - ![img](img/python-extension.png)
+        - <img src="img/python-extension.png" alt="img" width=500>
     - Jupyter
         - Extension ID: ms-toolsai.jupyter
-        - ![img](img/jupyter-extension.png)
+        - <img src="img/jupyter-extension.png" alt="img" width=500>
      - Prettify JSON
         - Extension ID: mohsen1.prettify-json
-        - ![img](img/prettify-json-extension.png)
+        - <img src="img/prettify-json-extension.png" alt="img" width=500>
     - JSON Viewer
         - Extension ID: ccimage.jsonviewer
-        - ![img](img/json-viewer-extension.png)
+        - <img src="img/json-viewer-extension.png" alt="img" width=500>
     - Markdown Preview Enhanced
         - Extension ID: shd101wyy.markdown-preview-enhanced
-        - ![img](img/markdown-extension.png)
+        - <img src="img/markdown-extension.png" alt="img" width=500>
     - Rainbow CSV
         - Extension ID: mechatroner.rainbow-csv
-        - ![img](img/rainbow-csv-extension.png)
+        - <img src="img/rainbow-csv-extension.png" alt="img" width=500>
     - vscode-pdf
         - Extension ID: tomoki1207.pdf
-        - ![img](img/pdf-extension.png)
+        - <img src="img/pdf-extension.png" alt="img" width=500>
     - Remote-SSH
         - Extension ID: ms-vscode-remote.remote-ssh
-        - ![img](img/remote-ssh-pkg.png)
+        - <img src="img/remote-ssh-pkg.png" alt="img" width=500>
     - Remote-WSL (only if using Windows WSL)
         - Extension ID: ms-vscode-remote.remote-wsl
-        - ![img](img/remote_wsl.png)
+        - <img src="img/remote_wsl.png" alt="img" width=500>
 
 
 ### Use VSCode with WSL
@@ -364,9 +364,9 @@ For other useful commands delivered in an entertaining way see: https://ohshitgi
 
 
 1. Once you install tyhe Remote-WSL, navigate to the Remote Explorer tab and connect to your WSL distribution
-    - <img src="img/wsl_targets.png" alt="img" width=300>
+    - <img src="img/wsl_targets.png" alt="img" width=500>
 2. Navigate to open a folder as you normally would
-    - <img src="img/open_wsl_folder.png" alt="img" width=300>
+    - <img src="img/open_wsl_folder.png" alt="img" width=500>
 
 
 ### Configure Remote-SSH Editing
@@ -380,28 +380,28 @@ To use SSH to connect to a remote Linux machine:
     - Mac: `shift + cmd + P`
     - Windows: `shift + ctrl + P`
 2. Search for/ Select Remote-SSH: Add New SSH Host...
-    - ![img](img/add-ssh-host.png)
+    - <img src="img/add-ssh-host.png" alt="img" width=500>
 3. Enter the ssh connection command 
     - `ssh {username}@{ip}`
-    - ![img](img/ssh-connect-command.png)
+    - <img src="img/ssh-connect-command.png" alt="img" width=500>
 4. Select the ssh file to update 
-    - ![img](img/update-ssh-file.png)
+    - <img src="img/update-ssh-file.png" alt="img" width=500>
 5. You will see a pop-up in the bottom right corner that the host has been added
-    - ![img](img/host-added.png)
+    - <img src="img/host-added.png" alt="img" width=500>
 6. In the Remote Explorer tab, you will now see your new SSH Target. Click the plus folder icon to "Connect to Host in New Window"
-    - ![img](img/remote-edit-tab.png)
+    - <img src="img/remote-edit-tab.png" alt="img" width=500>
 7. A new window will open and you will be prompted to enter your password
-    - ![img](img/enter-ssh-pw.png)
+    - <img src="img/enter-ssh-pw.png" alt="img" width=500>
 8. Choose the folder in the remote machine you want to open and select "OK"    
-    - ![img](img/open-ssh-folder.png)
+    - <img src="img/open-ssh-folder.png" alt="img" width=500>
 9. You will be prompted for your password one more time
-    - ![img](img/enter-ssh-pw2.png)
+    - <img src="img/enter-ssh-pw2.png" alt="img" width=500>
 10. Upon successful connection, you will see the remote machine's ip as well as the git branch you are currently on (if opened to a git repo) in the bottom left corner
-    - ![img](img/ssh connected.png)
+    - <img src="img/ssh connected.png" alt="img" width=500>
 
 You can now easily edit and debug your code as you would locally. However, there is one exception. If you are connecting to the remote machine with a normal user (i.e. non-root user) you will get access errors when trying to run a ipynb file.
 
-- ![img](img/notebook-access-error.png)
+<img src="img/notebook-access-error.png" alt="img" width=500>
 
 This happens because, in a Unix/Linux system, you can’t bind to external facing ports without super user/root access. 
 
