@@ -47,6 +47,7 @@ NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead o
 
 1. Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device
     ![wsl1](img/wsl1.png)
+    ![wsl1](img/wsl1_11zon.png)
 2. Run the command `wsl --install`
     - This will take a few minutes, but on successful complete, you should see the below output
     ![img](img/wsl-2.png)
