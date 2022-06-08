@@ -46,13 +46,13 @@ Since Window's is not a Linux based OS, you can set up a Linux virtual environme
 NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below
 
 1. Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device
-    <img src="img/wsl-1.png" alt="img" width=200>
+    - <img src="img/wsl-1.png" alt="img" width=200>
 2. Run the command `wsl --install`
     - This will take a few minutes, but on successful complete, you should see the below output
-    ![img](img/wsl-2.png)
+    ![img](img/wsl_2.png)
 3. Restart your computer
 4. When you log back in, you will now see an Ubunutu terminal loaded
-    <img src="img/wsl3.png" alt="img" width=300>
+    - <img src="img/wsl-3.png" alt="img" width=300>
 5. Close out of the Ubuntu window, and open PowerShell
 6. Run the command `wsl -l -v` to list your installed Linux DIstributions and you should see something like the following
     - NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL
