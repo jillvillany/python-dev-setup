@@ -2,7 +2,10 @@
 
 ## Table of Contents
 
-1. [Version Control Your Code - Git](#1-version-control-your-code---git)
+1. [Run Scripts from Command Line - Mac Terminal/ Windows WSL](#2-run-scripts-from-command-line---mac-terminal-git-bash)
+    - [Git Bash Differences](#Git-Bash-Differences)
+    - [Format Your Terminal](#Format-Your-Terminal)
+2. [Version Control Your Code - Git](#1-version-control-your-code---git)
     - Install Git
         - [Mac](#Mac-Git-Install) 
         - [Red Hat Linux](#Red-Hat-Linux-Git-Install)
@@ -11,9 +14,6 @@
         - [Mac/Linux](#maclinux-configure-ssh-auth)
         - [Windows](#Windows-Configure-SSH-Auth)
     - [Useful Git Commands](#Useful-Git-Commands) 
-2. [Run Scripts from Command Line - Mac Terminal/ Git Bash](#2-run-scripts-from-command-line---mac-terminal-git-bash)
-    - [Git Bash Differences](#Git-Bash-Differences)
-    - [Format Your Terminal](#Format-Your-Terminal)
 3. [Edit and Debug Your Code - VS Code](#3-edit-and-debug-your-code---vscode)
     - [Install VS Code and Key Extensions](#Install-VS-Code-and-Key-Extensions)
     - [Configure Git Settings](#configure-git-setting)
@@ -31,7 +31,66 @@
 
 <hr>
 
-## 1. Version Control Your Code - Git
+## 1. Run Scripts from Command Line - Mac Terminal/ Windows WSL
+[Back to Table of Contents](#Table-of-Contents)
+
+Mac's Terminal app is ideal for this because Mac has a Linux based OS and most apps are deployed to Linux machines in Production due to their cost effectiveness. 
+
+Since Window's is not a Linux based OS, you can set up a Linux virtual environment with WSL.
+
+### Set Up a WSL Environment
+https://docs.microsoft.com/en-us/windows/wsl/install
+
+
+### Format Your Terminal
+[Back to Table of Contents](#Table-of-Contents)
+
+No matter the command line interface (CLI) used, it helps to format your CLI to work well with Git so that you know what branch you are working on and don't accidentally commit code to the wrong branch.
+
+**NOTE:** Code below found in [this Medium article](https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e)
+
+1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users Git Bash)
+2. Cd to your home directory
+    - ```cd ~```
+3. Create .bash_profile file if it doesn't already exist (this was part of the Mac set up but not Windows)
+    - ```touch .bash_profile```
+4. Open .bash_profile
+    - Mac: ```open .bash_profile```
+    - Windows: ```notepad .bash_profile```
+5. Add this line to the bottom of the file
+    - ```source ~/.bash_prompt```
+6. Create .bash_prompt file
+    - ```touch .bash_prompt```
+7. Open .bash_prompt file
+    - Mac: ```open .bash_prompt``` 
+    - Windows: ```notepad .bash_prompt``` 
+8. Add these lines to your file
+    ```
+    #!/usr/bin/env bash
+    
+    # GIT FUNCTIONS
+    git_branch() {
+    git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*$ \\(.*\\)/  (\\1)/'
+    }
+
+    # TERMINAL PROMPT
+    PS1="\[\e[0;93m\]\u\[\e[m\]"    # username
+    PS1+=" "    # space
+    PS1+="\[\e[0;95m\]\W\[\e[m\]"    # current directory
+    PS1+=" "      # space
+    PS1+="\[\e[0;92m\]\$(git_branch)\[\e[m\]"  # current branch
+    PS1+=" "      # space
+    PS1+=">> "    # end prompt
+    export PS1;
+
+    export CLICOLOR=1
+    export LSCOLORS=ExFxBxDxCxegedabagacad
+    ```
+9. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
+![](img/terminal_formatting.png)
+
+
+## 2. Version Control Your Code - Git
 
 ### Mac Git Install
 [Back to Table of Contents](#Table-of-Contents)
@@ -238,71 +297,6 @@ To easily authenticate with Github/ Bitbucket (i.e. not need to enter your usern
         - ```git push -u origin```
 
 For other useful commands delivered in an entertaining way see: https://ohshitgit.com/
-
-
-## 2. Run Scripts from Command Line - Mac Terminal/ Git Bash
-[Back to Table of Contents](#Table-of-Contents)
-
-Mac's Terminal app is ideal for running scripts from command line because it is Linux based and most apps are deployed to Linux machines in Production due to their cost effectiveness.
-
-On a Windows, you can get very close to Mac terminal functionality by using the Git Bash terminal that comes with [Git for Windows](https://gitforwindows.org/).
-
-
-### Git Bash Differences
-[Back to Table of Contents](#Table-of-Contents)
-
-Although the Git Bash terminal is similar to the Mac Terminal, some key differences include:
-    
-- `notepad` instead of `open` for opening a file
-- `shift + ins` to copy/ paste into/ from the terminal
-- `python -i` instead of just `python` to use an interactive python shell in the terminal
-
-### Format Your Terminal
-[Back to Table of Contents](#Table-of-Contents)
-
-No matter the command line interface (CLI) used, it helps to format your CLI to work well with Git so that you know what branch you are working on and don't accidentally commit code to the wrong branch.
-
-**NOTE:** Code below found in [this Medium article](https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e)
-
-1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users Git Bash)
-2. Cd to your home directory
-    - ```cd ~```
-3. Create .bash_profile file if it doesn't already exist (this was part of the Mac set up but not Windows)
-    - ```touch .bash_profile```
-4. Open .bash_profile
-    - Mac: ```open .bash_profile```
-    - Windows: ```notepad .bash_profile```
-5. Add this line to the bottom of the file
-    - ```source ~/.bash_prompt```
-6. Create .bash_prompt file
-    - ```touch .bash_prompt```
-7. Open .bash_prompt file
-    - Mac: ```open .bash_prompt``` 
-    - Windows: ```notepad .bash_prompt``` 
-8. Add these lines to your file
-    ```
-    #!/usr/bin/env bash
-    
-    # GIT FUNCTIONS
-    git_branch() {
-    git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*$ \\(.*\\)/  (\\1)/'
-    }
-
-    # TERMINAL PROMPT
-    PS1="\[\e[0;93m\]\u\[\e[m\]"    # username
-    PS1+=" "    # space
-    PS1+="\[\e[0;95m\]\W\[\e[m\]"    # current directory
-    PS1+=" "      # space
-    PS1+="\[\e[0;92m\]\$(git_branch)\[\e[m\]"  # current branch
-    PS1+=" "      # space
-    PS1+=">> "    # end prompt
-    export PS1;
-
-    export CLICOLOR=1
-    export LSCOLORS=ExFxBxDxCxegedabagacad
-    ```
-9. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
-![](img/terminal_formatting.png)
 
 
 ## 3. Edit and Debug Your Code - Vscode

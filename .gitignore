@@ -3,3 +3,4 @@
 
 # venv created by poetry
 .venv
+.DS_Store
