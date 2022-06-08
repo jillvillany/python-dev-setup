@@ -49,16 +49,16 @@ NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead o
     - <img src="img/wsl-1.png" alt="img" width=200>
 2. Run the command `wsl --install`
     - This will take a few minutes, but on successful complete, you should see the below output
-    ![img](img/wsl_2.png)
+    - <img src="img/wsl_2.png" alt="img" width=500>
 3. Restart your computer
 4. When you log back in, you will now see an Ubunutu terminal loaded
-    - <img src="img/wsl-3.png" alt="img" width=300>
+    - <img src="img/wsl-3.png" alt="img" width=500>
 5. Close out of the Ubuntu window, and open PowerShell
 6. Run the command `wsl -l -v` to list your installed Linux DIstributions and you should see something like the following
     - NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL
-    ![img](img/wsl4.png)
+    - <img src="img/wsl-4.png" alt="img" width=500>
 7. To launch your default Linux distribution from PowerShell, simply run the command `wsl`
-    ![img](img/wsl5.png)
+    - <img src="img/wsl-5.png" alt="img" width=500>
 
 
 ### Format Your Terminal
