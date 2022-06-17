@@ -314,7 +314,7 @@ Setting up git authentication on a personal machine (i.e. one that only you will
 -  Maintain a Forked Repo
     - Sync your forked version of the repo with the most updated version of the main repo
         - ```git checkout master```
-        - If not already done: ```git remote add upstream https://github.ibm.com/ML-Pipelines/ml-pipelines.git``` 
+        - If not already done: ```git remote add upstream {ssh url}``` 
         - ```git fetch upstream```
         - ```git rebase upstream/master```
         - ```git push -u origin```
