@@ -253,7 +253,7 @@ mark {
 }
 </style>
 
-<table css="vertical-align: top;">
+<table style="background-color: white;">
   <tr>
     <th>Description</th>
     <th>Commands</th>
