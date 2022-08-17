@@ -245,41 +245,65 @@ Setting up git authentication on a personal machine (i.e. one that only you will
 ### Useful Git Commands
 [Back to Table of Contents](#Table-of-Contents)
 
+<style>
+mark {
+    background-color:#D3D3D3;
+    border-radius: 5px;
+    padding: 2px
+}
+</style>
 
 <table css="vertical-align: top;">
   <tr>
     <th>Description</th>
     <th>Commands</th>
+    <th>Notes</th>
   </tr>
   <tr>
     <td>Clone repo with SSH auth</td>
     <td>
         <ul>
+            <li>On a new repo</li>
+                <ul>
+                    <li>Select SSH when you clone the code and copy the URL</li>
+                        <ul>
+                            <li><img src="img/ssh_clone.png" alt="img" width=500></li>
+                        </ul>
+                    <li>Enter the command <mark>git clone {SSH URL}</mark></li>
+                        <ul>
+                            <li>For example: <mark>git clone git@github.com:jillvillany/python-dev-setup.git</mark></li>
+                            <li><img src="img/ssh-clone-success.png" alt="img" width=500></li>
+                        </ul>
+                </ul>
+            <li>On an existing git repo (i.e. if had cloned this repo using username and password auth)</li>
+                <ul>
+                    <li>Set the remote URL to the URL used with ssh</li>
+                        <ul>
+                            <li><mark>git remote set-url origin {SSH URL}</mark></li>
+                        </ul>
+                    <li>Now try <mark>git push</mark></li>
+                    <li>Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password</li>
+                        <ul>
+                            <li><img src="img/ssh-success.png" alt="img" width=500></li>
+                        </ul>
+                </ul>
+        </ul>
+    </td>
+    <td>
+        <ul>
             <li> <b>IMP NOTE:</b> If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides</li>
             <ul>
-                <li>For example, in `git@github.com:jillvillany/python-dev-setup.git` replace ".com" with "-{username}" -> `git@github-jillvillany:jillvillany/python-dev-setup.git`<li>
+                <li>For example, in <mark>git@github.com:jillvillany/python-dev-setup.git</mark> replace <mark>.com</mark> with <mark>-{username}</mark> -> <mark>git@github-jillvillany:jillvillany/python-dev-setup.git<mark><li>
             </ul>
         </ul>
-        - On a new repo:
-            - Select SSH when you clone the code and copy the URL
-                - <img src="img/ssh_clone.png" alt="img" width=500>
-            - Enter the command ```git clone {SSH URL}```
-                - For example: `git clone git@github.com:jillvillany/python-dev-setup.git`
-                - <img src="img/ssh-clone-success.png" alt="img" width=500>
-        - On an existing git repo (i.e. if had cloned this repo using username and password auth)
-            - Set the remote URL to the URL used with ssh
-            - ```git remote set-url origin {SSH URL}```
-            - Now try ```git push```
-            - Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password
-                - <img src="img/ssh-success.png" alt="img" width=500>
     </td>
   </tr>
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
-    
 
 
 - Add new/ modified files, commit and push changes
