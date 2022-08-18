@@ -1,0 +1,967 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="@jillvillany">
+      
+      
+      <link rel="icon" href="../img/code_logo.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>2. Version Control Your Code - Python Dev Setup</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom_style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2VRMGL6YZV"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){n("config","G-2VRMGL6YZV",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2VRMGL6YZV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git-install" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python Dev Setup" class="md-header__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
+      
+  <img src="../img/code_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Dev Setup
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Version Control Your Code
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="gray" data-md-color-accent="white"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jillvillany/python-dev-setup" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-dev-setup
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Dev Setup" class="md-nav__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
+      
+  <img src="../img/code_logo.png" alt="logo">
+
+    </a>
+    Python Dev Setup
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jillvillany/python-dev-setup" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-dev-setup
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run_scripts_cmd_line/" class="md-nav__link">
+        1. Run Scripts from Command Line
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          2. Version Control Your Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        2. Version Control Your Code
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git-install" class="md-nav__link">
+    Git Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-linux" class="md-nav__link">
+    Red Hat Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-git-username-and-email" class="md-nav__link">
+    Set Git Username and Email
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-ssh-auth" class="md-nav__link">
+    Configure SSH Auth
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure SSH Auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personal-machine-ssh-auth" class="md-nav__link">
+    Personal Machine SSH Auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-machine-ssh-auth" class="md-nav__link">
+    Shared Machine SSH Auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-type-agnostic-steps" class="md-nav__link">
+    Machine Type Agnostic Steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-git-commands" class="md-nav__link">
+    Useful Git Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git-install" class="md-nav__link">
+    Git Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-linux" class="md-nav__link">
+    Red Hat Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-git-username-and-email" class="md-nav__link">
+    Set Git Username and Email
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-ssh-auth" class="md-nav__link">
+    Configure SSH Auth
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure SSH Auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personal-machine-ssh-auth" class="md-nav__link">
+    Personal Machine SSH Auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-machine-ssh-auth" class="md-nav__link">
+    Shared Machine SSH Auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-type-agnostic-steps" class="md-nav__link">
+    Machine Type Agnostic Steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-git-commands" class="md-nav__link">
+    Useful Git Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/git_version_control.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>2. Version Control Your Code</h1>
+
+<h2 id="git-install">Git Install<a class="headerlink" href="#git-install" title="Permanent link">&para;</a></h2>
+<h3 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Install Apple Xcode developer tools<ul>
+<li><code>xcode-select --install</code></li>
+</ul>
+</li>
+<li>Download Homebrew: https://brew.sh/<ul>
+<li>Homebrew helps you easily manage installs on a Mac from command-line</li>
+</ul>
+</li>
+<li>Install git using homebrew <br><ul>
+<li><code>brew install git</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<ol>
+<li>From PowerShell, open your Ubuntu Linux distribution with <code>wsl</code> and run the command <code>apt install git</code><ul>
+<li><img src="img/wsl_install_git.png" alt="img" width=500></li>
+<li>NOTE: If you forgot your password (or were not prompted to set one upon initial WSL install), you can reset your password using the following steps:<ul>
+<li>Exit the Linux distribution you are in with the command <code>exit</code></li>
+<li>Re-enter the Linux distribution as the root user <code>wsl -u root</code></li>
+<li>Enter the command <code>passwd {your username}</code> and type in the new password<ul>
+<li><img src="img/reset_wsl_pw.png" alt="img" width=500></li>
+<li>NOTE: your username is what you saw in the command prompt when you weren't at the root<ul>
+<li><img src="img/wsl_username.png" alt="img" width=200></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exit the Linux Distribution with <code>exit</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="red-hat-linux">Red Hat Linux<a class="headerlink" href="#red-hat-linux" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Switch to the super user (a.k.a root user)<ul>
+<li><code>sudo su</code></li>
+</ul>
+</li>
+<li>Enter your password</li>
+<li>Install git<ul>
+<li><code>yum install git</code></li>
+</ul>
+</li>
+<li>Switch back to a normal user<ul>
+<li><code>exit</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="set-git-username-and-email">Set Git Username and Email<a class="headerlink" href="#set-git-username-and-email" title="Permanent link">&para;</a></h2>
+<p>In order to commit/ push code to Git you must configure your username and email.</p>
+<ol>
+<li><code>git config --global user.name {your username}</code></li>
+<li><code>git config --global user.email {your email}</code></li>
+</ol>
+<h2 id="configure-ssh-auth">Configure SSH Auth<a class="headerlink" href="#configure-ssh-auth" title="Permanent link">&para;</a></h2>
+<p>To easily authenticate with Github/ Bitbucket (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication.</p>
+<p>Setting up git authentication on a personal machine (i.e. one that only you will be using) is very simple. However, if multiple user may be using the machine (i.e. a Linux Machine shared by a development team) you will want to follow a few additional step so that commits can be distinguished by user.</p>
+<h3 id="personal-machine-ssh-auth">Personal Machine SSH Auth<a class="headerlink" href="#personal-machine-ssh-auth" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create an SSH key pair with the command <code>ssh-keygen</code> and press enter to accept all the default<ul>
+<li><img src="img/wsl_keygen.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Copy the content of the id_rsa.pub file using the <code>cat {path to your file}</code> command<ul>
+<li>For example, <code>cat ~/.ssh/id_rsa.pub</code></li>
+</ul>
+</li>
+<li>See the <a href="#machine-type-agnostic-steps">Machine Type Agnostic Steps</a> section for remaining steps</li>
+</ol>
+<h3 id="shared-machine-ssh-auth">Shared Machine SSH Auth<a class="headerlink" href="#shared-machine-ssh-auth" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create an SSH key pair with the command <code>ssh-keygen</code>, adding your git profile to the end of the id_rsa file name instead of accepting all default<ul>
+<li>For example: 
+    <code>Users/jillvillany/.ssh/id_rsa_jillvillany</code><ul>
+<li><img src="img/ssh_keygen.png" alt="img" width=500></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Navigate to where the ssh key pair was created using the <code>cd {path to ssh folder}</code> command<ul>
+<li>For example: <code>cd Users/jillvillany/.ssh</code></li>
+</ul>
+</li>
+<li>Create the config file
+    <div class="highlight"><pre><span></span><code>touch config
+vim config
+</code></pre></div><ul>
+<li><strong>NOTE:</strong> Git username vairable is case sensitive</li>
+<li>If using Github, add the below to your config file:
+    <div class="highlight"><pre><span></span><code>Host github-{git username}
+ HostName github.com
+ IdentityFile ~/.ssh/id_rsa_{git username}
+ IdentitiesOnly yes
+</code></pre></div></li>
+<li>If using Github Enterprise (i.e. IBM), add the below to yuur config file:
+    <div class="highlight"><pre><span></span><code>Host github-{git username}
+    HostName github.ibm.com
+    IdentityFile ~/.ssh/id_rsa_{git username}
+    IdentitiesOnly yes
+</code></pre></div></li>
+<li>If Bitbucket:
+    <div class="highlight"><pre><span></span><code>Host bitbucket.org-{git username}
+ HostName bitbucket.org
+ User git
+ IdentityFile ~/.ssh/id_rsa_{git username}
+ IdentitiesOnly yes
+</code></pre></div></li>
+<li><strong>NOTE:</strong> If you have other users to add, create similar entries below in the file</li>
+</ul>
+</li>
+<li>Copy the contents of the <code>id_rsa_{git username}.pub</code> file using the <code>cat id_rsa_{git username}.pub</code> command</li>
+</ol>
+<h3 id="machine-type-agnostic-steps">Machine Type Agnostic Steps<a class="headerlink" href="#machine-type-agnostic-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Add SSH key in Github or Bitbucket  <ul>
+<li>In Github:<ul>
+<li>Navigate to Settings &gt; SSH and GPG keys</li>
+<li><img src="img/git_settings.png" alt="img" width=500></li>
+<li>Click New SSH key and add the contents of your <code>id_rsa_{git username}.pub</code> file in the key field</li>
+</ul>
+</li>
+<li>In Bitbucket:<ul>
+<li>Navigate to personal settings</li>
+<li><img src="img/bitbucket_settings.png" alt="img" width=300></li>
+<li>Select SSH Key &gt; Add Key add the contents of your <code>id_rsa_{git username}.pub</code> file in the key field</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Add the SSH key to the SSH agent
+    <div class="highlight"><pre><span></span><code>ssh-add ~/.ssh/id_rsa_{git username}
+</code></pre></div><ul>
+<li>NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with "eval `ssh-agent`"</li>
+<li><img src="img/start_ssh_agent_wsl.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Test your SSH connection<ul>
+<li>If on a personal machine:<ul>
+<li>Github: <code>ssh -T git@github.com</code><ul>
+<li><img src="img/github_connected_wsl.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Github Enterprise (i.e. IBM): <code>ssh -T git@github.ibm.com</code></li>
+<li>Bitbucket: <code>ssh -T git@bitbucket.org</code></li>
+</ul>
+</li>
+<li>If on a shared machine:<ul>
+<li>Github: <code>ssh -T git@github-{your username}</code></li>
+<li>Github Enterprise (i.e. IBM): <code>ssh -T git@github.ibm-{your username}</code></li>
+<li>Bitbucket: <code>ssh -T git@bitbucket.org-{your username}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="useful-git-commands">Useful Git Commands<a class="headerlink" href="#useful-git-commands" title="Permanent link">&para;</a></h2>
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Commands</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Clone repo with SSH auth</td>
+    <td>
+        <ul>
+            <li>On a new repo</li>
+                <ul>
+                    <li>Select SSH when you clone the code and copy the URL</li>
+                        <ul>
+                            <li><img src="img/ssh_clone.png" alt="img" width=500></li>
+                        </ul>
+                    <li>Enter the command <mark>git clone {SSH URL}</mark></li>
+                        <ul>
+                            <li>For example: <mark>git clone git@github.com:jillvillany/python-dev-setup.git</mark></li>
+                            <li><img src="img/ssh-clone-success.png" alt="img" width=500></li>
+                        </ul>
+                </ul>
+            <li>On an existing git repo (i.e. if had cloned this repo using username and password auth)</li>
+                <ul>
+                    <li>Set the remote URL to the URL used with ssh</li>
+                        <ul>
+                            <li><mark>git remote set-url origin {SSH URL}</mark></li>
+                        </ul>
+                    <li>Now try <mark>git push</mark></li>
+                    <li>Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password</li>
+                        <ul>
+                            <li><img src="img/ssh-success.png" alt="img" width=500></li>
+                        </ul>
+                </ul>
+        </ul>
+    </td>
+    <td>
+        <ul>
+            <li> <b>IMP NOTE:</b> If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides</li>
+            <ul>
+                <li>For example, in <mark>git@github.com:jillvillany/python-dev-setup.git</mark> replace <mark>.com</mark> with <mark>-{username}</mark> -> <mark>git@github-jillvillany:jillvillany/python-dev-setup.git<mark><li>
+            </ul>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<ul>
+<li>
+<p>Clone repo with SSH auth</p>
+<ul>
+<li><strong>IMP NOTE</strong>: If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides<ul>
+<li>For example, in <code>git@github.com:jillvillany/python-dev-setup.git</code> replace ".com" with "-{username}" -&gt; <code>git@github-jillvillany:jillvillany/python-dev-setup.git</code></li>
+</ul>
+</li>
+<li>On a new repo:<ul>
+<li>Select SSH when you clone the code and copy the URL<ul>
+<li><img src="img/ssh_clone.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Enter the command <code>git clone {SSH URL}</code><ul>
+<li>For example: <code>git clone git@github.com:jillvillany/python-dev-setup.git</code></li>
+<li><img src="img/ssh-clone-success.png" alt="img" width=500></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>On an existing git repo (i.e. if had cloned this repo using username and password auth)<ul>
+<li>Set the remote URL to the URL used with ssh</li>
+<li><code>git remote set-url origin {SSH URL}</code></li>
+<li>Now try <code>git push</code></li>
+<li>Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password<ul>
+<li><img src="img/ssh-success.png" alt="img" width=500></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Add new/ modified files, commit and push changes
+    <div class="highlight"><pre><span></span><code>git pull 
+git add {relative file path}
+git commit -m &quot;commit message&quot;
+git push
+</code></pre></div></p>
+<ul>
+<li><strong>IMPORTANT:</strong> If multiple users are working in the directory, be sure to set the git config user.email before pushing so that commits belong to the user that made the change
+<div class="highlight"><pre><span></span><code>git config user.email {your email}
+</code></pre></div></li>
+</ul>
+</li>
+<li>Undo all local changes to the checked out branch
+    <div class="highlight"><pre><span></span><code>git stash
+</code></pre></div></li>
+<li>Undo local changes to a particular file
+    <div class="highlight"><pre><span></span><code>git checkout --{file name}
+</code></pre></div></li>
+<li>Create a New Branch
+    <div class="highlight"><pre><span></span><code>git checkout -b {branch name} {branch making new branch from}
+git push -u origin {branch name}
+</code></pre></div></li>
+<li>Abort a merge
+    <div class="highlight"><pre><span></span><code>git merge --abort
+</code></pre></div></li>
+<li>Revert to a previous commit
+    <div class="highlight"><pre><span></span><code>git revert {commit hash}
+</code></pre></div><ul>
+<li><strong>NOTE:</strong> See <a href="https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit">this stack overflow post</a> for more details</li>
+</ul>
+</li>
+<li>Archive &amp; Delete a Branch
+    <div class="highlight"><pre><span></span><code>git tag archive/{branchname} {branchname}
+git push origin --tags
+git branch -d {branchname}
+git push -d origin {branch_name}
+</code></pre></div><ul>
+<li><strong>NOTE:</strong> If need to delete a created tag
+<div class="highlight"><pre><span></span><code>git tag -d
+</code></pre></div></li>
+<li><strong>NOTE:</strong> The process of archiving numerous branches can get tedious. See the <a href="https://github.com/jillvillany/python-dev-setup/blob/main/archive_branch.sh">archive_branch.sh</a> script in this repo for an automated way to archive branches.</li>
+</ul>
+</li>
+<li>Restore an archived branch
+    <div class="highlight"><pre><span></span><code>git checkout -b {branch name} archive/{archived branch name}
+</code></pre></div></li>
+<li>Maintain a Forked Repo<ul>
+<li>Sync your forked version of the repo with the most updated version of the main repo<ul>
+<li><code>git checkout master</code></li>
+<li>If not already done: <code>git remote add upstream {ssh url}</code> </li>
+<li><code>git fetch upstream</code></li>
+<li><code>git rebase upstream/master</code></li>
+<li><code>git push -u origin</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>For other useful commands delivered in an entertaining way see: https://ohshitgit.com/</p>
+
+
+  
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../run_scripts_cmd_line/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Run Scripts from Command Line" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              1. Run Scripts from Command Line
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+
+  
+
+<h4></h4>
+<p></p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
