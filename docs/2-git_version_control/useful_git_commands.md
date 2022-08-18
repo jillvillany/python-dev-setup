@@ -198,8 +198,14 @@ git rebase --continue
 ```
 <img src="../../img/git-rebase8.png">
 
-12. If you `git log` again, you will see that commit message is updated but the rest of the history looks the same
+If you `git log` again, you will see that commit message is updated but the rest of the history looks the same
 <img src="../../img/git-rebase9.png">
+
+12. Push your rebased branch to the remote
+```
+git push --force
+```
+
 
 ## Compare
 ### Compare your local branch to origin
