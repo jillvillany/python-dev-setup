@@ -135,12 +135,25 @@ git commit -m "Wow, you don't have to copy-paste to undo"
 git reset HEAD~ --soft
 ```
 
-### Remove file added multiple commits ago
+### Remove file added before last commit
 If you accidentally add a file with PII or a file that should be stored with git-lfs, this is super helpful!
+
+See the following Medium Article for context: [Tutorial: Removing Large Files from Git](https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a#:~:text=If%20the%20large%20file%20was,HEAD%20to%20edit%20the%20commit)
+
+1. Identify the commit before the mistake was made
 ```
-git rebase -i master  
+git log
 ```
 
+This will show you all the commits from the branch you are on with the latest first:
+<img src="../../img/git-log.png">
+
+Once you find the last good commit - in this case the "git updates" commit before the "bad file" was added - close out of the git log by typing `wq`
+
+2. Initiate a rebase between the last good commit and the current commit
+```
+git rebase -i cffbcbcaf2d46a6c60e730c3f580646727bf9a57
+```
 
 ## Compare
 ### Compare your local branch to origin
