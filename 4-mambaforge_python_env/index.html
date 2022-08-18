@@ -10,12 +10,14 @@
         <meta name="author" content="@jillvillany">
       
       
+        <link rel="canonical" href="https://jillvillany.github.io/python-dev-setup/4-mambaforge_python_env/">
+      
       <link rel="icon" href="../img/code_logo.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
     
     
       
-        <title>python-dev-setup - Python Dev Setup</title>
+        <title>4. Manage Your Python Version - Python Dev Setup</title>
       
     
     
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-dev-setup" class="md-skip">
+        <a href="#install" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              python-dev-setup
+              4. Manage Your Python Version
             
           </span>
         </div>
@@ -258,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run_scripts_cmd_line/" class="md-nav__link">
+      <a href="../1-run_scripts_cmd_line/" class="md-nav__link">
         1. Run Scripts from Command Line
       </a>
     </li>
@@ -272,9 +274,215 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../2-git_version_control/">2. Version Control Your Code</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="2. Version Control Your Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2. Version Control Your Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../git_version_control/" class="md-nav__link">
-        2. Version Control Your Code
+      <a href="../2-git_version_control/useful_git_commands/" class="md-nav__link">
+        Useful Git Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/git_dif_excel_workaround/" class="md-nav__link">
+        Git Diff Excel Workaround
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/archive_branch/" class="md-nav__link">
+        archive_branch.sh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/sync_git_branches/" class="md-nav__link">
+        sync_git_branches.sh
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-edit_with_vscode/" class="md-nav__link">
+        3. Edit and Debug Your Code
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4. Manage Your Python Version
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        4. Manage Your Python Version
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-wsl-linux" class="md-nav__link">
+    Windows WSL/ Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-mambaforge-commands" class="md-nav__link">
+    Useful Mambaforge Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-poetry_package_manager/" class="md-nav__link">
+        5. Manage Your Python Package Versions
       </a>
     </li>
   
@@ -297,8 +505,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -307,37 +513,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#2-version-control-your-code-git" class="md-nav__link">
-    2. Version Control Your Code - Git
+  <a href="#install" class="md-nav__link">
+    Install
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-edit-and-debug-your-code-vscode" class="md-nav__link">
-    3. Edit and Debug Your Code - Vscode
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Edit and Debug Your Code - Vscode">
+    <nav class="md-nav" aria-label="Install">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-vs-code-and-key-extensions" class="md-nav__link">
-    Install VS Code and Key Extensions
+  <a href="#mac" class="md-nav__link">
+    Mac
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-vscode-with-wsl" class="md-nav__link">
-    Use VSCode with WSL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-remote-ssh-editing" class="md-nav__link">
-    Configure Remote-SSH Editing
+  <a href="#windows-wsl-linux" class="md-nav__link">
+    Windows WSL/ Linux
   </a>
   
 </li>
@@ -348,70 +540,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-manage-your-python-version-mambaforge" class="md-nav__link">
-    4. Manage Your Python Version - Mambaforge
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Manage Your Python Version - Mambaforge">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mac-mambaforge-install" class="md-nav__link">
-    Mac Mambaforge Install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows-wsl-linux-mambaforge-install" class="md-nav__link">
-    Windows WSL/ Linux Mambaforge Install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#useful-mambaforge-commands" class="md-nav__link">
     Useful Mambaforge Commands
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-manage-your-python-package-versions-poetry" class="md-nav__link">
-    5. Manage Your Python Package Versions - Poetry
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Manage Your Python Package Versions - Poetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-poetry" class="md-nav__link">
-    Install Poetry
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-poetry-to-install-project-dependencies" class="md-nav__link">
-    Use Poetry To Install Project Dependencies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#useful-poetry-commands" class="md-nav__link">
-    Useful Poetry Commands
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -427,139 +558,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/old.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/4-mambaforge_python_env.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="python-dev-setup">python-dev-setup<a class="headerlink" href="#python-dev-setup" title="Permanent link">&para;</a></h1>
-<h2 id="2-version-control-your-code-git">2. Version Control Your Code - Git<a class="headerlink" href="#2-version-control-your-code-git" title="Permanent link">&para;</a></h2>
-<h2 id="3-edit-and-debug-your-code-vscode">3. Edit and Debug Your Code - Vscode<a class="headerlink" href="#3-edit-and-debug-your-code-vscode" title="Permanent link">&para;</a></h2>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<h3 id="install-vs-code-and-key-extensions">Install VS Code and Key Extensions<a class="headerlink" href="#install-vs-code-and-key-extensions" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Download Vscode: https://code.visualstudio.com/download</li>
-<li>
-<p>Install the extensions below:</p>
-<ul>
-<li>Python<ul>
-<li>Extension ID: ms-python.python</li>
-<li><img src="img/python-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Jupyter<ul>
-<li>Extension ID: ms-toolsai.jupyter</li>
-<li><img src="img/jupyter-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Prettify JSON<ul>
-<li>Extension ID: mohsen1.prettify-json</li>
-<li><img src="img/prettify-json-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>JSON Viewer<ul>
-<li>Extension ID: ccimage.jsonviewer</li>
-<li><img src="img/json-viewer-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Markdown Preview Enhanced<ul>
-<li>Extension ID: shd101wyy.markdown-preview-enhanced</li>
-<li><img src="img/markdown-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Rainbow CSV<ul>
-<li>Extension ID: mechatroner.rainbow-csv</li>
-<li><img src="img/rainbow-csv-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>vscode-pdf<ul>
-<li>Extension ID: tomoki1207.pdf</li>
-<li><img src="img/pdf-extension.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Remote-SSH<ul>
-<li>Extension ID: ms-vscode-remote.remote-ssh</li>
-<li><img src="img/remote-ssh-pkg.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Remote-WSL (only if using Windows WSL)<ul>
-<li>Extension ID: ms-vscode-remote.remote-wsl</li>
-<li><img src="img/remote_wsl.png" alt="img" width=500></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="use-vscode-with-wsl">Use VSCode with WSL<a class="headerlink" href="#use-vscode-with-wsl" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<ol>
-<li>Once you install tyhe Remote-WSL, navigate to the Remote Explorer tab and connect to your WSL distribution<ul>
-<li><img src="img/wsl_targets.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Navigate to open a folder as you normally would<ul>
-<li><img src="img/open_wsl_folder.png" alt="img" width=500></li>
-</ul>
-</li>
-</ol>
-<h3 id="configure-remote-ssh-editing">Configure Remote-SSH Editing<a class="headerlink" href="#configure-remote-ssh-editing" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<p>When project files are hosted on a Linux Machine, you can easily edit/ debug them as you would local files by taking advantage of VS Code's Remote-SSH extension.</p>
-<p>To use SSH to connect to a remote Linux machine:</p>
-<ol>
-<li>Open the Command Palette <ul>
-<li>Mac: <code>shift + cmd + P</code></li>
-<li>Windows: <code>shift + ctrl + P</code></li>
-</ul>
-</li>
-<li>Search for/ Select Remote-SSH: Add New SSH Host...<ul>
-<li><img src="img/add-ssh-host.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Enter the ssh connection command <ul>
-<li><code>ssh {username}@{ip}</code></li>
-<li><img src="img/ssh-connect-command.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Select the ssh file to update <ul>
-<li><img src="img/update-ssh-file.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>You will see a pop-up in the bottom right corner that the host has been added<ul>
-<li><img src="img/host-added.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>In the Remote Explorer tab, you will now see your new SSH Target. Click the plus folder icon to "Connect to Host in New Window"<ul>
-<li><img src="img/remote-edit-tab.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>A new window will open and you will be prompted to enter your password<ul>
-<li><img src="img/enter-ssh-pw.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Choose the folder in the remote machine you want to open and select "OK"    <ul>
-<li><img src="img/open-ssh-folder.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>You will be prompted for your password one more time<ul>
-<li><img src="img/enter-ssh-pw2.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Upon successful connection, you will see the remote machine's ip as well as the git branch you are currently on (if opened to a git repo) in the bottom left corner<ul>
-<li><img src="img/ssh connected.png" alt="img" width=500></li>
-</ul>
-</li>
-</ol>
-<p>You can now easily edit and debug your code as you would locally. However, there is one exception. If you are connecting to the remote machine with a normal user (i.e. non-root user) you will get access errors when trying to run a ipynb file.</p>
-<p><img src="img/notebook-access-error.png" alt="img" width=500></p>
-<p>This happens because, in a Unix/Linux system, you can’t bind to external facing ports without super user/root access. </p>
-<p>If you do not have an environment controlled with Puppet, you can try editing the user's permissions to not need password authentication when entering root user mode. However, it is easiest to just test small code snippets in a noteboook file locally.</p>
-<p>For more information, see <a href="https://code.visualstudio.com/docs/remote/ssh">https://code.visualstudio.com/docs/remote/ssh</a></p>
-<h2 id="4-manage-your-python-version-mambaforge">4. Manage Your Python Version - Mambaforge<a class="headerlink" href="#4-manage-your-python-version-mambaforge" title="Permanent link">&para;</a></h2>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<h3 id="mac-mambaforge-install">Mac Mambaforge Install<a class="headerlink" href="#mac-mambaforge-install" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
+  <h1>4. Manage Your Python Version</h1>
+
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<h3 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Install <code>wget</code>
     <div class="highlight"><pre><span></span><code>brew install wget
@@ -569,20 +577,18 @@
 bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span>.sh
 </code></pre></div></li>
 </ol>
-<h3 id="windows-wsl-linux-mambaforge-install">Windows WSL/ Linux Mambaforge Install<a class="headerlink" href="#windows-wsl-linux-mambaforge-install" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
+<h3 id="windows-wsl-linux">Windows WSL/ Linux<a class="headerlink" href="#windows-wsl-linux" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Install <code>wget</code> 
     <div class="highlight"><pre><span></span><code>sudo apt install wget
 </code></pre></div></li>
 <li>Install Mambaforge (Type "yes" wherever asked)
-    ```bash
-    wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-    bash Mambaforge-$(uname)-$(uname -m).sh
-    source ~/.bashrc</li>
+    <div class="highlight"><pre><span></span><code>wget <span class="s2">&quot;https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">.sh&quot;</span>
+bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span>.sh
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div></li>
 </ol>
-<h3 id="useful-mambaforge-commands">Useful Mambaforge Commands<a class="headerlink" href="#useful-mambaforge-commands" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
+<h2 id="useful-mambaforge-commands">Useful Mambaforge Commands<a class="headerlink" href="#useful-mambaforge-commands" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Create new conda python virtual environment<ul>
 <li>Note: If it asks you to select y/n, enter "y"
@@ -594,80 +600,7 @@ bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span cla
     <div class="highlight"><pre><span></span><code>conda activate <span class="o">{</span>name<span class="o">}</span>
 </code></pre></div></li>
 <li>Deactivate conda environment
-    <div class="highlight"><pre><span></span><code>conda deactivate
-</code></pre></div></li>
-</ul>
-<h2 id="5-manage-your-python-package-versions-poetry">5. Manage Your Python Package Versions - Poetry<a class="headerlink" href="#5-manage-your-python-package-versions-poetry" title="Permanent link">&para;</a></h2>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<h3 id="install-poetry">Install Poetry<a class="headerlink" href="#install-poetry" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Install <code>poetry</code> with the following command:
-    <code>curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -</code></li>
-<li>Restart your terminal</li>
-<li>Enter <code>poetry</code> and you should see a list of commands returned</li>
-</ul>
-<h3 id="use-poetry-to-install-project-dependencies">Use Poetry To Install Project Dependencies<a class="headerlink" href="#use-poetry-to-install-project-dependencies" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<p><strong>NOTE:</strong> For demo purposes, let's pretend this project is dependent on Python version 3.9.6 and pandas</p>
-<ol>
-<li>
-<p>Create a <code>pyproject.toml</code> file using the following template (See this repo's <a href="https://github.com/jillvillany/python-dev-setup/blob/main/pyproject.toml">pyproject.toml</a>):</p>
-<ul>
-<li>
-<p>NOTE: We are assuming this repo represents a project dependent on Python version 3.9.6 and a pandas version greater than or equal to 1.4.1</p>
-<div class="highlight"><pre><span></span><code>[tool.poetry]
-name = &quot;{repo/project name}&quot;
-version = &quot;1.0.0&quot;
-description = &quot;{free text description}&quot;
-readme = &quot;README.md&quot;
-repository = &quot;{git repo link}&quot;
-documentation = &quot;{site url if applicable}&quot;
-authors = [
-    &quot;{full name} &lt;{email}&gt;&quot;
-]
-
-[tool.poetry.dependencies]
-python = &quot;=={Python version}&quot;
-
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = [&quot;poetry-core&gt;=1.0.0&quot;]
-build-backend = &quot;poetry.core.masonry.api&quot;
-</code></pre></div>
-</li>
-</ul>
-</li>
-<li>
-<p>Create a conda environment that uses the Python version specified in the <code>pyproject.toml</code> file and active the environment</p>
-<ul>
-<li><code>conda create -n python-dev-setup python=3.9.6</code></li>
-<li><img src="img/conda_env_created.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>
-<p>Run command <code>poetry install</code></p>
-<ul>
-<li><img src="img/conda_deps_installed.png" alt="img" width=500></li>
-<li>NOTE: You will see a <code>poetry.lock</code> file created. This is important to be committed to your repo so that other team members can install the dependencies from the lock file by running <code>poetry install</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="useful-poetry-commands">Useful Poetry Commands<a class="headerlink" href="#useful-poetry-commands" title="Permanent link">&para;</a></h3>
-<p><a href="#Table-of-Contents">Back to Table of Contents</a></p>
-<ul>
-<li>Install the requirements in the poetry.lock file
-    <div class="highlight"><pre><span></span><code>poetry install
-</code></pre></div></li>
-<li>Add a package to the pyproject.toml file and update lock file
-    <div class="highlight"><pre><span></span><code>poetry add {package name}
-</code></pre></div><ul>
-<li><strong>NOTE1:</strong> This will install the latest package version. The pyproject.toml will show a version greater than or equal to the version is required and the poetry.lock file will update to specify the specific version installed.</li>
-<li><strong>NOTE2:</strong> If you need to install a version other than the latest version, you can specify <code>poetry add {package name}=={version}</code></li>
-</ul>
-</li>
-<li>Remove a package from the pyproject.toml file and update lock file
-    <div class="highlight"><pre><span></span><code>poetry remove {package name}
+    <div class="highlight"><pre><span></span><code><span class="nb">source</span> deactivate
 </code></pre></div></li>
 </ul>
 
@@ -690,6 +623,42 @@ build-backend = &quot;poetry.core.masonry.api&quot;
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../3-edit_with_vscode/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3. Edit and Debug Your Code" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              3. Edit and Debug Your Code
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../5-poetry_package_manager/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Manage Your Python Package Versions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              5. Manage Your Python Package Versions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -10,19 +10,21 @@
         <meta name="author" content="@jillvillany">
       
       
-      <link rel="icon" href="/python-dev-setup/img/code_logo.png">
+        <link rel="canonical" href="https://jillvillany.github.io/python-dev-setup/1-run_scripts_cmd_line/">
+      
+      <link rel="icon" href="../img/code_logo.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
     
     
       
-        <title>Python Dev Setup</title>
+        <title>1. Run Scripts from Command Line - Python Dev Setup</title>
       
     
     
-      <link rel="stylesheet" href="/python-dev-setup/assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
       
         
-        <link rel="stylesheet" href="/python-dev-setup/assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -38,9 +40,9 @@
       
     
     
-      <link rel="stylesheet" href="/python-dev-setup/css/custom_style.css">
+      <link rel="stylesheet" href="../css/custom_style.css">
     
-    <script>__md_scope=new URL("/python-dev-setup/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -79,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#mac" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,9 +96,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/python-dev-setup/." title="Python Dev Setup" class="md-header__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
+    <a href=".." title="Python Dev Setup" class="md-header__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
       
-  <img src="/python-dev-setup/img/code_logo.png" alt="logo">
+  <img src="../img/code_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -107,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              1. Run Scripts from Command Line
             
           </span>
         </div>
@@ -208,9 +215,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/python-dev-setup/." title="Python Dev Setup" class="md-nav__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
+    <a href=".." title="Python Dev Setup" class="md-nav__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
       
-  <img src="/python-dev-setup/img/code_logo.png" alt="logo">
+  <img src="../img/code_logo.png" alt="logo">
 
     </a>
     Python Dev Setup
@@ -238,7 +245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Home
       </a>
     </li>
@@ -251,11 +258,75 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/python-dev-setup/1-run_scripts_cmd_line/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. Run Scripts from Command Line
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         1. Run Scripts from Command Line
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-a-wsl-environment" class="md-nav__link">
+    Set Up a WSL Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-your-terminal" class="md-nav__link">
+    Format Your Terminal
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -293,7 +364,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/python-dev-setup/2-git_version_control/">2. Version Control Your Code</a>
+          <a href="../2-git_version_control/">2. Version Control Your Code</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -316,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/2-git_version_control/useful_git_commands/" class="md-nav__link">
+      <a href="../2-git_version_control/useful_git_commands/" class="md-nav__link">
         Useful Git Commands
       </a>
     </li>
@@ -330,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/2-git_version_control/git_dif_excel_workaround/" class="md-nav__link">
+      <a href="../2-git_version_control/git_dif_excel_workaround/" class="md-nav__link">
         Git Diff Excel Workaround
       </a>
     </li>
@@ -344,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/2-git_version_control/archive_branch/" class="md-nav__link">
+      <a href="../2-git_version_control/archive_branch/" class="md-nav__link">
         archive_branch.sh
       </a>
     </li>
@@ -358,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/2-git_version_control/sync_git_branches/" class="md-nav__link">
+      <a href="../2-git_version_control/sync_git_branches/" class="md-nav__link">
         sync_git_branches.sh
       </a>
     </li>
@@ -380,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/3-edit_with_vscode/" class="md-nav__link">
+      <a href="../3-edit_with_vscode/" class="md-nav__link">
         3. Edit and Debug Your Code
       </a>
     </li>
@@ -395,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/4-mambaforge_python_env/" class="md-nav__link">
+      <a href="../4-mambaforge_python_env/" class="md-nav__link">
         4. Manage Your Python Version
       </a>
     </li>
@@ -410,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python-dev-setup/5-poetry_package_manager/" class="md-nav__link">
+      <a href="../5-poetry_package_manager/" class="md-nav__link">
         5. Manage Your Python Package Versions
       </a>
     </li>
@@ -435,6 +506,48 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-a-wsl-environment" class="md-nav__link">
+    Set Up a WSL Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-your-terminal" class="md-nav__link">
+    Format Your Terminal
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -444,8 +557,121 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/1-run_scripts_cmd_line.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
+
+
+  <h1>1. Run Scripts from Command Line</h1>
+
+<h2 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h2>
+<p>Mac's Terminal app is ideal for this because Mac has a Linux based OS and most apps are deployed to Linux machines in Production due to their cost effectiveness. </p>
+<h2 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<p>Since Window's is not a Linux based OS, you can set up a Linux virtual environment with WSL.</p>
+<h3 id="set-up-a-wsl-environment">Set Up a WSL Environment<a class="headerlink" href="#set-up-a-wsl-environment" title="Permanent link">&para;</a></h3>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL Article Reference</a></p>
+<p>NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below</p>
+<ol>
+<li>Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device<ul>
+<li><img src="../img/wsl-1.png" alt="img" width=300></li>
+</ul>
+</li>
+<li>Run the command <code>wsl --install</code><ul>
+<li>This will take a few minutes, but on successful complete, you should see the below output</li>
+<li><img src="../img/wsl_2.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Restart your computer</li>
+<li>When you log back in, you will now see an Ubunutu terminal loaded<ul>
+<li><img src="../img/wsl-3.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Close out of the Ubuntu window, and open PowerShell</li>
+<li>Run the command <code>wsl -l -v</code> to list your installed Linux DIstributions and you should see something like the following<ul>
+<li>NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL</li>
+<li><img src="../img/wsl-4.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>To launch your default Linux distribution from PowerShell, simply run the command <code>wsl</code><ul>
+<li><img src="../img/wsl-5.png" alt="img" width=500></li>
+</ul>
+</li>
+</ol>
+<h2 id="format-your-terminal">Format Your Terminal<a class="headerlink" href="#format-your-terminal" title="Permanent link">&para;</a></h2>
+<p>No matter the command line interface (CLI) used, it helps to format your CLI to work well with Git so that you know what branch you are working on and don't accidentally commit code to the wrong branch.</p>
+<p><strong>NOTE:</strong> Code below found in <a href="https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e">this Medium article</a></p>
+<ol>
+<li>Open your terminal of choice (i.e. Mac users default terminal/ Windows users WSL)</li>
+<li>Cd to your home directory<ul>
+<li><code>cd ~</code></li>
+</ul>
+</li>
+<li>Create .bash_profile file if it doesn't already exist<ul>
+<li><code>touch .bash_profile</code></li>
+</ul>
+</li>
+<li>Open .bash_profile<ul>
+<li>Mac: <code>open .bash_profile</code></li>
+<li>WSL: <code>vim .bash_profile</code></li>
+</ul>
+</li>
+<li>Add this line to the bottom of the file<ul>
+<li><code>source ~/.bash_prompt</code></li>
+<li>NOTE: In vim, type <code>i</code> to enter INSERT mode and then right click to paster the copied text. Press <code>esc</code> to exit INSERT mode. Type <code>:wq</code> and press enter to save and close the file.</li>
+</ul>
+</li>
+<li>Create .bash_prompt file<ul>
+<li><code>touch .bash_prompt</code></li>
+</ul>
+</li>
+<li>Open .bash_prompt file<ul>
+<li>Mac: <code>open .bash_prompt</code> </li>
+<li>Windows: <code>notepad .bash_prompt</code> </li>
+</ul>
+</li>
+<li>Add these lines to your file
+    <div class="highlight"><pre><span></span><code>#!/usr/bin/env bash
+
+# GIT FUNCTIONS
+git_branch() {
+git branch 2&gt;/dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \\(.*$ \\(.*\\)/  (\\1)/&#39;
+}
+
+# TERMINAL PROMPT
+PS1=&quot;\[\e[0;93m\]\u\[\e[m\]&quot;    # username
+PS1+=&quot; &quot;    # space
+PS1+=&quot;\[\e[0;95m\]\W\[\e[m\]&quot;    # current directory
+PS1+=&quot; &quot;      # space
+PS1+=&quot;\[\e[0;92m\]\$(git_branch)\[\e[m\]&quot;  # current branch
+PS1+=&quot; &quot;      # space
+PS1+=&quot;&gt;&gt; &quot;    # end prompt
+export PS1;
+
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+</code></pre></div></li>
+<li>Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch <ul>
+<li>Mac:<ul>
+<li><img src="../img/terminal_formatting.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>WSL: <ul>
+<li><img src="../img/wsl_terminal.png" alt="img" width=500></li>
+<li><img src="../img/wsl_terminal2.png" alt="img" width=500></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+  
+
+
+
+              
             </article>
             
           </div>
@@ -459,6 +685,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2-git_version_control/" class="md-footer__link md-footer__link--next" aria-label="Next: Git Version Control" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Git Version Control
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -550,10 +812,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "/python-dev-setup/", "features": ["navigation.instant", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "/python-dev-setup/assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="/python-dev-setup/assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

@@ -10,12 +10,14 @@
         <meta name="author" content="@jillvillany">
       
       
+        <link rel="canonical" href="https://jillvillany.github.io/python-dev-setup/5-poetry_package_manager/">
+      
       <link rel="icon" href="../img/code_logo.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
     
     
       
-        <title>2. Version Control Your Code - Python Dev Setup</title>
+        <title>5. Manage Your Python Package Versions - Python Dev Setup</title>
       
     
     
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-install" class="md-skip">
+        <a href="#install" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. Version Control Your Code
+              5. Manage Your Python Package Versions
             
           </span>
         </div>
@@ -258,8 +260,150 @@
   
   
     <li class="md-nav__item">
-      <a href="../run_scripts_cmd_line/" class="md-nav__link">
+      <a href="../1-run_scripts_cmd_line/" class="md-nav__link">
         1. Run Scripts from Command Line
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../2-git_version_control/">2. Version Control Your Code</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="2. Version Control Your Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2. Version Control Your Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/useful_git_commands/" class="md-nav__link">
+        Useful Git Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/git_dif_excel_workaround/" class="md-nav__link">
+        Git Diff Excel Workaround
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/archive_branch/" class="md-nav__link">
+        archive_branch.sh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-git_version_control/sync_git_branches/" class="md-nav__link">
+        sync_git_branches.sh
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-edit_with_vscode/" class="md-nav__link">
+        3. Edit and Debug Your Code
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-mambaforge_python_env/" class="md-nav__link">
+        4. Manage Your Python Version
       </a>
     </li>
   
@@ -281,12 +425,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2. Version Control Your Code
+          5. Manage Your Python Package Versions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2. Version Control Your Code
+        5. Manage Your Python Package Versions
       </a>
       
         
@@ -303,84 +447,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-install" class="md-nav__link">
-    Git Install
+  <a href="#install" class="md-nav__link">
+    Install
   </a>
   
-    <nav class="md-nav" aria-label="Git Install">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specify-project-dependencies" class="md-nav__link">
+    Specify Project Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-poetrylock-file" class="md-nav__link">
+    Create poetry.lock file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-project-dependencies" class="md-nav__link">
+    Install Project Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-poetry-commands" class="md-nav__link">
+    Useful Poetry Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Poetry Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mac" class="md-nav__link">
-    Mac
+  <a href="#install-requirements" class="md-nav__link">
+    Install requirements
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    Windows
+  <a href="#add-a-package" class="md-nav__link">
+    Add a package
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#red-hat-linux" class="md-nav__link">
-    Red Hat Linux
+  <a href="#remove-a-package" class="md-nav__link">
+    Remove a package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-poetrylock-file-to-requirementstxt" class="md-nav__link">
+    Convert poetry.lock file to requirements.txt
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-git-username-and-email" class="md-nav__link">
-    Set Git Username and Email
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-ssh-auth" class="md-nav__link">
-    Configure SSH Auth
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure SSH Auth">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#personal-machine-ssh-auth" class="md-nav__link">
-    Personal Machine SSH Auth
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shared-machine-ssh-auth" class="md-nav__link">
-    Shared Machine SSH Auth
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#machine-type-agnostic-steps" class="md-nav__link">
-    Machine Type Agnostic Steps
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-git-commands" class="md-nav__link">
-    Useful Git Commands
-  </a>
   
 </li>
       
@@ -417,84 +548,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-install" class="md-nav__link">
-    Git Install
+  <a href="#install" class="md-nav__link">
+    Install
   </a>
   
-    <nav class="md-nav" aria-label="Git Install">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specify-project-dependencies" class="md-nav__link">
+    Specify Project Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-poetrylock-file" class="md-nav__link">
+    Create poetry.lock file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-project-dependencies" class="md-nav__link">
+    Install Project Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-poetry-commands" class="md-nav__link">
+    Useful Poetry Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Poetry Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mac" class="md-nav__link">
-    Mac
+  <a href="#install-requirements" class="md-nav__link">
+    Install requirements
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    Windows
+  <a href="#add-a-package" class="md-nav__link">
+    Add a package
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#red-hat-linux" class="md-nav__link">
-    Red Hat Linux
+  <a href="#remove-a-package" class="md-nav__link">
+    Remove a package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-poetrylock-file-to-requirementstxt" class="md-nav__link">
+    Convert poetry.lock file to requirements.txt
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-git-username-and-email" class="md-nav__link">
-    Set Git Username and Email
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-ssh-auth" class="md-nav__link">
-    Configure SSH Auth
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure SSH Auth">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#personal-machine-ssh-auth" class="md-nav__link">
-    Personal Machine SSH Auth
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shared-machine-ssh-auth" class="md-nav__link">
-    Shared Machine SSH Auth
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#machine-type-agnostic-steps" class="md-nav__link">
-    Machine Type Agnostic Steps
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-git-commands" class="md-nav__link">
-    Useful Git Commands
-  </a>
   
 </li>
       
@@ -510,319 +628,101 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/git_version_control.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/5-poetry_package_manager.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-  <h1>2. Version Control Your Code</h1>
+  <h1>5. Manage Your Python Package Versions</h1>
 
-<h2 id="git-install">Git Install<a class="headerlink" href="#git-install" title="Permanent link">&para;</a></h2>
-<h3 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Install Apple Xcode developer tools<ul>
-<li><code>xcode-select --install</code></li>
-</ul>
-</li>
-<li>Download Homebrew: https://brew.sh/<ul>
-<li>Homebrew helps you easily manage installs on a Mac from command-line</li>
-</ul>
-</li>
-<li>Install git using homebrew <br><ul>
-<li><code>brew install git</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
-<ol>
-<li>From PowerShell, open your Ubuntu Linux distribution with <code>wsl</code> and run the command <code>apt install git</code><ul>
-<li><img src="img/wsl_install_git.png" alt="img" width=500></li>
-<li>NOTE: If you forgot your password (or were not prompted to set one upon initial WSL install), you can reset your password using the following steps:<ul>
-<li>Exit the Linux distribution you are in with the command <code>exit</code></li>
-<li>Re-enter the Linux distribution as the root user <code>wsl -u root</code></li>
-<li>Enter the command <code>passwd {your username}</code> and type in the new password<ul>
-<li><img src="img/reset_wsl_pw.png" alt="img" width=500></li>
-<li>NOTE: your username is what you saw in the command prompt when you weren't at the root<ul>
-<li><img src="img/wsl_username.png" alt="img" width=200></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Exit the Linux Distribution with <code>exit</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="red-hat-linux">Red Hat Linux<a class="headerlink" href="#red-hat-linux" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Switch to the super user (a.k.a root user)<ul>
-<li><code>sudo su</code></li>
-</ul>
-</li>
-<li>Enter your password</li>
-<li>Install git<ul>
-<li><code>yum install git</code></li>
-</ul>
-</li>
-<li>Switch back to a normal user<ul>
-<li><code>exit</code></li>
-</ul>
-</li>
-</ol>
-<h2 id="set-git-username-and-email">Set Git Username and Email<a class="headerlink" href="#set-git-username-and-email" title="Permanent link">&para;</a></h2>
-<p>In order to commit/ push code to Git you must configure your username and email.</p>
-<ol>
-<li><code>git config --global user.name {your username}</code></li>
-<li><code>git config --global user.email {your email}</code></li>
-</ol>
-<h2 id="configure-ssh-auth">Configure SSH Auth<a class="headerlink" href="#configure-ssh-auth" title="Permanent link">&para;</a></h2>
-<p>To easily authenticate with Github/ Bitbucket (i.e. not need to enter your username/ password every time you pull/push to the repo) you can set up SSH authentication.</p>
-<p>Setting up git authentication on a personal machine (i.e. one that only you will be using) is very simple. However, if multiple user may be using the machine (i.e. a Linux Machine shared by a development team) you will want to follow a few additional step so that commits can be distinguished by user.</p>
-<h3 id="personal-machine-ssh-auth">Personal Machine SSH Auth<a class="headerlink" href="#personal-machine-ssh-auth" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create an SSH key pair with the command <code>ssh-keygen</code> and press enter to accept all the default<ul>
-<li><img src="img/wsl_keygen.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Copy the content of the id_rsa.pub file using the <code>cat {path to your file}</code> command<ul>
-<li>For example, <code>cat ~/.ssh/id_rsa.pub</code></li>
-</ul>
-</li>
-<li>See the <a href="#machine-type-agnostic-steps">Machine Type Agnostic Steps</a> section for remaining steps</li>
-</ol>
-<h3 id="shared-machine-ssh-auth">Shared Machine SSH Auth<a class="headerlink" href="#shared-machine-ssh-auth" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create an SSH key pair with the command <code>ssh-keygen</code>, adding your git profile to the end of the id_rsa file name instead of accepting all default<ul>
-<li>For example: 
-    <code>Users/jillvillany/.ssh/id_rsa_jillvillany</code><ul>
-<li><img src="img/ssh_keygen.png" alt="img" width=500></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Navigate to where the ssh key pair was created using the <code>cd {path to ssh folder}</code> command<ul>
-<li>For example: <code>cd Users/jillvillany/.ssh</code></li>
-</ul>
-</li>
-<li>Create the config file
-    <div class="highlight"><pre><span></span><code>touch config
-vim config
-</code></pre></div><ul>
-<li><strong>NOTE:</strong> Git username vairable is case sensitive</li>
-<li>If using Github, add the below to your config file:
-    <div class="highlight"><pre><span></span><code>Host github-{git username}
- HostName github.com
- IdentityFile ~/.ssh/id_rsa_{git username}
- IdentitiesOnly yes
-</code></pre></div></li>
-<li>If using Github Enterprise (i.e. IBM), add the below to yuur config file:
-    <div class="highlight"><pre><span></span><code>Host github-{git username}
-    HostName github.ibm.com
-    IdentityFile ~/.ssh/id_rsa_{git username}
-    IdentitiesOnly yes
-</code></pre></div></li>
-<li>If Bitbucket:
-    <div class="highlight"><pre><span></span><code>Host bitbucket.org-{git username}
- HostName bitbucket.org
- User git
- IdentityFile ~/.ssh/id_rsa_{git username}
- IdentitiesOnly yes
-</code></pre></div></li>
-<li><strong>NOTE:</strong> If you have other users to add, create similar entries below in the file</li>
-</ul>
-</li>
-<li>Copy the contents of the <code>id_rsa_{git username}.pub</code> file using the <code>cat id_rsa_{git username}.pub</code> command</li>
-</ol>
-<h3 id="machine-type-agnostic-steps">Machine Type Agnostic Steps<a class="headerlink" href="#machine-type-agnostic-steps" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Add SSH key in Github or Bitbucket  <ul>
-<li>In Github:<ul>
-<li>Navigate to Settings &gt; SSH and GPG keys</li>
-<li><img src="img/git_settings.png" alt="img" width=500></li>
-<li>Click New SSH key and add the contents of your <code>id_rsa_{git username}.pub</code> file in the key field</li>
-</ul>
-</li>
-<li>In Bitbucket:<ul>
-<li>Navigate to personal settings</li>
-<li><img src="img/bitbucket_settings.png" alt="img" width=300></li>
-<li>Select SSH Key &gt; Add Key add the contents of your <code>id_rsa_{git username}.pub</code> file in the key field</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Add the SSH key to the SSH agent
-    <div class="highlight"><pre><span></span><code>ssh-add ~/.ssh/id_rsa_{git username}
-</code></pre></div><ul>
-<li>NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with "eval `ssh-agent`"</li>
-<li><img src="img/start_ssh_agent_wsl.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Test your SSH connection<ul>
-<li>If on a personal machine:<ul>
-<li>Github: <code>ssh -T git@github.com</code><ul>
-<li><img src="img/github_connected_wsl.png" alt="img" width=500></li>
-</ul>
-</li>
-<li>Github Enterprise (i.e. IBM): <code>ssh -T git@github.ibm.com</code></li>
-<li>Bitbucket: <code>ssh -T git@bitbucket.org</code></li>
-</ul>
-</li>
-<li>If on a shared machine:<ul>
-<li>Github: <code>ssh -T git@github-{your username}</code></li>
-<li>Github Enterprise (i.e. IBM): <code>ssh -T git@github.ibm-{your username}</code></li>
-<li>Bitbucket: <code>ssh -T git@bitbucket.org-{your username}</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="useful-git-commands">Useful Git Commands<a class="headerlink" href="#useful-git-commands" title="Permanent link">&para;</a></h2>
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Commands</th>
-    <th>Notes</th>
-  </tr>
-  <tr>
-    <td>Clone repo with SSH auth</td>
-    <td>
-        <ul>
-            <li>On a new repo</li>
-                <ul>
-                    <li>Select SSH when you clone the code and copy the URL</li>
-                        <ul>
-                            <li><img src="img/ssh_clone.png" alt="img" width=500></li>
-                        </ul>
-                    <li>Enter the command <mark>git clone {SSH URL}</mark></li>
-                        <ul>
-                            <li>For example: <mark>git clone git@github.com:jillvillany/python-dev-setup.git</mark></li>
-                            <li><img src="img/ssh-clone-success.png" alt="img" width=500></li>
-                        </ul>
-                </ul>
-            <li>On an existing git repo (i.e. if had cloned this repo using username and password auth)</li>
-                <ul>
-                    <li>Set the remote URL to the URL used with ssh</li>
-                        <ul>
-                            <li><mark>git remote set-url origin {SSH URL}</mark></li>
-                        </ul>
-                    <li>Now try <mark>git push</mark></li>
-                    <li>Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password</li>
-                        <ul>
-                            <li><img src="img/ssh-success.png" alt="img" width=500></li>
-                        </ul>
-                </ul>
-        </ul>
-    </td>
-    <td>
-        <ul>
-            <li> <b>IMP NOTE:</b> If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides</li>
-            <ul>
-                <li>For example, in <mark>git@github.com:jillvillany/python-dev-setup.git</mark> replace <mark>.com</mark> with <mark>-{username}</mark> -> <mark>git@github-jillvillany:jillvillany/python-dev-setup.git<mark><li>
-            </ul>
-        </ul>
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <ul>
+<li>Install <code>poetry</code> with the following command:
+    <code>curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -</code></li>
+<li>Restart your terminal</li>
+<li>Enter <code>poetry</code> and you should see a list of commands returned</li>
+</ul>
+<h2 id="specify-project-dependencies">Specify Project Dependencies<a class="headerlink" href="#specify-project-dependencies" title="Permanent link">&para;</a></h2>
+<p>When you are first creating the project, you will use <code>poetry init</code> to interactively create the <code>pyproject.toml</code> file.</p>
+<p>For example, to create specify this project's dependencies, I followed the steps below:</p>
+<ol>
 <li>
-<p>Clone repo with SSH auth</p>
+<p>Create a conda environment with the same name as the project folder</p>
 <ul>
-<li><strong>IMP NOTE</strong>: If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides<ul>
-<li>For example, in <code>git@github.com:jillvillany/python-dev-setup.git</code> replace ".com" with "-{username}" -&gt; <code>git@github-jillvillany:jillvillany/python-dev-setup.git</code></li>
+<li><code>conda create -n python-dev-setup python=3.9</code></li>
+<li><img src="../img/conda_env_created.png" alt="img" width=500></li>
 </ul>
 </li>
-<li>On a new repo:<ul>
-<li>Select SSH when you clone the code and copy the URL<ul>
-<li><img src="img/ssh_clone.png" alt="img" width=500></li>
+<li>
+<p>Run <code>poetry init</code></p>
+<ul>
+<li>Press enter to accept the defaults until you get to the questions on defining dependencies interactivaly<ul>
+<li><img src="../img/poetry-init1.png" alt="img" width=500></li>
 </ul>
 </li>
-<li>Enter the command <code>git clone {SSH URL}</code><ul>
-<li>For example: <code>git clone git@github.com:jillvillany/python-dev-setup.git</code></li>
-<li><img src="img/ssh-clone-success.png" alt="img" width=500></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>On an existing git repo (i.e. if had cloned this repo using username and password auth)<ul>
-<li>Set the remote URL to the URL used with ssh</li>
-<li><code>git remote set-url origin {SSH URL}</code></li>
-<li>Now try <code>git push</code></li>
-<li>Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password<ul>
-<li><img src="img/ssh-success.png" alt="img" width=500></li>
-</ul>
-</li>
+<li>I find it easier to specificy the dependencies individually later vs. at this step. So, I enter no to both questions and then press enter to confirm generation.<ul>
+<li><img src="../img/poetry-init2.png" alt="img" width=500></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>Add new/ modified files, commit and push changes
-    <div class="highlight"><pre><span></span><code>git pull 
-git add {relative file path}
-git commit -m &quot;commit message&quot;
-git push
+<p>You will now see a <code>pyproject.toml</code> file created</p>
+</li>
+</ol>
+<p><strong>NOTE:</strong> If you are converting a project that currently uses a <code>requirements.txt</code> file, you can just fill in the template below instead of using poetry init:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="err">```</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="k">tool</span><span class="o">.</span><span class="n">poetry</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{repo/project name}&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{free text description}&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;README.md&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{git repo link}&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">documentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{site url if applicable}&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;{full name} &lt;{email}&gt;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">[</span><span class="k">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">dependencies</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;=={Python version}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">[</span><span class="k">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">dev</span><span class="o">-</span><span class="n">dependencies</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;poetry-core&gt;=1.0.0&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">build</span><span class="o">-</span><span class="n">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;poetry.core.masonry.api&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="err">```</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="create-poetrylock-file">Create poetry.lock file<a class="headerlink" href="#create-poetrylock-file" title="Permanent link">&para;</a></h2>
+<p>The first time you run <code>poetry install</code> or add a package with <code>poetry add {package name}</code>, the <code>poetry.lock</code> file is created </p>
+<p>After adding the dependencies needed with <code>poetry add</code>, push the <code>pyproject.toml</code> and <code>poetry.lock</code> files to the remote repo. </p>
+<h2 id="install-project-dependencies">Install Project Dependencies<a class="headerlink" href="#install-project-dependencies" title="Permanent link">&para;</a></h2>
+<p>Now that the lock file is created, other team members can simply:</p>
+<ol>
+<li>Create a conda environment using python version 3.9</li>
+<li>Run <code>poetry install</code></li>
+</ol>
+<p>After these steps, they will be working with the same dependencies you are using!</p>
+<h2 id="useful-poetry-commands">Useful Poetry Commands<a class="headerlink" href="#useful-poetry-commands" title="Permanent link">&para;</a></h2>
+<h3 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>poetry install
+</code></pre></div>
+<h3 id="add-a-package">Add a package<a class="headerlink" href="#add-a-package" title="Permanent link">&para;</a></h3>
+<p>This will install the latest package version. The <code>pyproject.toml</code> will show a version greater than or equal to the version is required and the <code>poetry.lock</code> file will update to specify the specific version installed.
+<div class="highlight"><pre><span></span><code>poetry add {package name}
 </code></pre></div></p>
 <ul>
-<li><strong>IMPORTANT:</strong> If multiple users are working in the directory, be sure to set the git config user.email before pushing so that commits belong to the user that made the change
-<div class="highlight"><pre><span></span><code>git config user.email {your email}
-</code></pre></div></li>
+<li><strong>NOTE:</strong> If you need to install a version other than the latest version, you can specify <code>poetry add {package name}=={version}</code></li>
 </ul>
-</li>
-<li>Undo all local changes to the checked out branch
-    <div class="highlight"><pre><span></span><code>git stash
-</code></pre></div></li>
-<li>Undo local changes to a particular file
-    <div class="highlight"><pre><span></span><code>git checkout --{file name}
-</code></pre></div></li>
-<li>Create a New Branch
-    <div class="highlight"><pre><span></span><code>git checkout -b {branch name} {branch making new branch from}
-git push -u origin {branch name}
-</code></pre></div></li>
-<li>Abort a merge
-    <div class="highlight"><pre><span></span><code>git merge --abort
-</code></pre></div></li>
-<li>Revert to a previous commit
-    <div class="highlight"><pre><span></span><code>git revert {commit hash}
-</code></pre></div><ul>
-<li><strong>NOTE:</strong> See <a href="https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit">this stack overflow post</a> for more details</li>
-</ul>
-</li>
-<li>Archive &amp; Delete a Branch
-    <div class="highlight"><pre><span></span><code>git tag archive/{branchname} {branchname}
-git push origin --tags
-git branch -d {branchname}
-git push -d origin {branch_name}
-</code></pre></div><ul>
-<li><strong>NOTE:</strong> If need to delete a created tag
-<div class="highlight"><pre><span></span><code>git tag -d
-</code></pre></div></li>
-<li><strong>NOTE:</strong> The process of archiving numerous branches can get tedious. See the <a href="https://github.com/jillvillany/python-dev-setup/blob/main/archive_branch.sh">archive_branch.sh</a> script in this repo for an automated way to archive branches.</li>
-</ul>
-</li>
-<li>Restore an archived branch
-    <div class="highlight"><pre><span></span><code>git checkout -b {branch name} archive/{archived branch name}
-</code></pre></div></li>
-<li>Maintain a Forked Repo<ul>
-<li>Sync your forked version of the repo with the most updated version of the main repo<ul>
-<li><code>git checkout master</code></li>
-<li>If not already done: <code>git remote add upstream {ssh url}</code> </li>
-<li><code>git fetch upstream</code></li>
-<li><code>git rebase upstream/master</code></li>
-<li><code>git push -u origin</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>For other useful commands delivered in an entertaining way see: https://ohshitgit.com/</p>
+<h3 id="remove-a-package">Remove a package<a class="headerlink" href="#remove-a-package" title="Permanent link">&para;</a></h3>
+<p>This will update the <code>pyproject.toml</code> and <code>poetry.lock</code> files
+<div class="highlight"><pre><span></span><code>poetry remove {package name}
+</code></pre></div></p>
+<h3 id="convert-poetrylock-file-to-requirementstxt">Convert <code>poetry.lock</code> file to <code>requirements.txt</code><a class="headerlink" href="#convert-poetrylock-file-to-requirementstxt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>poetry export -f requirements.txt -o requirements.txt --without-hashes
+</code></pre></div>
 
 
   
@@ -848,7 +748,7 @@ git push -d origin {branch_name}
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../run_scripts_cmd_line/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Run Scripts from Command Line" rel="prev">
+        <a href="../4-mambaforge_python_env/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Manage Your Python Version" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -857,7 +757,7 @@ git push -d origin {branch_name}
               <span class="md-footer__direction">
                 Previous
               </span>
-              1. Run Scripts from Command Line
+              4. Manage Your Python Version
             </div>
           </div>
         </a>

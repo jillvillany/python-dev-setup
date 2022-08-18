@@ -1,0 +1,1364 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="@jillvillany">
+      
+      
+        <link rel="canonical" href="https://jillvillany.github.io/python-dev-setup/2-git_version_control/useful_git_commands/">
+      
+      <link rel="icon" href="../../img/code_logo.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Useful Git Commands - Python Dev Setup</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom_style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2VRMGL6YZV"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){n("config","G-2VRMGL6YZV",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2VRMGL6YZV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#get-repo" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python Dev Setup" class="md-header__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
+      
+  <img src="../../img/code_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Dev Setup
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Useful Git Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="gray" data-md-color-accent="white"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jillvillany/python-dev-setup" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-dev-setup
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python Dev Setup" class="md-nav__button md-logo" aria-label="Python Dev Setup" data-md-component="logo">
+      
+  <img src="../../img/code_logo.png" alt="logo">
+
+    </a>
+    Python Dev Setup
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jillvillany/python-dev-setup" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-dev-setup
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-run_scripts_cmd_line/" class="md-nav__link">
+        1. Run Scripts from Command Line
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">2. Version Control Your Code</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="2. Version Control Your Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2. Version Control Your Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Useful Git Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Useful Git Commands
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-repo" class="md-nav__link">
+    Get Repo
+  </a>
+  
+    <nav class="md-nav" aria-label="Get Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-repo-with-ssh-auth" class="md-nav__link">
+    Clone repo with SSH auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-repo-to-ssh-auth" class="md-nav__link">
+    Switch Repo to SSH auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintain-a-forked-repo" class="md-nav__link">
+    Maintain a Forked Repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-changes" class="md-nav__link">
+    File Changes
+  </a>
+  
+    <nav class="md-nav" aria-label="File Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-new-modified-files" class="md-nav__link">
+    Add new/ modified files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amend-last-commit-message" class="md-nav__link">
+    Amend last commit message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-text-of-unpushed-commit" class="md-nav__link">
+    See text of unpushed commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-all-local-changes-to-the-checked-out-branch" class="md-nav__link">
+    Undo all local changes to the checked out branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-local-changes-to-a-particular-file" class="md-nav__link">
+    Undo local changes to a particular file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branches" class="md-nav__link">
+    Branches
+  </a>
+  
+    <nav class="md-nav" aria-label="Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-publish-a-new-branch" class="md-nav__link">
+    Create &amp; Publish a New Branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-delete-a-branch" class="md-nav__link">
+    Archive &amp; Delete a Branch
+  </a>
+  
+    <nav class="md-nav" aria-label="Archive &amp; Delete a Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archive_branchsh" class="md-nav__link">
+    archive_branch.sh
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-an-archived-branch" class="md-nav__link">
+    Restore an archived branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merges" class="md-nav__link">
+    Merges
+  </a>
+  
+    <nav class="md-nav" aria-label="Merges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abort-a-merge" class="md-nav__link">
+    Abort a merge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ours-vs-theirs" class="md-nav__link">
+    Ours vs Theirs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undo" class="md-nav__link">
+    Undo
+  </a>
+  
+    <nav class="md-nav" aria-label="Undo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revert-to-a-previous-commit" class="md-nav__link">
+    Revert to a previous commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revert-specific-file-to-previous-commit" class="md-nav__link">
+    Revert specific file to previous commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-last-commit-keep-changes-in-staged" class="md-nav__link">
+    Undo last commit - keep changes in staged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-file-added-before-last-commit" class="md-nav__link">
+    Remove file added before last commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare" class="md-nav__link">
+    Compare
+  </a>
+  
+    <nav class="md-nav" aria-label="Compare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compare-your-local-branch-to-origin" class="md-nav__link">
+    Compare your local branch to origin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-lfs" class="md-nav__link">
+    Git LFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Git LFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#track-a-file-with-git-lfs" class="md-nav__link">
+    Track a file with git lfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-files-currently-tracked" class="md-nav__link">
+    See files currently tracked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-lfs-files-committed-or-staged-for-commit" class="md-nav__link">
+    See lfs files committed or staged for commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_dif_excel_workaround/" class="md-nav__link">
+        Git Diff Excel Workaround
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive_branch/" class="md-nav__link">
+        archive_branch.sh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync_git_branches/" class="md-nav__link">
+        sync_git_branches.sh
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-edit_with_vscode/" class="md-nav__link">
+        3. Edit and Debug Your Code
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-mambaforge_python_env/" class="md-nav__link">
+        4. Manage Your Python Version
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-poetry_package_manager/" class="md-nav__link">
+        5. Manage Your Python Package Versions
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-repo" class="md-nav__link">
+    Get Repo
+  </a>
+  
+    <nav class="md-nav" aria-label="Get Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-repo-with-ssh-auth" class="md-nav__link">
+    Clone repo with SSH auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-repo-to-ssh-auth" class="md-nav__link">
+    Switch Repo to SSH auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintain-a-forked-repo" class="md-nav__link">
+    Maintain a Forked Repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-changes" class="md-nav__link">
+    File Changes
+  </a>
+  
+    <nav class="md-nav" aria-label="File Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-new-modified-files" class="md-nav__link">
+    Add new/ modified files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amend-last-commit-message" class="md-nav__link">
+    Amend last commit message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-text-of-unpushed-commit" class="md-nav__link">
+    See text of unpushed commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-all-local-changes-to-the-checked-out-branch" class="md-nav__link">
+    Undo all local changes to the checked out branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-local-changes-to-a-particular-file" class="md-nav__link">
+    Undo local changes to a particular file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branches" class="md-nav__link">
+    Branches
+  </a>
+  
+    <nav class="md-nav" aria-label="Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-publish-a-new-branch" class="md-nav__link">
+    Create &amp; Publish a New Branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-delete-a-branch" class="md-nav__link">
+    Archive &amp; Delete a Branch
+  </a>
+  
+    <nav class="md-nav" aria-label="Archive &amp; Delete a Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archive_branchsh" class="md-nav__link">
+    archive_branch.sh
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-an-archived-branch" class="md-nav__link">
+    Restore an archived branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merges" class="md-nav__link">
+    Merges
+  </a>
+  
+    <nav class="md-nav" aria-label="Merges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abort-a-merge" class="md-nav__link">
+    Abort a merge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ours-vs-theirs" class="md-nav__link">
+    Ours vs Theirs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undo" class="md-nav__link">
+    Undo
+  </a>
+  
+    <nav class="md-nav" aria-label="Undo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revert-to-a-previous-commit" class="md-nav__link">
+    Revert to a previous commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revert-specific-file-to-previous-commit" class="md-nav__link">
+    Revert specific file to previous commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-last-commit-keep-changes-in-staged" class="md-nav__link">
+    Undo last commit - keep changes in staged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-file-added-before-last-commit" class="md-nav__link">
+    Remove file added before last commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare" class="md-nav__link">
+    Compare
+  </a>
+  
+    <nav class="md-nav" aria-label="Compare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compare-your-local-branch-to-origin" class="md-nav__link">
+    Compare your local branch to origin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-lfs" class="md-nav__link">
+    Git LFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Git LFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#track-a-file-with-git-lfs" class="md-nav__link">
+    Track a file with git lfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-files-currently-tracked" class="md-nav__link">
+    See files currently tracked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-lfs-files-committed-or-staged-for-commit" class="md-nav__link">
+    See lfs files committed or staged for commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/2-git_version_control/useful_git_commands.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>Useful Git Commands</h1>
+
+<h2 id="get-repo">Get Repo<a class="headerlink" href="#get-repo" title="Permanent link">&para;</a></h2>
+<h3 id="clone-repo-with-ssh-auth">Clone repo with SSH auth<a class="headerlink" href="#clone-repo-with-ssh-auth" title="Permanent link">&para;</a></h3>
+<p><strong>IMP NOTE:</strong> If you are an SSH config file so multiple git users can be on the same machine (i.e. as done in instructions above), you must modify the SSH URL git provides</p>
+<p>For example, in <code>git@github.com:jillvillany/python-dev-setup.git</code> replace ".com" with "-{username}" -&gt; <code>git@github-jillvillany:jillvillany/python-dev-setup.git</code></p>
+<ol>
+<li>Select SSH when you clone the code and copy the URL<ul>
+<li><img src="../../img/ssh_clone.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Enter the command <code>git clone {SSH URL}</code><ul>
+<li>For example: <code>git clone git@github.com:jillvillany/python-dev-setup.git</code></li>
+<li><img src="../../img/ssh-clone-success.png" alt="img" width=500></li>
+</ul>
+</li>
+</ol>
+<h3 id="switch-repo-to-ssh-auth">Switch Repo to SSH auth<a class="headerlink" href="#switch-repo-to-ssh-auth" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Set the remote URL to the URL used with ssh<ul>
+<li><code>git remote set-url origin {SSH URL}</code></li>
+</ul>
+</li>
+<li>Now try <code>git push</code></li>
+<li>Answer yes to the prompt and you will see git connects/ shows everything up to date without prompting for username/ password<ul>
+<li><img src="../../img/ssh-success.png" alt="img" width=500></li>
+</ul>
+</li>
+</ol>
+<h3 id="maintain-a-forked-repo">Maintain a Forked Repo<a class="headerlink" href="#maintain-a-forked-repo" title="Permanent link">&para;</a></h3>
+<p>To sync your forked version of the repo with the most updated version of the main repo:</p>
+<ol>
+<li><code>git checkout master</code></li>
+<li>If not already done: <code>git remote add upstream {ssh url}</code> </li>
+<li><code>git fetch upstream</code></li>
+<li><code>git rebase upstream/master</code></li>
+<li><code>git push -u origin</code></li>
+</ol>
+<h2 id="file-changes">File Changes<a class="headerlink" href="#file-changes" title="Permanent link">&para;</a></h2>
+<h3 id="add-new-modified-files">Add new/ modified files<a class="headerlink" href="#add-new-modified-files" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>git pull 
+git add {relative file path}
+git commit -m &quot;commit message&quot;
+git push
+</code></pre></div>
+<strong>IMPORTANT:</strong> If multiple users are working in the directory, be sure to set the git config user.email before pushing so that commits belong to the user that made the change
+<div class="highlight"><pre><span></span><code>git config user.email {your email}
+</code></pre></div></p>
+<h3 id="amend-last-commit-message">Amend last commit message<a class="headerlink" href="#amend-last-commit-message" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git commit --amend
+</code></pre></div>
+<h3 id="see-text-of-unpushed-commit">See text of unpushed commit<a class="headerlink" href="#see-text-of-unpushed-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git cherry -v
+</code></pre></div>
+<h3 id="undo-all-local-changes-to-the-checked-out-branch">Undo all local changes to the checked out branch<a class="headerlink" href="#undo-all-local-changes-to-the-checked-out-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git stash
+</code></pre></div>
+<h3 id="undo-local-changes-to-a-particular-file">Undo local changes to a particular file<a class="headerlink" href="#undo-local-changes-to-a-particular-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git checkout --{file name}
+</code></pre></div>
+<h2 id="branches">Branches<a class="headerlink" href="#branches" title="Permanent link">&para;</a></h2>
+<h3 id="create-publish-a-new-branch">Create &amp; Publish a New Branch<a class="headerlink" href="#create-publish-a-new-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git checkout -b {branch name} {branch making new branch from}
+git push -u origin {branch name}
+</code></pre></div>
+<h3 id="archive-delete-a-branch">Archive &amp; Delete a Branch<a class="headerlink" href="#archive-delete-a-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git tag archive/{branchname} {branchname}
+git push origin --tags
+git branch -d {branchname}
+git push -d origin {branch_name}
+</code></pre></div>
+<p><strong>NOTE:</strong> If need to delete a created tag</p>
+<div class="highlight"><pre><span></span><code>git tag -d
+</code></pre></div>
+<h4 id="archive_branchsh">archive_branch.sh<a class="headerlink" href="#archive_branchsh" title="Permanent link">&para;</a></h4>
+<p>The process of archiving numerous branches can get tedious. See the <a href="../archive_branch">archive_branch.sh</a> script for an automated way to archive branches.</p>
+<h3 id="restore-an-archived-branch">Restore an archived branch<a class="headerlink" href="#restore-an-archived-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git checkout -b {branch name} archive/{archived branch name}
+</code></pre></div>
+<h2 id="merges">Merges<a class="headerlink" href="#merges" title="Permanent link">&para;</a></h2>
+<h3 id="abort-a-merge">Abort a merge<a class="headerlink" href="#abort-a-merge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git merge --abort
+</code></pre></div>
+<h3 id="ours-vs-theirs">Ours vs Theirs<a class="headerlink" href="#ours-vs-theirs" title="Permanent link">&para;</a></h3>
+<p>You can choose to use the version of the file on your active branch (--ours) or the branch you are merging in (--theirs)</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>git checkout --ours {path to file}
+git add {path to file}
+</code></pre></div></p>
+<h2 id="undo">Undo<a class="headerlink" href="#undo" title="Permanent link">&para;</a></h2>
+<h3 id="revert-to-a-previous-commit">Revert to a previous commit<a class="headerlink" href="#revert-to-a-previous-commit" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>git revert {commit hash}
+</code></pre></div>
+- <strong>NOTE:</strong> See <a href="https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit">this stack overflow post</a> for more details</p>
+<h3 id="revert-specific-file-to-previous-commit">Revert specific file to previous commit<a class="headerlink" href="#revert-specific-file-to-previous-commit" title="Permanent link">&para;</a></h3>
+<p><a href="https://ohshitgit.com/">Reference: https://ohshitgit.com/</a>
+<div class="highlight"><pre><span></span><code># find a hash for a commit before the file was changed
+git log
+# use the arrow keys to scroll up and down in history
+# once you&#39;ve found your commit, save the hash
+git checkout [saved hash] -- path/to/file
+# the old version of the file will be in your index
+git commit -m &quot;Wow, you don&#39;t have to copy-paste to undo&quot;
+</code></pre></div></p>
+<h3 id="undo-last-commit-keep-changes-in-staged">Undo last commit - keep changes in staged<a class="headerlink" href="#undo-last-commit-keep-changes-in-staged" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git reset HEAD~ --soft
+</code></pre></div>
+<h3 id="remove-file-added-before-last-commit">Remove file added before last commit<a class="headerlink" href="#remove-file-added-before-last-commit" title="Permanent link">&para;</a></h3>
+<p>If you accidentally add a file with PII or a file that should be stored with git-lfs, this is super helpful!</p>
+<p>See the following Medium Article for context: <a href="https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a#:~:text=If%20the%20large%20file%20was,HEAD%20to%20edit%20the%20commit">Tutorial: Removing Large Files from Git</a></p>
+<ol>
+<li>Identify the commit before the mistake was made
+<div class="highlight"><pre><span></span><code>git log
+</code></pre></div></li>
+</ol>
+<p>This will show you all the commits from the branch you are on with the latest first:
+<img src="../../img/git-log.png"></p>
+<p>Once you find the last good commit - in this case the "git updates" commit before the "bad file" was added - close out of the git log by typing <code>wq</code></p>
+<ol>
+<li>
+<p>Initiate a rebase between the last good commit and the current commit
+<div class="highlight"><pre><span></span><code>git rebase -i cffbcbcaf2d46a6c60e730c3f580646727bf9a57
+</code></pre></div>
+<strong>IMPORTANT NOTE:</strong> You can abort a rebase at any time with <code>git rebase --abort</code></p>
+</li>
+<li>
+<p>You will be brought into vim where all the commits after the last good commit (here the first 3 lines) are displayed. All the other stuff is just instructions.
+<img src="../../img/git-rebase1.png"></p>
+</li>
+<li>
+<p>You want to edit the first commit with the bad file and pick (i.e. keep without changes) the other two.</p>
+<ul>
+<li>Type <code>i</code> to enter insert mode</li>
+<li>Delete pick and write edit</li>
+<li>Press <code>esc</code> to exit insert mode</li>
+<li>Type <code>:wq</code> to save</li>
+<li><img src="../../img/git-rebase2.png"></li>
+</ul>
+</li>
+<li>
+<p>You are now in a detached, temporary space
+<img src="../../img/git-rebase3.png"></p>
+</li>
+<li>
+<p>Remove the file from git
+<div class="highlight"><pre><span></span><code>git rm --cached bad_file.xlsx
+</code></pre></div>
+<img src="../../img/git-rebase4.png"></p>
+</li>
+<li>
+<p>Delete the file (or add it to git lfs files ). You need to do this becuase if you git status, you will see the file as an untracked file.
+<img src="../../img/git-rebase5.png"></p>
+</li>
+<li>
+<p>Now that you are done with the changes to the commit, amend the commit:
+<div class="highlight"><pre><span></span><code>git commit --amend
+</code></pre></div></p>
+</li>
+<li>
+<p>Use vim to edit the text of the commit from "bad file and formatting updates" to "formatting updates" </p>
+<ul>
+<li>Type <code>i</code> to enter insert mode</li>
+<li>Press <code>esc</code> to exit insert mode</li>
+<li>Type <code>:wq</code> to close and save
+<img src="../../img/git-rebase6.png"></li>
+</ul>
+</li>
+<li>
+<p>Once you save and close the commit amend, you will see the below:
+<img src="../../img/git-rebase7.png"></p>
+</li>
+<li>
+<p>Continue the rebase (it will go until the next edit commit or complete if nothing left to edit). In our case, we have nothing else to edit, so the rebase completes successfully.
+<div class="highlight"><pre><span></span><code>git rebase --continue
+</code></pre></div>
+<img src="../../img/git-rebase8.png"></p>
+</li>
+</ol>
+<p>If you <code>git log</code> again, you will see that commit message is updated but the rest of the history looks the same
+<img src="../../img/git-rebase9.png"></p>
+<ol>
+<li>Push your rebased branch to the remote
+<div class="highlight"><pre><span></span><code>git push --force
+</code></pre></div></li>
+</ol>
+<h2 id="compare">Compare<a class="headerlink" href="#compare" title="Permanent link">&para;</a></h2>
+<h3 id="compare-your-local-branch-to-origin">Compare your local branch to origin<a class="headerlink" href="#compare-your-local-branch-to-origin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git diff origin/branch name
+</code></pre></div>
+<h2 id="git-lfs">Git LFS<a class="headerlink" href="#git-lfs" title="Permanent link">&para;</a></h2>
+<p>Git LFS is used to for large file storage.</p>
+<ul>
+<li>Download and install: <a href="https://git-lfs.github.com/">Git Large File Storage </a></li>
+</ul>
+<h3 id="track-a-file-with-git-lfs">Track a file with git lfs<a class="headerlink" href="#track-a-file-with-git-lfs" title="Permanent link">&para;</a></h3>
+<p>This will add the file paths to the .gitattributes file <br>
+<strong>NOTE:</strong> The .gitattibutes file must be committed before it takes effect</p>
+<div class="highlight"><pre><span></span><code>git lfs track {path to file}
+</code></pre></div>
+<h3 id="see-files-currently-tracked">See files currently tracked<a class="headerlink" href="#see-files-currently-tracked" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git lfs ls-files
+</code></pre></div>
+<h3 id="see-lfs-files-committed-or-staged-for-commit">See lfs files committed or staged for commit<a class="headerlink" href="#see-lfs-files-committed-or-staged-for-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git lfs status
+</code></pre></div>
+
+
+  
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Git Version Control" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Git Version Control
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../git_dif_excel_workaround/" class="md-footer__link md-footer__link--next" aria-label="Next: Git Diff Excel Workaround" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Git Diff Excel Workaround
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+
+  
+
+<h4></h4>
+<p></p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
