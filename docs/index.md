@@ -31,6 +31,7 @@
             <li><a href="2-git_version_control/#install">Install</a></li>
             <li><a href="2-git_version_control/#configure-ssh-auth">Configure SSH Auth</a></li>
             <li><a href="2-git_version_control/useful_git_commands">Useful Commands</a></li>
+            <li><a href="2-git_version_control/git_dif_excel_workaround">Git Diff Excel Workaround</a></li>
             <li>Script automations:</li>
                 <ul>
                     <li><mark><a href="2-git_version_control/archive_branch">archive_branch.sh</a></mark></li>

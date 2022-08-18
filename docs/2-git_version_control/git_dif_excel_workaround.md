@@ -62,11 +62,14 @@ git diff git_dif_excel_demo.xlsx
 ```
 <img src="../../img/no-excel-change.png">
 
-If there were changes,for example changing "hi" in cell A1 to "hello", the output will look like this:
-<img src="../../img/git-excel-changes.png">
+If there were changes,for example changing the text classification of a review in one row from "positive" to "neutral", the output will look like this:
 
-## Exit git diff
-Enter `:wq` to exit the git diff view
+- File before modifications:
+    - <img src="../../img/orig-excel.png" width=300px>
+- File after modifications:
+    - <img src="../../img/updated-excel.png" width=300px>
+- Git diff output
+    - <img src="../../img/git-excel-changes.png">
 
 ## Handle merge conflicts
 You can choose to use the version of the file on your active branch (--ours) or the branch you are merging in (--theirs)

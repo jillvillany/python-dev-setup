@@ -135,6 +135,13 @@ git commit -m "Wow, you don't have to copy-paste to undo"
 git reset HEAD~ --soft
 ```
 
+### Remove file added multiple commits ago
+If you accidentally add a file with PII or a file that should be stored with git-lfs, this is super helpful!
+```
+git rebase -i master
+```
+
+
 ## Compare
 ### Compare your local branch to origin
 ```
