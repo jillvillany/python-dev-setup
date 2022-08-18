@@ -1,0 +1,19 @@
+th {
+  font-weight: bold;
+}
+
+.df-div {
+  overflow-x:auto;
+}
+
+.codehilite code{
+  background-color: white;
+}
+
+/* format like code */
+
+.md-typeset mark { 
+  background-color:#f5f5f5;
+  color: #404e56;
+  padding: 2px
+} 

@@ -1,0 +1,90 @@
+# Project information
+site_name: 'Python Dev Setup'
+site_description: ''
+site_author: '@jillvillany'
+site_url: ''
+
+# Copyright
+# copyright: '&copy; 2021 '
+
+# Repository
+repo_name: 'python-dev-setup'
+repo_url: 'https://github.com/jillvillany/python-dev-setup'
+
+# Configuration
+docs_dir: 'docs'
+theme:
+  name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  logo: img/code_logo.png
+  favicon: img/code_logo.png
+  language: en
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: gray
+      accent: white
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  # snippets extension with check_paths needed if inserting code snippets into markdowns
+  - pymdownx.snippets:
+     check_paths: true
+  - toc:
+      permalink: true
+      separator: '-'
+      toc_depth: 3
+  # needed for the code formatting in md files
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+      lang:
+        - en
+
+# Customization
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML'
+extra_css:
+  - 'css/custom_style.css'
+extra:
+  analytics:
+    provider: google
+    property: G-2VRMGL6YZV
+  manifest: 'manifest.json'
+  social:
+    - icon: 'fontawesome/brands/github-alt'
+      link: ''
+    - icon: 'fontawesome/brands/twitter'
+      link: ''
+  consent:
+    cookies:
+      
+
+
+# Page tree
+nav:
+- Home: index.md
+- 1. Run Scripts from Command Line: run_scripts_cmd_line.md
+- 2. Version Control Your Code: git_version_control.md
