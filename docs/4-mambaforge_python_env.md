@@ -22,6 +22,7 @@
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh
     source ~/.bashrc
+    ```
 
 ## Useful Mambaforge Commands
 
@@ -36,5 +37,5 @@
     ```
 - Deactivate conda environment
     ```bash
-    conda deactivate
+    source deactivate
     ```

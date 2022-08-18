@@ -1,6 +1,6 @@
 ## Install
 
-1. Download Vscode: https://code.visualstudio.com/download
+1. [Download Vscode](https://code.visualstudio.com/download)
 2. Install the extensions below (optional):
 
     - Python
@@ -33,8 +33,6 @@
 
 
 ## Use VSCode with WSL
-[Back to Table of Contents](#Table-of-Contents)
-
 
 1. Once you install tyhe Remote-WSL, navigate to the Remote Explorer tab and connect to your WSL distribution
     - <img src="../img/wsl_targets.png" alt="img" width=500>
@@ -43,7 +41,6 @@
 
 
 ## Configure Remote-SSH Editing
-[Back to Table of Contents](#Table-of-Contents)
 
 When project files are hosted on a Linux Machine, you can easily edit/ debug them as you would local files by taking advantage of VS Code's Remote-SSH extension.
 

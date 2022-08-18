@@ -6,12 +6,27 @@
 - Restart your terminal
 - Enter `poetry` and you should see a list of commands returned
 
-## Use Poetry To Install Project Dependencies
+## Specify Project Dependencies
 
-**NOTE:** For demo purposes, let's pretend this project is dependent on Python version 3.9.6 and pandas
+When you are first creating the project, you will use `poetry init` to interactively create the `pyproject.toml` file.
 
-1. Create a `pyproject.toml` file using the following template (See this repo's [pyproject.toml](https://github.com/jillvillany/python-dev-setup/blob/main/pyproject.toml)):
-    - NOTE: We are assuming this repo represents a project dependent on Python version 3.9.6 and a pandas version greater than or equal to 1.4.1
+For example, to create specify this project's dependencies, I followed the steps below:
+
+1. Create a conda environment with the same name as the project folder
+
+    - `conda create -n python-dev-setup python=3.9`
+    - <img src="../img/conda_env_created.png" alt="img" width=500>
+
+2. Run `poetry init`
+
+    - Press enter to accept the defaults until you get to the questions on defining dependencies interactivaly
+        - <img src="../img/poetry-init1.png" alt="img" width=500>
+    - I find it easier to specificy the dependencies individually later vs. at this step. So, I enter no to both questions and then press enter to confirm generation.
+        - <img src="../img/poetry-init2.png" alt="img" width=500>
+
+3. You will now see a `pyproject.toml` file created
+
+**NOTE:** If you are converting a project that currently uses a `requirements.txt` file, you can just fill in the template below instead of using poetry init:
 
         ```
         [tool.poetry]
@@ -34,32 +49,45 @@
         requires = ["poetry-core>=1.0.0"]
         build-backend = "poetry.core.masonry.api"
         ```
-        
-2. Create a conda environment that uses the Python version specified in the `pyproject.toml` file and active the environment
 
-    - `conda create -n python-dev-setup python=3.9.6`
-    - <img src="../img/conda_env_created.png" alt="img" width=500>
+## Create poetry.lock file
+
+The first time you run `poetry install` or add a package with `poetry add {package name}`, the `poetry.lock` file is created 
+
+After adding the dependencies needed with `poetry add`, push the `pyproject.toml` and `poetry.lock` files to the remote repo. 
+
+## Install Project Dependencies
 
 
-3. Run command `poetry install`
+Now that the lock file is created, other team members can simply:
 
-    - <img src="../img/conda_deps_installed.png" alt="img" width=500>
-    - NOTE: You will see a `poetry.lock` file created. This is important to be committed to your repo so that other team members can install the dependencies from the lock file by running `poetry install`
+1. Create a conda environment using python version 3.9
+2. Run `poetry install`
 
+After these steps, they will be working with the same dependencies you are using!
 
 ## Useful Poetry Commands
 
-- Install the requirements in the poetry.lock file
-    ```
-    poetry install
-    ```
-- Add a package to the pyproject.toml file and update lock file
-    ```
-    poetry add {package name}
-    ```
-    - **NOTE1:** This will install the latest package version. The pyproject.toml will show a version greater than or equal to the version is required and the poetry.lock file will update to specify the specific version installed.
-     - **NOTE2:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
-- Remove a package from the pyproject.toml file and update lock file
-    ```
-    poetry remove {package name}
-    ```
+### Install requirements
+```
+poetry install
+```
+
+### Add a package
+This will install the latest package version. The `pyproject.toml` will show a version greater than or equal to the version is required and the `poetry.lock` file will update to specify the specific version installed.
+```
+poetry add {package name}
+```
+
+- **NOTE:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
+
+### Remove a package
+This will update the `pyproject.toml` and `poetry.lock` files
+```
+poetry remove {package name}
+```
+
+### Convert `poetry.lock` file to `requirements.txt`
+```
+poetry export -f requirements.txt -o requirements.txt --without-hashes
+```
