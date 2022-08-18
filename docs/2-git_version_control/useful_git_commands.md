@@ -154,6 +154,52 @@ Once you find the last good commit - in this case the "git updates" commit befor
 ```
 git rebase -i cffbcbcaf2d46a6c60e730c3f580646727bf9a57
 ```
+**IMPORTANT NOTE:** You can abort a rebase at any time with `git rebase --abort`
+
+3. You will be brought into vim where all the commits after the last good commit (here the first 3 lines) are displayed. All the other stuff is just instructions.
+<img src="../../img/git-rebase1.png">
+
+4. You want to edit the first commit with the bad file and pick (i.e. keep without changes) the other two.
+    - Type `i` to enter insert mode
+    - Delete pick and write edit
+    - Press `esc` to exit insert mode
+    - Type `:wq` to save
+    - <img src="../../img/git-rebase2.png">
+
+5. You are now in a detached, temporary space
+<img src="../../img/git-rebase3.png">
+
+6. Remove the file from git
+```
+git rm --cached bad_file.xlsx
+```
+<img src="../../img/git-rebase4.png">
+
+7. Delete the file (or add it to git lfs files ). You need to do this becuase if you git status, you will see the file as an untracked file.
+<img src="../../img/git-rebase5.png">
+
+8. Now that you are done with the changes to the commit, amend the commit:
+```
+git commit --amend
+```
+
+9. Use vim to edit the text of the commit from "bad file and formatting updates" to "formatting updates" 
+    - Type `i` to enter insert mode
+    - Press `esc` to exit insert mode
+    - Type `:wq` to close and save
+<img src="../../img/git-rebase6.png">
+
+10. Once you save and close the commit amend, you will see the below:
+<img src="../../img/git-rebase7.png">
+
+11. Continue the rebase (it will go until the next edit commit or complete if nothing left to edit). In our case, we have nothing else to edit, so the rebase completes successfully.
+```
+git rebase --continue
+```
+<img src="../../img/git-rebase8.png">
+
+12. If you `git log` again, you will see that commit message is updated but the rest of the history looks the same
+<img src="../../img/git-rebase9.png">
 
 ## Compare
 ### Compare your local branch to origin
