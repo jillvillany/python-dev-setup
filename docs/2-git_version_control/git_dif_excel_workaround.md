@@ -50,6 +50,9 @@ This creates a filter to convert the file to text so that it can still be compar
     - Search for `files.exclude` and remove the `**/.git` item
         - <img src="../../img/remove-git-exclusion.png">
 
+## Push .gitattributes and Excel file
+
+In order for the .gitattributes to take effect it must first at least be committed.
 
 ## Run git diff
 
@@ -59,7 +62,8 @@ git diff git_dif_excel_demo.xlsx
 ```
 <img src="../../img/no-excel-change.png">
 
-If there were changes,for example adding "hi" in cell A1, the output will look like this:
+If there were changes,for example changing "hi" in cell A1 to "hello", the output will look like this:
+<img src="../../img/git-excel-changes.png">
 
 ## Exit git diff
 Enter `:wq` to exit the git diff view
