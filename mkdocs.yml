@@ -2,7 +2,7 @@
 site_name: 'Python Dev Setup'
 site_description: ''
 site_author: '@jillvillany'
-site_url: ''
+site_url: 'https://jillvillany.github.io/python-dev-setup/'
 
 # Copyright
 # copyright: '&copy; 2021 '
@@ -51,7 +51,7 @@ markdown_extensions:
   - toc:
       permalink: true
       separator: '-'
-      toc_depth: 3
+      toc_depth: 4
   # needed for the code formatting in md files
   - attr_list
   - pymdownx.highlight
@@ -86,5 +86,13 @@ extra:
 # Page tree
 nav:
 - Home: index.md
-- 1. Run Scripts from Command Line: run_scripts_cmd_line.md
-- 2. Version Control Your Code: git_version_control.md
+- 1. Run Scripts from Command Line: 1-run_scripts_cmd_line.md
+- 2. Version Control Your Code: 
+  - Git Version Control: 2-git_version_control/index.md
+  - Useful Git Commands: 2-git_version_control/useful_git_commands.md
+  - Git Diff Excel Workaround: 2-git_version_control/git_dif_excel_workaround.md
+  - archive_branch.sh: 2-git_version_control/archive_branch.md
+  - sync_git_branches.sh: 2-git_version_control/sync_git_branches.md
+- 3. Edit and Debug Your Code: 3-edit_with_vscode.md
+- 4. Manage Your Python Version: 4-mambaforge_python_env.md
+- 5. Manage Your Python Package Versions: 5-poetry_package_manager.md

@@ -1,10 +1,14 @@
 ## Mac
+
 Mac's Terminal app is ideal for this because Mac has a Linux based OS and most apps are deployed to Linux machines in Production due to their cost effectiveness. 
+
+
+## Windows
 
 Since Window's is not a Linux based OS, you can set up a Linux virtual environment with WSL.
 
-## Windows
 ### Set Up a WSL Environment
+
 [WSL Article Reference](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below
@@ -71,7 +75,7 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
     ```
 9. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
     - Mac:
-        - ![img](../img/terminal_formatting.png)
+        - <img src="../img/terminal_formatting.png" alt="img" width=500>
     - WSL: 
-        - <img src="../../img/wsl_terminal.png" alt="img" width=500>
-        - <img src="../../img/wsl_terminal2.png" alt="img" width=500>
+        - <img src="../img/wsl_terminal.png" alt="img" width=500>
+        - <img src="../img/wsl_terminal2.png" alt="img" width=500>

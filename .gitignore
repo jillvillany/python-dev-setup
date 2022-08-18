@@ -1,1 +1,8 @@
 .DS_Store
+
+# mkdocs
+site/
+
+# script markdowns
+archive_branch.md
+sync_git_branches.md
