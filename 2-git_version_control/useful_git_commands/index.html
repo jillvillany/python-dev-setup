@@ -1152,6 +1152,17 @@ git commit -m &quot;Wow, you don&#39;t have to copy-paste to undo&quot;
 <li>
 <p>Delete the file (or add it to git lfs files ). You need to do this becuase if you git status, you will see the file as an untracked file.
 <img src="../../img/git-rebase5.png"></p>
+<ul>
+<li><strong>NOTE:</strong> The steps for adding a file to git lfs are:<ul>
+<li><code>git lfs track {path to file}</code><ul>
+<li>This should update your <code>.gitattributes</code> file - run <code>git status</code> to check</li>
+</ul>
+</li>
+<li><code>git add .gitattribtues</code></li>
+<li><code>git add {path to file}</code></li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>Now that you are done with the changes to the commit, amend the commit:
