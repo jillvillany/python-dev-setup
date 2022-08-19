@@ -177,6 +177,11 @@ git rm --cached bad_file.xlsx
 
 7. Delete the file (or add it to git lfs files ). You need to do this becuase if you git status, you will see the file as an untracked file.
 <img src="../../img/git-rebase5.png">
+    - **NOTE:** The steps for adding a file to git lfs are:
+        - `git lfs track {path to file}`
+            - This should update your `.gitattributes` file - run `git status` to check
+        - `git add .gitattribtues`
+        - `git add {path to file}`
 
 8. Now that you are done with the changes to the commit, amend the commit:
 ```
