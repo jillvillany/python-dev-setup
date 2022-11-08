@@ -93,6 +93,7 @@ nav:
   - Git Diff Excel Workaround: 2-git_version_control/git_dif_excel_workaround.md
   - archive_branch.sh: 2-git_version_control/archive_branch.md
   - sync_git_branches.sh: 2-git_version_control/sync_git_branches.md
+  - Git LFS: 2-git_version_control/git_lfs.md
 - 3. Edit and Debug Your Code: 3-edit_with_vscode.md
 - 4. Manage Your Python Version: 4-mambaforge_python_env.md
 - 5. Manage Your Python Package Versions: 5-poetry_package_manager.md

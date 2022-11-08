@@ -217,27 +217,3 @@ git push --force
 ```
 git diff origin/branch name
 ```
-
-## Git LFS
-
-Git LFS is used to for large file storage.
-
-- Download and install: [Git Large File Storage ](https://git-lfs.github.com/)
-
-### Track a file with git lfs
-This will add the file paths to the .gitattributes file <br>
-**NOTE:** The .gitattibutes file must be committed before it takes effect
-
-```
-git lfs track {path to file}
-```
-
-### See files currently tracked
-```
-git lfs ls-files
-```
-
-### See lfs files committed or staged for commit
-```
-git lfs status
-```
