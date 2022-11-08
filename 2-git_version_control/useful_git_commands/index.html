@@ -297,6 +297,8 @@
         
           
         
+          
+        
       
       
         
@@ -571,40 +573,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#git-lfs" class="md-nav__link">
-    Git LFS
-  </a>
-  
-    <nav class="md-nav" aria-label="Git LFS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#track-a-file-with-git-lfs" class="md-nav__link">
-    Track a file with git lfs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-files-currently-tracked" class="md-nav__link">
-    See files currently tracked
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-lfs-files-committed-or-staged-for-commit" class="md-nav__link">
-    See lfs files committed or staged for commit
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -650,6 +618,20 @@
     <li class="md-nav__item">
       <a href="../sync_git_branches/" class="md-nav__link">
         sync_git_branches.sh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_lfs/" class="md-nav__link">
+        Git LFS
       </a>
     </li>
   
@@ -948,40 +930,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#git-lfs" class="md-nav__link">
-    Git LFS
-  </a>
-  
-    <nav class="md-nav" aria-label="Git LFS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#track-a-file-with-git-lfs" class="md-nav__link">
-    Track a file with git lfs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-files-currently-tracked" class="md-nav__link">
-    See files currently tracked
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#see-lfs-files-committed-or-staged-for-commit" class="md-nav__link">
-    See lfs files committed or staged for commit
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1199,22 +1147,6 @@ git commit -m &quot;Wow, you don&#39;t have to copy-paste to undo&quot;
 <h2 id="compare">Compare<a class="headerlink" href="#compare" title="Permanent link">&para;</a></h2>
 <h3 id="compare-your-local-branch-to-origin">Compare your local branch to origin<a class="headerlink" href="#compare-your-local-branch-to-origin" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git diff origin/branch name
-</code></pre></div>
-<h2 id="git-lfs">Git LFS<a class="headerlink" href="#git-lfs" title="Permanent link">&para;</a></h2>
-<p>Git LFS is used to for large file storage.</p>
-<ul>
-<li>Download and install: <a href="https://git-lfs.github.com/">Git Large File Storage </a></li>
-</ul>
-<h3 id="track-a-file-with-git-lfs">Track a file with git lfs<a class="headerlink" href="#track-a-file-with-git-lfs" title="Permanent link">&para;</a></h3>
-<p>This will add the file paths to the .gitattributes file <br>
-<strong>NOTE:</strong> The .gitattibutes file must be committed before it takes effect</p>
-<div class="highlight"><pre><span></span><code>git lfs track {path to file}
-</code></pre></div>
-<h3 id="see-files-currently-tracked">See files currently tracked<a class="headerlink" href="#see-files-currently-tracked" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>git lfs ls-files
-</code></pre></div>
-<h3 id="see-lfs-files-committed-or-staged-for-commit">See lfs files committed or staged for commit<a class="headerlink" href="#see-lfs-files-committed-or-staged-for-commit" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>git lfs status
 </code></pre></div>
 
 

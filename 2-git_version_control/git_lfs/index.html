@@ -10,14 +10,14 @@
         <meta name="author" content="@jillvillany">
       
       
-        <link rel="canonical" href="https://jillvillany.github.io/python-dev-setup/2-git_version_control/sync_git_branches/">
+        <link rel="canonical" href="https://jillvillany.github.io/python-dev-setup/2-git_version_control/git_lfs/">
       
       <link rel="icon" href="../../img/code_logo.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
     
     
       
-        <title>sync_git_branches.sh - Python Dev Setup</title>
+        <title>Git LFS - Python Dev Setup</title>
       
     
     
@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#git-lfs" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              sync_git_branches.sh
+              Git LFS
             
           </span>
         </div>
@@ -362,19 +367,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sync_git_branches/" class="md-nav__link">
         sync_git_branches.sh
       </a>
-      
     </li>
   
 
@@ -384,11 +381,89 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../git_lfs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Git LFS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Git LFS
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git-lfs" class="md-nav__link">
+    Git LFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Git LFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-git-lfs-on-linux" class="md-nav__link">
+    Install Git LFS on Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-all-git-lfs-files" class="md-nav__link">
+    Fetch all git lfs files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track-a-file-with-git-lfs" class="md-nav__link">
+    Track a file with git lfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-files-currently-tracked" class="md-nav__link">
+    See files currently tracked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-lfs-files-committed-or-staged-for-commit" class="md-nav__link">
+    See lfs files committed or staged for commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -463,6 +538,62 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git-lfs" class="md-nav__link">
+    Git LFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Git LFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-git-lfs-on-linux" class="md-nav__link">
+    Install Git LFS on Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-all-git-lfs-files" class="md-nav__link">
+    Fetch all git lfs files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track-a-file-with-git-lfs" class="md-nav__link">
+    Track a file with git lfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-files-currently-tracked" class="md-nav__link">
+    See files currently tracked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-lfs-files-committed-or-staged-for-commit" class="md-nav__link">
+    See lfs files committed or staged for commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -473,103 +604,45 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/2-git_version_control/sync_git_branches.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/jillvillany/python-dev-setup/edit/master/docs/2-git_version_control/git_lfs.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-  <h1>sync_git_branches.sh</h1>
+  <h1>Git LFS</h1>
 
-<div class="highlight"><pre><span></span><code><span class="c1"># return the output of the most recent command that was captured by cap</span>
-ret <span class="o">()</span> <span class="o">{</span> cat /tmp/capture.out<span class="p">;</span> <span class="o">}</span>
-
-<span class="c1"># checkout source branch -&gt; named master or main based on bitbucket/ github use</span>
-<span class="c1"># Use &amp;&gt; to capture both stdout and stderr</span>
-git checkout master <span class="p">&amp;</span>&gt; /tmp/capture.out
-<span class="nv">switch_master_out</span><span class="o">=</span><span class="k">$(</span>ret<span class="k">)</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$switch_master_out</span> <span class="o">==</span> *<span class="s2">&quot;error: pathspec &#39;master&#39; did not match any file(s) known to git&quot;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">source_branch</span><span class="o">=</span><span class="s2">&quot;main&quot;</span>
-<span class="k">else</span>
-    <span class="nv">source_branch</span><span class="o">=</span><span class="s2">&quot;master&quot;</span>
-<span class="k">fi</span>
-<span class="nb">echo</span> <span class="s2">&quot;Using </span><span class="nv">$source_branch</span><span class="s2"> for source branch name&quot;</span>
-<span class="nb">echo</span>
-
-<span class="c1"># error: pathspec &#39;master&#39; did not match any file(s) known to git</span>
-git pull
-
-<span class="c1"># After fetching, remove any remote-tracking branches which no longer exist on the remote</span>
-<span class="nb">echo</span>
-<span class="nb">echo</span> <span class="s2">&quot;Removing any remote-tracking branches which no longer exist on the remote...&quot;</span>
-git fetch --prune
-
-<span class="c1">#### checkout and pull all the remote branches  ####</span>
-<span class="nb">echo</span>
-<span class="nb">echo</span> <span class="s2">&quot;CHECKING LOCAL AND REMOTE BRANCHES SYNCED...&quot;</span>
-
-git branch -r <span class="p">&amp;</span>&gt; /tmp/capture.out
-<span class="c1"># echo &quot;$(ret)&quot;</span>
-
-<span class="nv">remote_branches_string</span><span class="o">=</span><span class="k">$(</span>ret<span class="k">)</span>
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span> <span class="nb">read</span> -rd <span class="s1">&#39;&#39;</span> -a remote_branches_array <span class="o">&lt;&lt;&lt;</span><span class="s2">&quot;</span><span class="nv">$remote_branches_string</span><span class="s2">&quot;</span>
-
-<span class="c1"># potential source branch names: head, main, master</span>
-<span class="nv">source_branch_regex</span><span class="o">=</span><span class="s2">&quot;(\s*(head|main|master)\s*|.*(origin/head|origin/main|origin/master).*)&quot;</span>
-
-<span class="nb">echo</span>
-<span class="k">for</span> branch <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">remote_branches_array</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">do</span>
-    <span class="c1"># NOTE: important to put the longer string on the left</span>
-    <span class="k">if</span> ! <span class="o">[[</span> <span class="nv">$branch</span> <span class="o">=</span>~ <span class="nv">$source_branch_regex</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="c1"># replace origin with empty str </span>
-        <span class="nv">branch_name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$branch</span> <span class="p">|</span> sed <span class="s1">&#39;s/origin\///&#39;</span><span class="k">)</span>
-        <span class="c1"># split on space and take first element - for origin/head -&gt; origin/master</span>
-        <span class="nv">branch_name_array</span><span class="o">=(</span><span class="nv">$branch_name</span><span class="o">)</span>
-        <span class="nv">branch_name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">branch_name_array</span><span class="p">[0]</span><span class="si">}</span><span class="k">)</span>
-        <span class="nb">echo</span> <span class="s2">&quot;BRANCH NAME: </span><span class="nv">$branch_name</span><span class="s2">&quot;</span>
-        git checkout <span class="nv">$branch_name</span>
-        git pull
-    <span class="k">fi</span>
-<span class="k">done</span>
-
-<span class="c1">#### Clean up local branches that no longer have an upstream ref ####</span>
-<span class="nb">echo</span>
-<span class="nb">echo</span> <span class="s2">&quot;CHECKING IF LOCAL BRANCHES NEED CLEAN-UP...&quot;</span>
-git checkout <span class="nv">$source_branch</span>
-git branch <span class="p">&amp;</span>&gt; /tmp/capture.out
-<span class="c1"># echo &quot;$(ret)&quot;</span>
-
-<span class="nv">local_branches_string</span><span class="o">=</span><span class="k">$(</span>ret<span class="k">)</span>
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span> <span class="nb">read</span> -rd <span class="s1">&#39;&#39;</span> -a local_branches_array <span class="o">&lt;&lt;&lt;</span><span class="s2">&quot;</span><span class="nv">$local_branches_string</span><span class="s2">&quot;</span>
-
-<span class="nb">echo</span>
-<span class="k">for</span> branch <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">local_branches_array</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">do</span>
-    <span class="k">if</span> ! <span class="o">[[</span> <span class="nv">$branch</span> <span class="o">=</span>~ <span class="nv">$source_branch_regex</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;BRANCH NAME: </span><span class="nv">$branch</span><span class="s2">&quot;</span>
-        git checkout <span class="nv">$branch</span> <span class="p">&amp;</span>&gt; /tmp/capture.out
-        <span class="nv">branch_checkout_msg</span><span class="o">=</span><span class="k">$(</span>ret<span class="k">)</span>
-        <span class="nb">echo</span> <span class="nv">$branch_checkout_msg</span>
-        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$branch_checkout_msg</span> <span class="o">==</span> *<span class="s2">&quot;the upstream is gone&quot;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-            git checkout <span class="nv">$source_branch</span>
-            git branch -D <span class="nv">$branch</span>
-            <span class="nb">echo</span> <span class="s2">&quot;Deleted </span><span class="nv">$branch</span><span class="s2">&quot;</span>
-        <span class="k">fi</span>
-        git pull <span class="p">&amp;</span>&gt; /tmp/capture.out
-        <span class="nv">branch_pull_msg</span><span class="o">=</span><span class="k">$(</span>ret<span class="k">)</span>
-        <span class="nb">echo</span> <span class="nv">$branch_pull_msg</span>
-        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$branch_pull_msg</span> <span class="o">==</span> *<span class="s2">&quot;no such ref was fetched&quot;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-            git checkout <span class="nv">$source_branch</span>
-            git branch -D <span class="nv">$branch</span>
-            <span class="nb">echo</span> <span class="s2">&quot;Deleted </span><span class="nv">$branch</span><span class="s2">&quot;</span>
-        <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$branch_pull_msg</span> <span class="o">==</span> *<span class="s2">&quot;There is no tracking information for the current branch&quot;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-            git checkout <span class="nv">$source_branch</span>
-            git branch -D <span class="nv">$branch</span>
-            <span class="nb">echo</span> <span class="s2">&quot;Deleted </span><span class="nv">$branch</span><span class="s2">&quot;</span>
-        <span class="k">fi</span>
-    <span class="k">fi</span>
-<span class="k">done</span>
+<h2 id="git-lfs">Git LFS<a class="headerlink" href="#git-lfs" title="Permanent link">&para;</a></h2>
+<p>Git LFS is used to for large file storage.</p>
+<ul>
+<li>Download and install: <a href="https://git-lfs.github.com/">Git Large File Storage </a></li>
+</ul>
+<h3 id="install-git-lfs-on-linux">Install Git LFS on Linux<a class="headerlink" href="#install-git-lfs-on-linux" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Navigate to <a href="https://github.com/git-lfs/git-lfs/releases">https://github.com/git-lfs/git-lfs/releases</a></li>
+<li>Download the package .rpm file for your Linux Distribution</li>
+<li>Switch to root user <code>sudo su</code></li>
+<li>Install the package
+    <div class="highlight"><pre><span></span><code>rpm -iv {absolute path to .rpm file}
+</code></pre></div></li>
+<li>Install git lfs
+    <div class="highlight"><pre><span></span><code>git lfs install
+</code></pre></div></li>
+</ol>
+<h3 id="fetch-all-git-lfs-files">Fetch all git lfs files<a class="headerlink" href="#fetch-all-git-lfs-files" title="Permanent link">&para;</a></h3>
+<p><strong>NOTE:</strong> Use this command if you installed Git LFS after cloning the repo
+<div class="highlight"><pre><span></span><code>git lfs fetch --all
+</code></pre></div></p>
+<h3 id="track-a-file-with-git-lfs">Track a file with git lfs<a class="headerlink" href="#track-a-file-with-git-lfs" title="Permanent link">&para;</a></h3>
+<p>This will add the file paths to the .gitattributes file <br>
+<strong>NOTE:</strong> The .gitattibutes file must be committed before it takes effect</p>
+<div class="highlight"><pre><span></span><code>git lfs track {path to file}
+</code></pre></div>
+<h3 id="see-files-currently-tracked">See files currently tracked<a class="headerlink" href="#see-files-currently-tracked" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git lfs ls-files
+</code></pre></div>
+<h3 id="see-lfs-files-committed-or-staged-for-commit">See lfs files committed or staged for commit<a class="headerlink" href="#see-lfs-files-committed-or-staged-for-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git lfs status
 </code></pre></div>
 
 
@@ -596,7 +669,7 @@ git branch <span class="p">&amp;</span>&gt; /tmp/capture.out
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../archive_branch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: archive_branch.sh" rel="prev">
+        <a href="../sync_git_branches/" class="md-footer__link md-footer__link--prev" aria-label="Previous: sync_git_branches.sh" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -605,20 +678,20 @@ git branch <span class="p">&amp;</span>&gt; /tmp/capture.out
               <span class="md-footer__direction">
                 Previous
               </span>
-              archive_branch.sh
+              sync_git_branches.sh
             </div>
           </div>
         </a>
       
       
         
-        <a href="../git_lfs/" class="md-footer__link md-footer__link--next" aria-label="Next: Git LFS" rel="next">
+        <a href="../../3-edit_with_vscode/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Edit and Debug Your Code" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Git LFS
+              3. Edit and Debug Your Code
             </div>
           </div>
           <div class="md-footer__button md-icon">
