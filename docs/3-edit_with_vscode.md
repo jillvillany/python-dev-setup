@@ -6,6 +6,9 @@
     - Python
         - Extension ID: ms-python.python
         - <img src="../img/python-extension.png" alt="img" width=500>
+    - Python Environment Manager
+        - Extension ID: donjayamanne.python-environment-manager
+        - <img src="../img/python-env-manager-extension.png" alt="img" width=500>
     - Jupyter
         - Extension ID: ms-toolsai.jupyter
         - <img src="../img/jupyter-extension.png" alt="img" width=500>
