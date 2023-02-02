@@ -2,7 +2,7 @@
 ## Install
 
 - Install `poetry` with the following command:
-    ```curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -```
+    ```curl -sSL https://install.python-poetry.org | python3 -```
 - Restart your terminal
 - Enter `poetry` and you should see a list of commands returned
 
