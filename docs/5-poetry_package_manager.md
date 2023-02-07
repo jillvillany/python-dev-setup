@@ -75,11 +75,15 @@ poetry install
 
 ### Add a package
 This will install the latest package version. The `pyproject.toml` will show a version greater than or equal to the version is required and the `poetry.lock` file will update to specify the specific version installed.
-```
-poetry add {package name}
-```
 
-- **NOTE:** If you need to install a version other than the latest version, you can specify `poetry add {package name}=={version}`
+- Add the latest version fo the package meeting other project depencies:
+    - `poetry add {package name}`
+- Install specific version of the package:
+    - `poetry add {package name}={version}`
+- Install a model from a URL:
+    - `poetry add {package name}@{url}`
+- Install an editable local package:
+    - `poetry add --editable {relative path to package}`
 
 ### Remove a package
 This will update the `pyproject.toml` and `poetry.lock` files
@@ -91,3 +95,7 @@ poetry remove {package name}
 ```
 poetry export -f requirements.txt -o requirements.txt --without-hashes
 ```
+
+## Troubleshooting
+
+If poetry is endlessly searching for a package to install, try deleting the `poetry.lock` file and running `poetry install` again
