@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/1-run_scripts_cmd_line/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/3-edit_with_vscode/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/4-mambaforge_python_env/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/5-poetry_package_manager/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/2-git_version_control/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/2-git_version_control/archive_branch/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/2-git_version_control/git_dif_excel_workaround/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/2-git_version_control/git_lfs/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/2-git_version_control/sync_git_branches/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jillvillany.github.io/python-dev-setup/2-git_version_control/useful_git_commands/</loc>
-         <lastmod>2023-02-02</lastmod>
+         <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

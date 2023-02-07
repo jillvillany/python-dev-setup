@@ -526,6 +526,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -623,6 +630,13 @@
           <li class="md-nav__item">
   <a href="#convert-poetrylock-file-to-requirementstxt" class="md-nav__link">
     Convert poetry.lock file to requirements.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
   </a>
   
 </li>
@@ -739,6 +753,8 @@
 <h3 id="convert-poetrylock-file-to-requirementstxt">Convert <code>poetry.lock</code> file to <code>requirements.txt</code><a class="headerlink" href="#convert-poetrylock-file-to-requirementstxt" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>poetry export -f requirements.txt -o requirements.txt --without-hashes
 </code></pre></div>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<p>If poetry is endlessly searching for a package to install, try deleting the <code>poetry.lock</code> file and running <code>poetry install</code> again</p>
 
 
   
