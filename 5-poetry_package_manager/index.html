@@ -526,15 +526,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -634,15 +634,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -740,11 +740,24 @@
 <div class="highlight"><pre><span></span><code>poetry install
 </code></pre></div>
 <h3 id="add-a-package">Add a package<a class="headerlink" href="#add-a-package" title="Permanent link">&para;</a></h3>
-<p>This will install the latest package version. The <code>pyproject.toml</code> will show a version greater than or equal to the version is required and the <code>poetry.lock</code> file will update to specify the specific version installed.
-<div class="highlight"><pre><span></span><code>poetry add {package name}
-</code></pre></div></p>
+<p>This will install the latest package version. The <code>pyproject.toml</code> will show a version greater than or equal to the version is required and the <code>poetry.lock</code> file will update to specify the specific version installed.</p>
 <ul>
-<li><strong>NOTE:</strong> If you need to install a version other than the latest version, you can specify <code>poetry add {package name}=={version}</code></li>
+<li>Add the latest version fo the package meeting other project depencies:<ul>
+<li><code>poetry add {package name}</code></li>
+</ul>
+</li>
+<li>Install specific version of the package:<ul>
+<li><code>poetry add {package name}={version}</code></li>
+</ul>
+</li>
+<li>Install a model from a URL:<ul>
+<li><code>poetry add {package name}@{url}</code></li>
+</ul>
+</li>
+<li>Install an editable local package:<ul>
+<li><code>poetry add --editable {relative path to package}</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="remove-a-package">Remove a package<a class="headerlink" href="#remove-a-package" title="Permanent link">&para;</a></h3>
 <p>This will update the <code>pyproject.toml</code> and <code>poetry.lock</code> files
@@ -753,7 +766,7 @@
 <h3 id="convert-poetrylock-file-to-requirementstxt">Convert <code>poetry.lock</code> file to <code>requirements.txt</code><a class="headerlink" href="#convert-poetrylock-file-to-requirementstxt" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>poetry export -f requirements.txt -o requirements.txt --without-hashes
 </code></pre></div>
-<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>If poetry is endlessly searching for a package to install, try deleting the <code>poetry.lock</code> file and running <code>poetry install</code> again</p>
 
 
