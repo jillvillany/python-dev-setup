@@ -321,6 +321,19 @@
     Format Your Terminal
   </a>
   
+    <nav class="md-nav" aria-label="Format Your Terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bashrc-vs-bash_profile" class="md-nav__link">
+    .bashrc vs. .bash_profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -560,6 +573,19 @@
     Format Your Terminal
   </a>
   
+    <nav class="md-nav" aria-label="Format Your Terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bashrc-vs-bash_profile" class="md-nav__link">
+    .bashrc vs. .bash_profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -617,6 +643,8 @@
 </ol>
 <h2 id="format-your-terminal">Format Your Terminal<a class="headerlink" href="#format-your-terminal" title="Permanent link">&para;</a></h2>
 <p>No matter the command line interface (CLI) used, it helps to format your CLI to work well with Git so that you know what branch you are working on and don't accidentally commit code to the wrong branch.</p>
+<h3 id="bashrc-vs-bash_profile"><code>.bashrc</code> vs. <code>.bash_profile</code><a class="headerlink" href="#bashrc-vs-bash_profile" title="Permanent link">&para;</a></h3>
+<p>The code below accounts for proper formatting using both the <code>.bashrc</code> and <code>.bash_profile</code>. This is important because <code>.bashrc</code> is used for inactive logins (i.e. task run in the background like a cron job or VSCode logging into your terminal), and <code>.bash_profile</code> is used when you are actively logging in. </p>
 <p><strong>NOTE:</strong> Code below found in <a href="https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e">this Medium article</a></p>
 <ol>
 <li>Open your terminal of choice (i.e. Mac users default terminal/ Windows users WSL)</li>
@@ -624,29 +652,29 @@
 <li><code>cd ~</code></li>
 </ul>
 </li>
-<li>Create .bash_profile file if it doesn't already exist<ul>
+<li>Create <code>.bash_profile</code> file if it doesn't already exist<ul>
 <li><code>touch .bash_profile</code></li>
 </ul>
 </li>
-<li>Open .bash_profile<ul>
+<li>Open <code>.bash_profile</code><ul>
 <li>Mac: <code>open .bash_profile</code></li>
-<li>WSL: <code>vim .bash_profile</code></li>
+<li>WSL: <code>notepad .bash_profile</code></li>
+<li>Linux: <code>vim .bash_profile</code></li>
 </ul>
 </li>
 <li>Add this line to the bottom of the file<ul>
-<li><code>source ~/.bash_prompt</code></li>
+<li><code>source ~/.bashrc</code></li>
 <li>NOTE: In vim, type <code>i</code> to enter INSERT mode and then right click to paster the copied text. Press <code>esc</code> to exit INSERT mode. Type <code>:wq</code> and press enter to save and close the file.</li>
 </ul>
 </li>
-<li>Create .bash_prompt file<ul>
-<li><code>touch .bash_prompt</code></li>
+<li>Create <code>.bashrc</code> file if it doesn't already exist</li>
+<li>Open <code>.bashrc</code></li>
+<li>Add this line to the bottom of the file<ul>
+<li><code>source ~/.bash_prompt</code></li>
 </ul>
 </li>
-<li>Open .bash_prompt file<ul>
-<li>Mac: <code>open .bash_prompt</code> </li>
-<li>Windows: <code>notepad .bash_prompt</code> </li>
-</ul>
-</li>
+<li>Create <code>.bash_prompt file</code></li>
+<li>Open <code>.bash_prompt</code> file</li>
 <li>Add these lines to your file
     <div class="highlight"><pre><span></span><code>#!/usr/bin/env bash
 
