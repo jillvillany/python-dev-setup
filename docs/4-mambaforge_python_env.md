@@ -17,13 +17,16 @@
     ```bash
     sudo apt install wget
     ```
-3. Install Mambaforge (Type "yes" wherever asked)
+2. Install Mambaforge (Type "yes" wherever asked)
     ```bash
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh
     source ~/.bashrc
     ```
-
+3. If not done already, add sourcing `.bashrc` to your `.bash_profile`
+    ```
+    source ~/.bashrc
+    ```
 ## Useful Mambaforge Commands
 
 - Create new conda python virtual environment

@@ -33,25 +33,31 @@ NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead o
 
 No matter the command line interface (CLI) used, it helps to format your CLI to work well with Git so that you know what branch you are working on and don't accidentally commit code to the wrong branch.
 
+### `.bashrc` vs. `.bash_profile`
+
+The code below accounts for proper formatting using both the `.bashrc` and `.bash_profile`. This is important because `.bashrc` is used for inactive logins (i.e. task run in the background like a cron job or VSCode logging into your terminal), and `.bash_profile` is used when you are actively logging in. 
+
 **NOTE:** Code below found in [this Medium article](https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e)
 
 1. Open your terminal of choice (i.e. Mac users default terminal/ Windows users WSL)
 2. Cd to your home directory
     - ```cd ~```
-3. Create .bash_profile file if it doesn't already exist
+3. Create `.bash_profile` file if it doesn't already exist
     - ```touch .bash_profile```
-4. Open .bash_profile
+4. Open `.bash_profile`
     - Mac: ```open .bash_profile```
-    - WSL: ```vim .bash_profile```
+    - WSL: ```notepad .bash_profile```
+    - Linux: ```vim .bash_profile```
 5. Add this line to the bottom of the file
-    - ```source ~/.bash_prompt```
+    - ```source ~/.bashrc```
     - NOTE: In vim, type `i` to enter INSERT mode and then right click to paster the copied text. Press `esc` to exit INSERT mode. Type `:wq` and press enter to save and close the file.
-6. Create .bash_prompt file
-    - ```touch .bash_prompt```
-7. Open .bash_prompt file
-    - Mac: ```open .bash_prompt``` 
-    - Windows: ```notepad .bash_prompt``` 
-8. Add these lines to your file
+6. Create `.bashrc` file if it doesn't already exist
+7. Open `.bashrc`
+8. Add this line to the bottom of the file
+    - ```source ~/.bash_prompt```
+9. Create `.bash_prompt file`
+10. Open `.bash_prompt` file
+11. Add these lines to your file
     ```
     #!/usr/bin/env bash
     
@@ -73,7 +79,7 @@ No matter the command line interface (CLI) used, it helps to format your CLI to 
     export CLICOLOR=1
     export LSCOLORS=ExFxBxDxCxegedabagacad
     ```
-9. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
+12. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
     - Mac:
         - <img src="../img/terminal_formatting.png" alt="img" width=500>
     - WSL: 
