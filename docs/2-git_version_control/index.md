@@ -107,7 +107,7 @@ Setting up git authentication on a personal machine (i.e. one that only you will
     ```
     ssh-add ~/.ssh/id_rsa_{git username}
     ```
-    - NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with "eval \`ssh-agent\`"
+    - NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with `eval $(ssh-agent -s)`
     - <img src="../img/start_ssh_agent_wsl.png" alt="img" width=500>
 7. Test your SSH connection
     - If on a personal machine:
