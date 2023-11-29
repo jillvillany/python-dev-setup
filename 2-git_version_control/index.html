@@ -698,7 +698,7 @@ vim config
 <li>Add the SSH key to the SSH agent
     <div class="highlight"><pre><span></span><code>ssh-add ~/.ssh/id_rsa_{git username}
 </code></pre></div><ul>
-<li>NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with "eval `ssh-agent`"</li>
+<li>NOTE: if you get an error about connecting to the ssh agent, you need to start the agent in the background with <code>eval $(ssh-agent -s)</code></li>
 <li><img src="../img/start_ssh_agent_wsl.png" alt="img" width=500></li>
 </ul>
 </li>
