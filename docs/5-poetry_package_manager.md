@@ -7,6 +7,7 @@
 - Enter `poetry` and you should see a list of commands returned
 
 **NOTE:** If that install doesn't work for you, use this workaround:
+
 - Activate the conda environment for your project
 - Run `pip install poetry==1.7`
 
