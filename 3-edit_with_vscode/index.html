@@ -451,6 +451,19 @@
     Configure Remote-SSH Editing
   </a>
   
+    <nav class="md-nav" aria-label="Configure Remote-SSH Editing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-on-high-security-remote-machines" class="md-nav__link">
+    Note on High Security Remote Machines
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -534,6 +547,19 @@
     Configure Remote-SSH Editing
   </a>
   
+    <nav class="md-nav" aria-label="Configure Remote-SSH Editing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-on-high-security-remote-machines" class="md-nav__link">
+    Note on High Security Remote Machines
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -607,22 +633,27 @@
 <li><img src="../img/remote-ssh-pkg.png" alt="img" width=500></li>
 </ul>
 </li>
-<li>Remote-WSL (only if using Windows WSL)<ul>
+<li>WSL (only if using Windows WSL)<ul>
 <li>Extension ID: ms-vscode-remote.remote-wsl</li>
-<li><img src="../img/remote_wsl.png" alt="img" width=500></li>
+<li><img src="../img/vscode_wsl.png" alt="img" width=500></li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
+<p><strong>NOTE:</strong> If you are using a remote WSL or SSH server, you will also need to install these packages there.</p>
 <h2 id="use-vscode-with-wsl">Use VSCode with WSL<a class="headerlink" href="#use-vscode-with-wsl" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Once you install tyhe Remote-WSL, navigate to the Remote Explorer tab and connect to your WSL distribution<ul>
-<li><img src="../img/wsl_targets.png" alt="img" width=500></li>
+<li>Once you install the WSL extension, navigate to the Remote Explorer tab and connect to your WSL distribution<ul>
+<li><img src="../img/wsl-targets.png" alt="img" width=350></li>
 </ul>
 </li>
 <li>Navigate to open a folder as you normally would<ul>
 <li><img src="../img/open_wsl_folder.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Install VSCode extensions that are installed locally by navigating to the marketplace and clicking the <code>Install in WSL:Ubuntu</code> button<ul>
+<li><img src="../img/install_vscode_ext_in_wsl.png" alt="img" width=400></li>
 </ul>
 </li>
 </ol>
@@ -635,7 +666,7 @@
 <li>Windows: <code>shift + ctrl + P</code></li>
 </ul>
 </li>
-<li>Search for/ Select Remote-SSH: Add New SSH Host...<ul>
+<li>Search for/ Select Remote-SSH: Add New SSH Host..<ul>
 <li><img src="../img/add-ssh-host.png" alt="img" width=500></li>
 </ul>
 </li>
@@ -673,7 +704,9 @@
 </ul>
 </li>
 </ol>
-<p>You can now easily edit and debug your code as you would locally. However, there is one exception. If you are connecting to the remote machine with a normal user (i.e. non-root user) you will get access errors when trying to run a ipynb file.</p>
+<p>You can now easily edit and debug your code as you would locally. </p>
+<h3 id="note-on-high-security-remote-machines">Note on High Security Remote Machines<a class="headerlink" href="#note-on-high-security-remote-machines" title="Permanent link">&para;</a></h3>
+<p>If you are connecting to the remote machine with a normal user (i.e. non-root user) you will may get access errors when trying to run a ipynb file depending on the user's permissions.</p>
 <p><img src="../img/notebook-access-error.png" alt="img" width=500></p>
 <p>This happens because, in a Unix/Linux system, you can’t bind to external facing ports without super user/root access. </p>
 <p>If you do not have an environment controlled with Puppet, you can try editing the user's permissions to not need password authentication when entering root user mode. However, it is easiest to just test small code snippets in a noteboook file locally.</p>

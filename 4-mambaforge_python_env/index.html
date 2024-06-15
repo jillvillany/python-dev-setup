@@ -475,6 +475,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#shared-install-instructions" class="md-nav__link">
+    Shared Install Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#useful-mambaforge-commands" class="md-nav__link">
     Useful Mambaforge Commands
   </a>
@@ -556,6 +563,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#shared-install-instructions" class="md-nav__link">
+    Shared Install Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#useful-mambaforge-commands" class="md-nav__link">
     Useful Mambaforge Commands
   </a>
@@ -588,7 +602,7 @@
 <li>Install <code>wget</code>
     <div class="highlight"><pre><span></span><code>brew install wget
 </code></pre></div></li>
-<li>Install Mambaforge (Type "yes" wherever asked)
+<li>Install Mambaforge
     <div class="highlight"><pre><span></span><code>wget <span class="s2">&quot;https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">.sh&quot;</span>
 bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span>.sh
 </code></pre></div></li>
@@ -598,14 +612,35 @@ bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span cla
 <li>Install <code>wget</code> 
     <div class="highlight"><pre><span></span><code>sudo apt install wget
 </code></pre></div></li>
-<li>Install Mambaforge (Type "yes" wherever asked)
+<li>Install Mambaforge
     <div class="highlight"><pre><span></span><code>wget <span class="s2">&quot;https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">.sh&quot;</span>
 bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span>.sh
 <span class="nb">source</span> ~/.bashrc
 </code></pre></div></li>
-<li>If not done already, add sourcing <code>.bashrc</code> to your <code>.bash_profile</code>
+</ol>
+<h2 id="shared-install-instructions">Shared Install Instructions<a class="headerlink" href="#shared-install-instructions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Respond to install prompts<ul>
+<li>Accepts the license</li>
+<li><img src="../img/conda-license.png" alt="img" width=500></li>
+<li>Accept the default install location</li>
+<li><img src="../img/conda-loc.png" alt="img" width=500></li>
+<li>Accept default to not update shell profile</li>
+<li><img src="../img/conda-profile.png" alt="img" width=500></li>
+<li><img src="../img/conda-install-done.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>Run <code>conda init</code><ul>
+<li><img src="../img/conda-init.png" alt="img" width=500></li>
+<li>This will add the conda init to your <code>.bashrc</code> file</li>
+<li><img src="../img/conda-bashrc.png" alt="img" width=500></li>
+</ul>
+</li>
+<li>If not done already, add sourcing <code>.bashrc</code> to your <code>.bash_profile</code> so conda is initialized when your terminal loads
     <div class="highlight"><pre><span></span><code>source ~/.bashrc
 </code></pre></div></li>
+<li>Now when you open your terminal and run the command <code>conda</code> you will see:</li>
+<li><img src="../img/conda-cmd.png" alt="img" width=500></li>
 </ol>
 <h2 id="useful-mambaforge-commands">Useful Mambaforge Commands<a class="headerlink" href="#useful-mambaforge-commands" title="Permanent link">&para;</a></h2>
 <ul>

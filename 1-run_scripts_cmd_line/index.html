@@ -616,6 +616,9 @@
 <p><a href="https://docs.microsoft.com/en-us/windows/wsl/install">WSL Article Reference</a></p>
 <p>NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below</p>
 <ol>
+<li>Enable Virtual Machine Platform Windows Feature (if not already done)</li>
+<li><img src="../img/windows-feature.png" alt="img" width=300></li>
+<li>Ensure virtualization is enabled in the Bios: https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1</li>
 <li>Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device<ul>
 <li><img src="../img/wsl-1.png" alt="img" width=300></li>
 </ul>
@@ -626,18 +629,26 @@
 </ul>
 </li>
 <li>Restart your computer</li>
-<li>When you log back in, you will now see an Ubunutu terminal loaded<ul>
+<li>If you see an Ubunutu terminal loaded when you log back in<ul>
 <li><img src="../img/wsl-3.png" alt="img" width=500></li>
-</ul>
-</li>
 <li>Close out of the Ubuntu window, and open PowerShell</li>
-<li>Run the command <code>wsl -l -v</code> to list your installed Linux DIstributions and you should see something like the following<ul>
+<li>Run the command <code>wsl -l -v</code> to list your installed Linux Distributions and you should see something like the following</li>
 <li>NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL</li>
 <li><img src="../img/wsl-4.png" alt="img" width=500></li>
+<li>To launch your default Linux distribution from PowerShell, simply run the command <code>wsl</code></li>
+<li><img src="../img/wsl-5.png" alt="img" width=500></li>
 </ul>
 </li>
-<li>To launch your default Linux distribution from PowerShell, simply run the command <code>wsl</code><ul>
-<li><img src="../img/wsl-5.png" alt="img" width=500></li>
+<li>If you don't see an Ubuntu shell, you likely don't have any distributions installed.</li>
+<li><img src="../img/wsl-no-distros.png" alt="img" width=500></li>
+<li>Install an Ubuntu distribution with the command <code>wsl --install -d ubuntu</code></li>
+<li><img src="../img/start-ubuntu-install.png" alt="img" width=500></li>
+<li>Create a username and password when prompted.<ul>
+<li><strong>NOTE:</strong> Be sure to save the username and password you use for this linux distribution - each distro has a dif one and this is what has sudo access</li>
+</ul>
+</li>
+<li>When the install completes you will see<ul>
+<li><img src="../img/ubuntu-install-done.png" alt="img" width=500></li>
 </ul>
 </li>
 </ol>
