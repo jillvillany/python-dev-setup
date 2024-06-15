@@ -13,21 +13,32 @@ Since Window's is not a Linux based OS, you can set up a Linux virtual environme
 
 NOTE: If you already have a legacy version of WSL installed (i.e. WSL1 instead of WSL2), uninstall it so you can follow the install steps below
 
-1. Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device
-    - <img src="../img/wsl-1.png" alt="img" width=300>
-2. Run the command `wsl --install`
-    - This will take a few minutes, but on successful complete, you should see the below output
-    - <img src="../img/wsl_2.png" alt="img" width=500>
-3. Restart your computer
-4. When you log back in, you will now see an Ubunutu terminal loaded
-    - <img src="../img/wsl-3.png" alt="img" width=500>
-5. Close out of the Ubuntu window, and open PowerShell
-6. Run the command `wsl -l -v` to list your installed Linux DIstributions and you should see something like the following
-    - NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL
-    - <img src="../img/wsl-4.png" alt="img" width=500>
-7. To launch your default Linux distribution from PowerShell, simply run the command `wsl`
-    - <img src="../img/wsl-5.png" alt="img" width=500>
 
+1. Enable Virtual Machine Platform Windows Feature (if not already done)
+   - <img src="./img/windows-feature.png" alt="img" width=300>
+2. Ensure virtualization is enabled in the Bios: https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1
+3. Run Windows PowerShell as an administrator and select yes to the prompt asking if you want to allow the app to make changes to your device
+    - <img src="./img/wsl-1.png" alt="img" width=300>
+4. Run the command `wsl --install`
+    - This will take a few minutes, but on successful complete, you should see the below output
+    - <img src="./img/wsl_2.png" alt="img" width=500>
+5. Restart your computer
+6. If you see an Ubunutu terminal loaded when you log back in
+    - <img src="./img/wsl-3.png" alt="img" width=500>
+    - Close out of the Ubuntu window, and open PowerShell
+    - Run the command `wsl -l -v` to list your installed Linux Distributions and you should see something like the following
+      - NOTE: The star next to the Ubuntu-20.40 distribution means this is the default distribution that will be used when launching WSL
+      - <img src="./img/wsl-4.png" alt="img" width=500>
+    - To launch your default Linux distribution from PowerShell, simply run the command `wsl`
+      - <img src="./img/wsl-5.png" alt="img" width=500>
+7. If you don't see an Ubuntu shell, you likely don't have any distributions installed.
+   - <img src="./img/wsl-no-distros.png" alt="img" width=500>
+   - Install an Ubuntu distribution with the command `wsl --install -d ubuntu`
+   - <img src="./img/start-ubuntu-install.png" alt="img" width=500>
+   - Create a username and password when prompted.
+     - **NOTE:** Be sure to save the username and password you use for this linux distribution - each distro has a dif one and this is what has sudo access
+   - When the install completes you will see
+     - <img src="./img/ubuntu-install-done.png" alt="img" width=500>
 
 ## Format Your Terminal
 
@@ -81,7 +92,7 @@ The code below accounts for proper formatting using both the `.bashrc` and `.bas
     ```
 12. Relaunch you terminal and navigate to a git repo (i.e. this python-dev-setup repo). You will now see your terminal prompt formatted with your username, current folder and repo branch 
     - Mac:
-        - <img src="../img/terminal_formatting.png" alt="img" width=500>
+        - <img src="./img/terminal_formatting.png" alt="img" width=500>
     - WSL: 
-        - <img src="../img/wsl_terminal.png" alt="img" width=500>
-        - <img src="../img/wsl_terminal2.png" alt="img" width=500>
+        - <img src="./img/wsl_terminal.png" alt="img" width=500>
+        - <img src="./img/wsl_terminal2.png" alt="img" width=500>
