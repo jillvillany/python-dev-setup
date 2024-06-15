@@ -27,22 +27,22 @@
 ## Shared Install Instructions
 1. Respond to install prompts
     - Accepts the license
-      - <img src="./img/conda-license.png" alt="img" width=500>
+      - <img src="../img/conda-license.png" alt="img" width=500>
     - Accept the default install location
-      - <img src="./img/conda-loc.png" alt="img" width=500>
+      - <img src="../img/conda-loc.png" alt="img" width=500>
     - Accept default to not update shell profile
-      - <img src="./img/conda-profile.png" alt="img" width=500>
-    - <img src="./img/conda-install-done.png" alt="img" width=500>
+      - <img src="../img/conda-profile.png" alt="img" width=500>
+    - <img src="../img/conda-install-done.png" alt="img" width=500>
 2. Run `conda init`
-    -  <img src="./img/conda-init.png" alt="img" width=500>
+    -  <img src="../img/conda-init.png" alt="img" width=500>
     -  This will add the conda init to your `.bashrc` file
-       -  <img src="./img/conda-bashrc.png" alt="img" width=500>
+       -  <img src="../img/conda-bashrc.png" alt="img" width=500>
 3. If not done already, add sourcing `.bashrc` to your `.bash_profile` so conda is initialized when your terminal loads
     ```
     source ~/.bashrc
     ```
 4. Now when you open your terminal and run the command `conda` you will see:
-   - <img src="./img/conda-cmd.png" alt="img" width=500>
+   - <img src="../img/conda-cmd.png" alt="img" width=500>
 
 ## Useful Mambaforge Commands
 
